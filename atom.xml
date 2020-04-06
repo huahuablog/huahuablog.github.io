@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/huahuablog/"/>
-  <updated>2020-04-06T11:33:04.646Z</updated>
+  <updated>2020-04-06T12:52:02.010Z</updated>
   <id>https://github.com/huahuablog/</id>
   
   <author>
@@ -21,13 +21,23 @@
     <link href="https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"/>
     <id>https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/</id>
     <published>2020-04-06T11:33:04.000Z</published>
-    <updated>2020-04-06T11:33:04.646Z</updated>
+    <updated>2020-04-06T12:52:02.010Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##spring是什么&lt;br&gt;    spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。&lt;br&gt;   
+        
+      
     
     </summary>
     
     
+    
+      <category term="Spring,教程" scheme="https://github.com/huahuablog/tags/Spring-%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
