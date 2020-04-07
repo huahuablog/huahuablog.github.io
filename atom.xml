@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/huahuablog/"/>
-  <updated>2020-04-06T13:02:20.798Z</updated>
+  <updated>2020-04-07T07:44:40.676Z</updated>
   <id>https://github.com/huahuablog/</id>
   
   <author>
@@ -21,17 +21,24 @@
     <link href="https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"/>
     <id>https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/</id>
     <published>2020-04-06T11:33:04.000Z</published>
-    <updated>2020-04-06T13:02:20.798Z</updated>
+    <updated>2020-04-07T07:44:40.676Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;#spring是什么&lt;br&gt;    spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。&lt;br&gt;   
-        
-      
+      &lt;h1 id=&quot;spring是什么&quot;&gt;&lt;a href=&quot;#spring是什么&quot; class=&quot;headerlink&quot; title=&quot;spring是什么&quot;&gt;&lt;/a&gt;spring是什么&lt;/h1&gt;&lt;p&gt;spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。&lt;br&gt;总的来说，Spring就是用来替代更加重量级的企业级的Java技术。&lt;/p&gt;
+&lt;h1 id=&quot;spring能做什么&quot;&gt;&lt;a href=&quot;#spring能做什么&quot; class=&quot;headerlink&quot; title=&quot;spring能做什么&quot;&gt;&lt;/a&gt;spring能做什么&lt;/h1&gt;&lt;p&gt;Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性的角度而言，绝大部分Java应用都可以从Spring中受益。&lt;br&gt;spring实现了使用简单的组件将Java对象配置组合成 了一个复杂的应用，在Spring中可以使用XML和Java注解组合这些对象。Spring对JavaEE中非常难开发的一些API（JDBC、JavaMail、远程调用等），都提供了封装，大大降低了这些API的应用难度。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;轻量级：立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承诺。&lt;/li&gt;
+&lt;li&gt;非侵入式：也就是自己开发的类不依赖Spring的API接口，对现有的类结构没有影响，也能够增强JavaBean的功能  &lt;/li&gt;
+&lt;li&gt;IOC容器：spring是一个容器，因为它包含并且管理应用对象的生命周期。&lt;br&gt;降低了业务对象替换的复杂性，提高了组件之间的解耦。&lt;/li&gt;
+&lt;li&gt;一站式：在AOP和IOC的基础上可以整合出各种企业应用的开源框架和优秀的第三方类库（实际上Spring自身也提供了展现层的SpringMVC和持久层的JDBC）;&lt;br&gt;spring的高度开放性，并不强制应用完全依赖于Spring，开发者可自由选用Spring框架的部分或全部。&lt;br&gt;总的来说Spring可以简化Java的开发：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;基于POJO（也叫Java bean）轻量级和最小侵入式开发&lt;/li&gt;
+&lt;li&gt;通过IOC、依赖注入和面向接口实现松耦合&lt;/li&gt;
+&lt;li&gt;基于切面进行声明式编程&lt;/li&gt;
+&lt;li&gt;通过切面和模板来减少样板式代码&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     

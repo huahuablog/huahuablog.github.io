@@ -91,6 +91,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -103,10 +105,31 @@
       
 
       
-      <p>#spring是什么<br>    spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。<br>    总的来说，Spring就是用来替代更加重量级的企业级的Java技术。</p>
-<p>#spring能做什么<br>    Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性的角度而言，绝大部分Java应用都可以从Spring中受益。<br>    spring实现了使用简单的组件将Java对象配置组合成 了一个复杂的应用，在Spring中可以使用XML和Java注解组合这些对象。Spring对JavaEE中非常难开发的一些API（JDBC、JavaMail、远程调用等），都提供了封装，大大降低了这些API的应用难度。<br>    轻量级：立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承诺。<br>    非侵入式：也就是自己开发的类不依赖Spring的API接口，对现有的类结构没有影响，也能够增强JavaBean的功能<br>    IOC容器：spring是一个容器，因为它包含并且管理应用对象的生命周期。<br>    降低了业务对象替换的复杂性，提高了组件之间的解耦。<br>    一站式：在AOP和IOC的基础上可以整合出各种企业应用的开源框架和优秀的第三方类库（实际上Spring自身也提供了展现层的SpringMVC和持久层的JDBC）;<br>    spring的高度开放性，并不强制应用完全依赖于Spring，开发者可自由选用Spring框架的部分或全部。<br>    总的来说Spring可以简化Java的开发：<br>        a. 基于POJO（也叫Java bean）轻量级和最小侵入式开发<br>        b. 通过IOC、依赖注入和面向接口实现松耦合<br>        c. 基于切面进行声明式编程<br>        d. 通过切面和模板来减少样板式代码</p>
-<p>##spring为什么出现<br>    <img src="/images/Spring-1-1.png" alt="B/S结构"><br>    这张图上展示了一个基于SSH,B/S结构的单体Java应用的搭建过程，首先通过浏览器进入到Filter拦截器，进入到Structs2，通过Service层进入到Hibernate，从而进行操作数据库，若整个过程都是由SpringIOC容器控制就显得那么简单了。说白了就是为了简化复杂的操作过程，减少问题的出现。这张图向我们展示了一个比较基础的JavaWeb的搭建过程。万变不离其宗，后来使用的SSM框架，现在比较火的微服务架构，都离不开这张图上展示的内容所提供给大家的思想。每个框架的实现宗旨都是一样的，只不过实现的方式不一样。其实在这个框架最初的时候应该是以JSP+Servlet比较常用，后来为了解决前后端分离的问题，降低耦合度。将这些功能结构按照MVC分层实现。<br>    个人的理解MVC为一种程序设计思想，可以很多场合使用到，从Web、后端、移动端在很多的场合下将MVC作为一种程序设计思想应该是比较恰当的。</p>
-<p>##spring结构体系（模块化）<br>    <img src="/images/Spring-1-2.png" alt="Spring结构"><br>    核心容器<br>    核心容器由spring-core，spring-beans，spring-context，spring-context-support和spring-expression（SpEL，Spring表达式语言，Spring Expression Language）等模块组成，它们的细节如下：<br>        • spring-core模块提供了框架的基本组成部分，包括 IoC容器 和依赖注入功能。<br>        • spring-beans 模块提供 BeanFactory，工厂模式的微妙实现，它移除了编码式单例的需要，并且可以把配置和依赖从实际编码逻辑中解耦。<br>        • context模块建立在由core和 beans 模块的基础上建立起来的，它以一种类似于JNDI注册的方式访问对象。Context模块继承自Bean模块，并且添加了国际化（比如，使用资源束）、事件传播、资源加载和透明地创建上下文（比如，通过Servelet容器）等功能。Context模块也支持Java EE的功能，比如EJB、JMX和远程调用等。ApplicationContext接口是Context模块的焦点。spring-context-support提供了对第三方库集成到Spring上下文的支持，比如缓存（EhCache, Guava, JCache）、邮件（JavaMail）、调度（CommonJ, Quartz）、模板引擎（FreeMarker, JasperReports, Velocity）等。<br>        • spring-expression模块提供了强大的表达式语言，用于在运行时查询和操作对象图。它是JSP2.1规范中定义的统一表达式语言的扩展，支持set和get属性值、属性赋值、方法调用、访问数组集合及索引的内容、逻辑算术运算、命名变量、通过名字从Spring IoC容器检索对象，还支持列表的投影、选择以及聚合等。<br>    它们的完整依赖关系如下图所示：<br>    <img src="/images/Spring-1-3.png" alt="Spring依赖关系图"><br>    <img src="/images/Spring-1-4.png" alt="Spring关系"><br>    数据访问/集成<br>    数据访问/集成层包括 JDBC，ORM，OXM，JMS 和事务处理模块，它们的细节如下：<br>    （注：JDBC=Java Data Base Connectivity，ORM=Object Relational Mapping，OXM=Object XML Mapping，JMS=Java Message Service）<br>        • JDBC 模块提供了JDBC抽象层，它消除了冗长的JDBC编码和对数据库供应商特定错误代码的解析。<br>        • ORM 模块提供了对流行的对象关系映射API的集成，包括JPA、JDO和Hibernate等。通过此模块可以让这些ORM框架和spring的其它功能整合，比如前面提及的事务管理。<br>        • OXM 模块提供了对OXM实现的支持，比如JAXB、Castor、XML Beans、JiBX、XStream等。<br>        • JMS 模块包含生产（produce）和消费（consume）消息的功能。从Spring 4.1开始，集成了spring-messaging模块。。<br>        • 事务模块为实现特殊接口类及所有的 POJO 支持编程式和声明式事务管理。（注：编程式事务需要自己写beginTransaction()、commit()、rollback()等事务管理方法，声明式事务是通过注解或配置由spring自动处理，编程式事务粒度更细）<br>    Web<br>    Web 层由 Web，Web-MVC，Web-Socket 和 Web-Portlet 组成，它们的细节如下：<br>        • Web 模块提供面向web的基本功能和面向web的应用上下文，比如多部分（multipart）文件上传功能、使用Servlet监听器初始化IoC容器等。它还包括HTTP客户端以及Spring远程调用中与web相关的部分。。<br>        • Web-MVC 模块为web应用提供了模型视图控制（MVC）和REST Web服务的实现。Spring的MVC框架可以使领域模型代码和web表单完全地分离，且可以与Spring框架的其它所有功能进行集成。<br>        • Web-Socket 模块为 WebSocket-based 提供了支持，而且在 web 应用程序中提供了客户端和服务器端之间通信的两种方式。<br>        • Web-Portlet 模块提供了用于Portlet环境的MVC实现，并反映了spring-webmvc模块的功能。<br>    其他<br>    还有其他一些重要的模块，像 AOP，Aspects，Instrumentation，Web 和测试模块，它们的细节如下：<br>        • AOP 模块提供了面向方面的编程实现，允许你定义方法拦截器和切入点对代码进行干净地解耦，从而使实现功能的代码彻底的解耦出来。使用源码级的元数据，可以用类似于.Net属性的方式合并行为信息到代码中。<br>        • Aspects 模块提供了与 AspectJ 的集成，这是一个功能强大且成熟的面向切面编程（AOP）框架。<br>        • Instrumentation 模块在一定的应用服务器中提供了类 instrumentation 的支持和类加载器的实现。<br>        • Messaging 模块为 STOMP 提供了支持作为在应用程序中 WebSocket 子协议的使用。它也支持一个注解编程模型，它是为了选路和处理来自 WebSocket 客户端的 STOMP 信息。<br>        • 测试模块支持对具有 JUnit 或 TestNG 框架的 Spring 组件的测试。</p>
+      <h1><span id="spring是什么">spring是什么</span></h1><p>spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。<br>总的来说，Spring就是用来替代更加重量级的企业级的Java技术。</p>
+<h1><span id="spring能做什么">spring能做什么</span></h1><p>Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性的角度而言，绝大部分Java应用都可以从Spring中受益。<br>spring实现了使用简单的组件将Java对象配置组合成 了一个复杂的应用，在Spring中可以使用XML和Java注解组合这些对象。Spring对JavaEE中非常难开发的一些API（JDBC、JavaMail、远程调用等），都提供了封装，大大降低了这些API的应用难度。</p>
+<ul>
+<li>轻量级：立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承诺。</li>
+<li>非侵入式：也就是自己开发的类不依赖Spring的API接口，对现有的类结构没有影响，也能够增强JavaBean的功能  </li>
+<li>IOC容器：spring是一个容器，因为它包含并且管理应用对象的生命周期。<br>降低了业务对象替换的复杂性，提高了组件之间的解耦。</li>
+<li>一站式：在AOP和IOC的基础上可以整合出各种企业应用的开源框架和优秀的第三方类库（实际上Spring自身也提供了展现层的SpringMVC和持久层的JDBC）;<br>spring的高度开放性，并不强制应用完全依赖于Spring，开发者可自由选用Spring框架的部分或全部。<br>总的来说Spring可以简化Java的开发：</li>
+</ul>
+<ol>
+<li>基于POJO（也叫Java bean）轻量级和最小侵入式开发</li>
+<li>通过IOC、依赖注入和面向接口实现松耦合</li>
+<li>基于切面进行声明式编程</li>
+<li>通过切面和模板来减少样板式代码</li>
+</ol>
+<a id="more"></a>
+<h1><span id="spring为什么出现">spring为什么出现</span></h1><p><img src="/images/Spring-1-1.png" alt="B/S结构"><br>这张图上展示了一个基于SSH,B/S结构的单体Java应用的搭建过程，首先通过浏览器进入到Filter拦截器，进入到Structs2，通过Service层进入到Hibernate，从而进行操作数据库，若整个过程都是由SpringIOC容器控制就显得那么简单了。说白了就是为了简化复杂的操作过程，减少问题的出现。这张图向我们展示了一个比较基础的JavaWeb的搭建过程。万变不离其宗，后来使用的SSM框架，现在比较火的微服务架构，都离不开这张图上展示的内容所提供给大家的思想。每个框架的实现宗旨都是一样的，只不过实现的方式不一样。其实在这个框架最初的时候应该是以JSP+Servlet比较常用，后来为了解决前后端分离的问题，降低耦合度。将这些功能结构按照MVC分层实现。<br>个人的理解MVC为一种程序设计思想，可以很多场合使用到，从Web、后端、移动端在很多的场合下将MVC作为一种程序设计思想应该是比较恰当的。</p>
+<h1><span id="spring结构体系模块化">spring结构体系（模块化）</span></h1><p><img src="/images/Spring-1-2.png" alt="Spring结构"></p>
+<h2><span id="核心容器">核心容器</span></h2><p>核心容器由spring-core，spring-beans，spring-context，spring-context-support和spring-expression（SpEL，Spring表达式语言，Spring Expression Language）等模块组成，它们的细节如下：<br>-** spring-core模块**提供了框架的基本组成部分，包括 IoC容器 和依赖注入功能。</p>
+<p>-** spring-beans 模块**提供 BeanFactory，工厂模式的微妙实现，它移除了编码式单例的需要，并且可以把配置和依赖从实际编码逻辑中解耦。</p>
+<p>-** context模块**建立在由core和 beans 模块的基础上建立起来的，它以一种类似于JNDI注册的方式访问对象。Context模块继承自Bean模块，并且添加了国际化（比如，使用资源束）、事件传播、资源加载和透明地创建上下文（比如，通过Servelet容器）等功能。Context模块也支持Java EE的功能，比如EJB、JMX和远程调用等。ApplicationContext接口是Context模块的焦点。spring-context-support提供了对第三方库集成到Spring上下文的支持，比如缓存（EhCache, Guava, JCache）、邮件（JavaMail）、调度（CommonJ, Quartz）、模板引擎（FreeMarker, JasperReports, Velocity）等。</p>
+<p>-<strong>spring-expression模块</strong>提供了强大的表达式语言，用于在运行时查询和操作对象图。它是JSP2.1规范中定义的统一表达式语言的扩展，支持set和get属性值、属性赋值、方法调用、访问数组集合及索引的内容、逻辑算术运算、命名变量、通过名字从Spring IoC容器检索对象，还支持列表的投影、选择以及聚合等。</p>
+<p>它们的完整依赖关系如下图所示：<br><img src="/images/Spring-1-3.png" alt="Spring依赖关系图"><br><img src="/images/Spring-1-4.png" alt="Spring关系"></p>
+<h2><span id="数据访问集成">数据访问/集成</span></h2><p>数据访问/集成层包括 JDBC，ORM，OXM，JMS 和事务处理模块，它们的细节如下：<br>注：JDBC=Java Data Base Connectivity，ORM=Object Relational Mapping，OXM=Object XML Mapping，JMS=Java Message Service）<br>• JDBC 模块提供了JDBC抽象层，它消除了冗长的JDBC编码和对数据库供应商特定错误代码的解析。<br>• ORM 模块提供了对流行的对象关系映射API的集成，包括JPA、JDO和Hibernate等。通过此模块可以让这些ORM框架和spring的其它功能整合，比如前面提及的事务管理。<br>• OXM 模块提供了对OXM实现的支持，比如JAXB、Castor、XML Beans、JiBX、XStream等。<br>• JMS 模块包含生产（produce）和消费（consume）消息的功能。从Spring 4.1开始，集成了spring-messaging模块。。<br>• 事务模块为实现特殊接口类及所有的 POJO 支持编程式和声明式事务管理。（注：编程式事务需要自己写beginTransaction()、commit()、rollback()等事务管理方法，声明式事务是通过注解或配置由spring自动处理，编程式事务粒度更细）</p>
+<h2><span id="web">Web</span></h2><p>Web 层由 Web，Web-MVC，Web-Socket 和 Web-Portlet 组成，它们的细节如下：<br>• Web 模块提供面向web的基本功能和面向web的应用上下文，比如多部分（multipart）文件上传功能、使用Servlet监听器初始化IoC容器等。它还包括HTTP客户端以及Spring远程调用中与web相关的部分。。<br>• Web-MVC 模块为web应用提供了模型视图控制（MVC）和REST Web服务的实现。Spring的MVC框架可以使领域模型代码和web表单完全地分离，且可以与Spring框架的其它所有功能进行集成。<br>• Web-Socket 模块为 WebSocket-based 提供了支持，而且在 web 应用程序中提供了客户端和服务器端之间通信的两种方式。<br>• Web-Portlet 模块提供了用于Portlet环境的MVC实现，并反映了spring-webmvc模块的功能。</p>
+<h2><span id="其他">其他</span></h2><p>还有其他一些重要的模块，像 AOP，Aspects，Instrumentation，Web 和测试模块，它们的细节如下：<br>• AOP 模块提供了面向方面的编程实现，允许你定义方法拦截器和切入点对代码进行干净地解耦，从而使实现功能的代码彻底的解耦出来。使用源码级的元数据，可以用类似于.Net属性的方式合并行为信息到代码中。<br>• Aspects 模块提供了与 AspectJ 的集成，这是一个功能强大且成熟的面向切面编程（AOP）框架。<br>• Instrumentation 模块在一定的应用服务器中提供了类 instrumentation 的支持和类加载器的实现。<br>• Messaging 模块为 STOMP 提供了支持作为在应用程序中 WebSocket 子协议的使用。它也支持一个注解编程模型，它是为了选路和处理来自 WebSocket 客户端的 STOMP 信息。<br>• 测试模块支持对具有 JUnit 或 TestNG 框架的 Spring 组件的测试。</p>
 
       
       <!-- reward -->
@@ -206,8 +229,8 @@
 <script>
     new Valine({
         el: '#vcomments',
-        app_id: '',
-        app_key: '',
+        app_id: '374b84b9cab995d83dcb',
+        app_key: '6085b015a3d1a6f41d8d51d250968ab8dd2d2b25',
         path: window.location.pathname,
         notify: 'false',
         verify: 'false',
@@ -263,11 +286,6 @@
         huahua
       </li>
       <li>
-        
-        Powered by
-        
-        
-        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
         
       </li>
     </ul>
