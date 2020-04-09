@@ -1,6 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java并发-首页</title>
+    <url>/2020/04/09/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/</url>
+    <content><![CDATA[<h2><span id="简介">简介：</span></h2><p>基本包含了Java并发编程的知识内容同时囊括并发Concurrent包的重点源码分析，如有问题欢迎评论指出，谢谢支持！<br>关注微信公众号获取更多知识：当代猿<br><img src="https://img-blog.csdnimg.cn/20200409181814334.png#pic_center" alt="微信公共号二维码"></p>
+<h2><span id="思维导图">思维导图：</span></h2><p><img src="https://img-blog.csdnimg.cn/20200409181910892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>注意：思维导图链接，待完成后一起公布。</p>
+<h2><span id="目录">目录：</span></h2><p>说明：目录会持续更新</p>
+<ol>
+<li>Java-并发编程-认识并发编程</li>
+<li>Java-并发基础-线程的基本状态和操作</li>
+<li>Java-并发理论-JMM内存模型</li>
+<li>Java-并发理论-对象锁（monitor）</li>
+<li>Java-并发理论-关键字-synchronized</li>
+<li>Java-并发理论-关键字-volatile</li>
+<li>Java-并发理论-关键字-final</li>
+<li>Java-并发理论-三大特性</li>
+<li>Java-并发理论-源码分析-Thread类</li>
+<li>Java-并发concurrent包-简介</li>
+<li>Java-并发concurrent包-atomic包</li>
+<li>Java-并发concurrent包-locks包</li>
+<li>Java-并发工具-并发容器-ConcurrentHashMap</li>
+<li>Java-并发工具-并发容器-CopyOnWriteArrayList</li>
+<li>Java-并发工具-并发容器-CopyOnWriteSet</li>
+<li>Java-并发工具-并发容器-阻塞队列</li>
+<li>Java-并发工具-线程池-原理&amp;ThreadPoolEcecutor</li>
+<li>Java-并发工具-线程池-原理&amp;ScheduledThreadPoolExecutor</li>
+<li>Java-并发工具-基本类FutureTask</li>
+<li>Java-并发工具-工具类Excutors</li>
+<li>Java-并发工具-工具类CountDownLatch</li>
+<li>Java-并发工具-工具类CyclicBarrier</li>
+<li>Java-并发工具-工具类Semaphore</li>
+<li>Java-并发工具-工具类Exchanger</li>
+<li>Java-并发实践-生产者与消费者</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java并发</category>
+      </categories>
+      <tags>
+        <tag>java,并发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java-并发基础-认识并发编程</title>
     <url>/2020/04/07/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</url>
     <content><![CDATA[<h1><span id="一-简介">一、简介</span></h1><h2><span id="1-什么是并发">1. 什么是并发</span></h2><p>在Java中并发就是指多线程的进程环境，进程是系统进行资源分配和调度的独立单位，每一个进程都有它的内存空间和系统资源，在同一个进程内执行的多个任务就可以看作是多个进程，线程存在于进程内，进程负责分配调度线程，线程负责执行程序，多个线程就执行多个程序。</p>

@@ -78,6 +78,65 @@
     
     
     
+    <article id="post-Java并发-首页" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/09/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/"
+    >Java并发-首页</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/09/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/" class="article-date">
+  <time datetime="2020-04-09T10:32:01.000Z" itemprop="datePublished">2020-04-09</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-Java-并发基础-认识并发编程" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -113,31 +172,6 @@
     
 
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><h2 id="1-什么是并发"><a href="#1-什么是并发" class="headerlink" title="1. 什么是并发"></a>1. 什么是并发</h2><p>在Java中并发就是指多线程的进程环境，进程是系统进行资源分配和调度的独立单位，每一个进程都有它的内存空间和系统资源，在同一个进程内执行的多个任务就可以看作是多个进程，线程存在于进程内，进程负责分配调度线程，线程负责执行程序，多个线程就执行多个程序。</p>
-<p>实际上，Java程序天生就是一个多线程程序，包含了：</p>
-<ul>
-<li><p>分发处理发送给JVM信号的线程</p>
-</li>
-<li><p>调用对象的finalize清除方法的线程</p>
-</li>
-<li><p>清除相互引用reference的线程</p>
-</li>
-<li><p>main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程</p>
-</li>
-</ul>
-<h2 id="2-为什么需要多线程"><a href="#2-为什么需要多线程" class="headerlink" title="2. 为什么需要多线程"></a>2. 为什么需要多线程</h2><p>如果没有多线程，若为了使程序并发执行，那么系统需要花费大量的时间在：创建进程–&gt;撤销进程–&gt;进程上下文切换调度,在这一过程中，需要的空间开销也非常大，执行效率也非常低（如下图）；若在一个进程中执行多个线程，则上面的空间开销和时间花费将会大大较少，何乐而不为呢，多线程提高了系统的执行效率，充分利用多核CPU的计算能力，提高应用性能。<br><img src="/images/concurrent-1-1.png" alt="多线程"></p>
-      
-      <a class="article-more-link" href="/2020/04/07/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
     
     
       <!-- copyright -->
@@ -197,32 +231,6 @@
     
 
     
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="spring是什么"><a href="#spring是什么" class="headerlink" title="spring是什么"></a>spring是什么</h1><p>spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。<br>总的来说，Spring就是用来替代更加重量级的企业级的Java技术。</p>
-<h1 id="spring能做什么"><a href="#spring能做什么" class="headerlink" title="spring能做什么"></a>spring能做什么</h1><p>Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性的角度而言，绝大部分Java应用都可以从Spring中受益。<br>spring实现了使用简单的组件将Java对象配置组合成 了一个复杂的应用，在Spring中可以使用XML和Java注解组合这些对象。Spring对JavaEE中非常难开发的一些API（JDBC、JavaMail、远程调用等），都提供了封装，大大降低了这些API的应用难度。</p>
-<ul>
-<li>轻量级：立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承诺。</li>
-<li>非侵入式：也就是自己开发的类不依赖Spring的API接口，对现有的类结构没有影响，也能够增强JavaBean的功能  </li>
-<li>IOC容器：spring是一个容器，因为它包含并且管理应用对象的生命周期。<br>降低了业务对象替换的复杂性，提高了组件之间的解耦。</li>
-<li>一站式：在AOP和IOC的基础上可以整合出各种企业应用的开源框架和优秀的第三方类库（实际上Spring自身也提供了展现层的SpringMVC和持久层的JDBC）;<br>spring的高度开放性，并不强制应用完全依赖于Spring，开发者可自由选用Spring框架的部分或全部。<br>总的来说Spring可以简化Java的开发：</li>
-</ul>
-<ol>
-<li>基于POJO（也叫Java bean）轻量级和最小侵入式开发</li>
-<li>通过IOC、依赖注入和面向接口实现松耦合</li>
-<li>基于切面进行声明式编程</li>
-<li>通过切面和模板来减少样板式代码</li>
-</ol>
-      
-      <a class="article-more-link" href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
     
     
       <!-- copyright -->
