@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="个人博客网站，记录学习点滴" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Java-并发基础-认识并发编程 |  当代猿
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="当代猿" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-Java-并发基础-认识并发编程" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Java-并发基础-认识并发编程
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="article-date">
+  <time datetime="2019-11-01T08:57:48.000Z" itemprop="datePublished">2019-11-01</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">11 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2><span id="一-基本简介">一、基本简介</span></h2><h3><span id="什么是并发">什么是并发</span></h3><p>在Java中并发就是指多线程的进程环境，进程是系统进行资源分配和调度的独立单位，每一个进程都有它的内存空间和系统资源，在同一个进程内执行的多个任务就可以看作是多个进程，线程存在于进程内，进程负责分配调度线程，线程负责执行程序，多个线程就执行多个程序。<br>实际上，Java程序天生就是一个多线程程序，包含了：</p>
+<ul>
+<li>分发处理发送给JVM信号的线程</li>
+<li>调用对象的finalize清除方法的线程</li>
+<li>清除相互引用reference的线程</li>
+<li>main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程</li>
+</ul>
+<h3><span id="为什么需要多线程">为什么需要多线程</span></h3><p>如果没有多线程，若为了使程序并发执行，那么系统需要花费大量的时间在：创建进程–&gt;撤销进程–&gt;进程上下文切换调度,在这一过程中，需要的空间开销也非常大，执行效率也非常低（如下图）；若在一个进程中执行多个线程，则上面的空间开销和时间花费将会大大较少，何乐而不为呢，多线程提高了系统的执行效率，充分利用多核CPU的计算能力，提高应用性能。</p>
+<h2><span id="二-并发编程带来的问题">二、并发编程带来的问题</span></h2><h3><span id="频繁的上下文切换问题">频繁的上下文切换问题</span></h3><p>正如上图中的时间片，时间片使CPU分配给各个线程的时间，因为时间非常短，所以CPU需要不断切换线程，让我们觉得多个线程是同时执行的，时间片一般是十几毫秒；每次切换都需要保存当前线程的状态，以便进行恢复先前的状态。这个切换是非常耗性能的，过于频繁就无法发挥出多线程编程的优势了。那么该怎么解决这频繁的上下文切换的问题的，目前有大概几种解决方法，后面会详细讨论：</p>
+<ol>
+<li>采用无锁并发编程：JDK8以前的concurrentHashMap采用的锁分段思想，不同线程处理不同段的数据，这样在多线程环境下可以减少上下文的切换时间。</li>
+<li>采用CAS算法：JDK8以后的concurrentHashMap采用的是无锁CAS算法；利用Atomic和乐观锁，可以减少一部分不必要的锁竞争带来的上下文切换。</li>
+<li>尽量减少线程的使用：避免创建不需要的线程，比如任务少，但是创建了很多的线程，这样会造成大量的线程都处于等待状态。</li>
+<li>采用协程：在单线程里实现多任务的调度，并在单线程里维持多个任务间的切换。<br>因此，并发累加未必会比串行累加的速度快，这上下文切换的问题在实际中是需要解决的。</li>
+</ol>
+<h3><span id="线程安全问题主要问题也是我们程序开发关心的问题">线程安全问题（主要问题，也是我们程序开发关心的问题）</span></h3><p>对线程编程中最难控制的就是临界区（共享内存的地方）的线程安全问题，稍微不注意就会出现死锁的情况，一旦产生死锁就会造成系统功能不可用。那么怎么解决这种问题呢，解决方法如下：</p>
+<ul>
+<li>避免一个线程同时获取多个锁</li>
+<li>避免一个线程在锁内部占用多个资源，尽量保证一个锁只占用一个资源</li>
+<li>尝试使用定时锁，如使用lock.tryLock(timeOut),当超时等待时当前线程也不会阻塞</li>
+<li>对于数据库锁，加锁和解锁必须在同一个数据库连接里（同一个事务），否则会出现解锁失败的情况<br>后面还有JMM内存模型在原子性、有序性和可见性带来的问题，比如数据脏读，内存泄漏等等问题，这是又该如何保证线程安全呢，这一方面是非常重要的，后面会详细讨论。</li>
+</ul>
+<h2><span id="三-并发编程的相关概念">三、并发编程的相关概念</span></h2><h3><span id="同步和异步">同步和异步</span></h3><p>同步和异步通常用来形容方法的一次调用。<br>同步方法从被调用开始，调用者就必须等待被调用的方法结束后，调用者后面的代码才能继续执行。<br>异步方法指的是，调用者不管被调用方法是否完成，都会继续执行后面的代码，当被调用的方法完成后会通知调用者。</p>
+<h3><span id="并发和并行">并发和并行</span></h3><p>并发是指多个任务线程交替进行。<br>并行是指真正意义上的“同时进行”。<br>实际上，如果系统只有一个CPU，而使用多线程时，那么真实环境下时不能并行执行的，只能通过切换时间片的方式交替进行，完成并发执行任务，真正的并行只能出现在拥有多个CPU系统中。</p>
+<h3><span id="阻塞和非阻塞">阻塞和非阻塞</span></h3><p>阻塞和非阻塞通常用来形容多线程间的相互影响。<br>阻塞是指如果一个线程占用了临界区的资源，那么其他线程需要这个资源的话就必须等待资源的释放，就会导致等待的线程挂起，这种情况就叫做阻塞。<br>非阻塞刚好跟阻塞相反，它强调的是没有一个线程可以阻塞其他线程，所有的线程都会尝试的向前运行。</p>
+<h3><span id="临界区">临界区</span></h3><p>临界区用来表示一种公共资源会共享数据，可以被多个线程使用，出于线程安全问题，如果一个线程占用了临界区的资源，那么其他线程就必须等待，知道临界区的资源被释放。</p>
+<h3><span id="守护线程">守护线程</span></h3><p>守护线程是一种特殊的线程，是系统的服务线程，是专门为其他线程服务的，像垃圾回收线程就是守护线程，与之对应的是用户线程，用户线程作为系统的工作线程，守护线程的服务对象就是用户线程，当全部的用户线程执行任务完成之后，这个系统就没有什么需要服务的了，那么守护线程就没有对象需要守护了，那么守护线程就会结束，也就是说当一个java程序只有守护线程的时候，虚拟机就会退出了。</p>
+<h2><span id="四-java中的线程thread类">四、Java中的线程Thread类</span></h2><p>参考看一下Thread类的源码注释，了解Java中的线程，有专门对Thread类的源码做分析：Java-源码分析-Thread类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	1.一个Thread类对象代表程序中的一个线程，jvm是允许多线程的</span></span><br><span class="line"><span class="comment">	 * A &lt;i&gt;thread&lt;/i&gt; is a thread of execution in a program. The Java</span></span><br><span class="line"><span class="comment">	 * Virtual Machine allows an application to have multiple threads of</span></span><br><span class="line"><span class="comment">	 * execution running concurrently.</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	2.每一个线程都有优先级，具有高优先级的线程优先于底优先级的线程执行，每一个线程都可以设置成一个守护线程，创建线程的时候，通过线程设置setDaemon(true)就可以设置该线程为守护线程，设置守护线程需要先于start()方法</span></span><br><span class="line"><span class="comment">	 * Every thread has a priority. Threads with higher priority are</span></span><br><span class="line"><span class="comment">	 * executed in preference to threads with lower priority. Each thread</span></span><br><span class="line"><span class="comment">	 * may or may not also be marked as a daemon. When code running in</span></span><br><span class="line"><span class="comment">	 * some thread creates a new &lt;code&gt;Thread&lt;/code&gt; object, the new</span></span><br><span class="line"><span class="comment">	 * thread has its priority initially set equal to the priority of the</span></span><br><span class="line"><span class="comment">	 * creating thread, and is a daemon thread if and only if the</span></span><br><span class="line"><span class="comment">	 * creating thread is a daemon.</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	2.只有当一个Java程序只存在守护线程的时候，虚拟机就会退出，让虚拟机不继续执行线程的方法有：</span></span><br><span class="line"><span class="comment">		2.1调用system.exit方法.</span></span><br><span class="line"><span class="comment">		2.2所有非守护线程都处于死亡状态（只有守护线程）或线程运行抛出了异常</span></span><br><span class="line"><span class="comment">	   注意：在线程启动前可以将该线程设置为守护线程，方法是setDaemon(boolean on)</span></span><br><span class="line"><span class="comment">		     使用守护线程最好不要在方法中使用共享资源，因为守护线程随时都可能挂掉</span></span><br><span class="line"><span class="comment">		     在守护线程中产生的线程也是守护线程</span></span><br><span class="line"><span class="comment">	 * When a Java Virtual Machine starts up, there is usually a single</span></span><br><span class="line"><span class="comment">	 * non-daemon thread (which typically calls the method named</span></span><br><span class="line"><span class="comment">	 * &lt;code&gt;main&lt;/code&gt; of some designated class). The Java Virtual</span></span><br><span class="line"><span class="comment">	 * Machine continues to execute threads until either of the following</span></span><br><span class="line"><span class="comment">	 * occurs:</span></span><br><span class="line"><span class="comment">	 * &lt;ul&gt;</span></span><br><span class="line"><span class="comment">	 * &lt;li&gt;The &lt;code&gt;exit&lt;/code&gt; method of class &lt;code&gt;Runtime&lt;/code&gt; has been</span></span><br><span class="line"><span class="comment">	 *     called and the security manager has permitted the exit operation</span></span><br><span class="line"><span class="comment">	 *     to take place.</span></span><br><span class="line"><span class="comment">	 * &lt;li&gt;All threads that are not daemon threads have died, either by</span></span><br><span class="line"><span class="comment">	 *     returning from the call to the &lt;code&gt;run&lt;/code&gt; method or by</span></span><br><span class="line"><span class="comment">	 *     throwing an exception that propagates beyond the &lt;code&gt;run&lt;/code&gt;</span></span><br><span class="line"><span class="comment">	 *     method.</span></span><br><span class="line"><span class="comment">	 * &lt;/ul&gt;</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	3.创建线程的方式有两种（重写Runnable接口的run()方法）：</span></span><br><span class="line"><span class="comment">		3.1创建子类并继承Thread 类，同时重写run()方法（因为Thread类实现了Runnable接口）</span></span><br><span class="line"><span class="comment">		3.2创建子类并实现Runnable接口，同时重写run()方法</span></span><br><span class="line"><span class="comment">		下面有例子：</span></span><br><span class="line"><span class="comment">	 * There are two ways to create a new thread of execution. One is to</span></span><br><span class="line"><span class="comment">	 * declare a class to be a subclass of &lt;code&gt;Thread&lt;/code&gt;. This</span></span><br><span class="line"><span class="comment">	 * subclass should override the &lt;code&gt;run&lt;/code&gt; method of class</span></span><br><span class="line"><span class="comment">	 * &lt;code&gt;Thread&lt;/code&gt;. An instance of the subclass can then be</span></span><br><span class="line"><span class="comment">	 * allocated and started. For example, a thread that computes primes</span></span><br><span class="line"><span class="comment">	 * larger than a stated value could be written as follows:</span></span><br><span class="line"><span class="comment">	 * &lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment">	 *     class PrimeThread extends Thread &#123;</span></span><br><span class="line"><span class="comment">	 *         long minPrime;</span></span><br><span class="line"><span class="comment">	 *         PrimeThread(long minPrime) &#123;</span></span><br><span class="line"><span class="comment">	 *             this.minPrime = minPrime;</span></span><br><span class="line"><span class="comment">	 *         &#125;</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 *         public void run() &#123;</span></span><br><span class="line"><span class="comment">	 *             // compute primes larger than minPrime</span></span><br><span class="line"><span class="comment">	 *             &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.</span></span><br><span class="line"><span class="comment">	 *         &#125;</span></span><br><span class="line"><span class="comment">	 *     &#125;</span></span><br><span class="line"><span class="comment">	 * &lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * The following code would then create a thread and start it running:</span></span><br><span class="line"><span class="comment">	 * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment">	 *     PrimeThread p = new PrimeThread(143);</span></span><br><span class="line"><span class="comment">	 *     p.start();</span></span><br><span class="line"><span class="comment">	 * &lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * The other way to create a thread is to declare a class that</span></span><br><span class="line"><span class="comment">	 * implements the &lt;code&gt;Runnable&lt;/code&gt; interface. That class then</span></span><br><span class="line"><span class="comment">	 * implements the &lt;code&gt;run&lt;/code&gt; method. An instance of the class can</span></span><br><span class="line"><span class="comment">	 * then be allocated, passed as an argument when creating</span></span><br><span class="line"><span class="comment">	 * &lt;code&gt;Thread&lt;/code&gt;, and started. The same example in this other</span></span><br><span class="line"><span class="comment">	 * style looks like the following:</span></span><br><span class="line"><span class="comment">	 * &lt;hr&gt;&lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment">	 *     class PrimeRun implements Runnable &#123;</span></span><br><span class="line"><span class="comment">	 *         long minPrime;</span></span><br><span class="line"><span class="comment">	 *         PrimeRun(long minPrime) &#123;</span></span><br><span class="line"><span class="comment">	 *             this.minPrime = minPrime;</span></span><br><span class="line"><span class="comment">	 *         &#125;</span></span><br><span class="line"><span class="comment">	 *</span></span><br><span class="line"><span class="comment">	 *         public void run() &#123;</span></span><br><span class="line"><span class="comment">	 *             // compute primes larger than minPrime</span></span><br><span class="line"><span class="comment">	 *             &amp;nbsp;.&amp;nbsp;.&amp;nbsp;.</span></span><br><span class="line"><span class="comment">	 *         &#125;</span></span><br><span class="line"><span class="comment">	 *     &#125;</span></span><br><span class="line"><span class="comment">	 * &lt;/pre&gt;&lt;/blockquote&gt;&lt;hr&gt;</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * The following code would then create a thread and start it running:</span></span><br><span class="line"><span class="comment">	 * &lt;blockquote&gt;&lt;pre&gt;</span></span><br><span class="line"><span class="comment">	 *     PrimeRun p = new PrimeRun(143);</span></span><br><span class="line"><span class="comment">	 *     new Thread(p).start();</span></span><br><span class="line"><span class="comment">	 * &lt;/pre&gt;&lt;/blockquote&gt;</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	4.每个线程都有一个名称，如果没有会在创建的时候自动生成一个，除非指定为null。</span></span><br><span class="line"><span class="comment">	 * Every thread has a name for identification purposes. More than</span></span><br><span class="line"><span class="comment">	 * one thread may have the same name. If a name is not specified when</span></span><br><span class="line"><span class="comment">	 * a thread is created, a new name is generated for it.</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;</span></span><br><span class="line"><span class="comment">	 * Unless otherwise noted, passing a &#123;<span class="doctag">@code</span> null&#125; argument to a constructor</span></span><br><span class="line"><span class="comment">	 * or method in this class will cause a &#123;<span class="doctag">@link</span> NullPointerException&#125; to be</span></span><br><span class="line"><span class="comment">	 * thrown.</span></span><br><span class="line"><span class="comment">	 */</span></span><br></pre></td></tr></table></figure>
+
+<h2><span id="五-总结">五、总结</span></h2><p>我们需要了解并发，为什么需要并发，还必须知道并发的优缺点，同时清楚使用并发编程之后所带来的问题：频繁上下文切换问题和线程安全问题等等，后面在并发编程的时候就朝着这些问题去编程，尝试解决这些问题，让并发编程发挥出真正的作用。<br>理解Java并发的关键点在于理解它的两大核心（JMM内存模型【工作内存和主内存】和happes-before规则【八大规则】）以及三大特性：原子性、可见性、有序性</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/huahuablog/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Java并发-首页
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'MDQNmrWFp3GL4fnXCci5xFVV-MdYXbMMI',
+        app_key: 'y0ATjFhJNEAhIPs1MwwCju1p',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020
+        huahua
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="当代猿"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['每天努力一点点', '一天不努力，就等于退步', '努力，奋斗！'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+  
+<script src="/js/clickLove.js"></script>
+
+
+
+    
+  </div>
+</body>
+
+</html>

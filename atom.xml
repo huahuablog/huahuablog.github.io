@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/huahuablog/"/>
-  <updated>2020-04-09T10:34:17.061Z</updated>
+  <updated>2020-04-07T07:44:40.676Z</updated>
   <id>https://github.com/huahuablog/</id>
   
   <author>
@@ -15,66 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Java并发-首页</title>
-    <link href="https://github.com/huahuablog/2020/04/09/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/"/>
-    <id>https://github.com/huahuablog/2020/04/09/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/</id>
-    <published>2020-04-09T10:32:01.000Z</published>
-    <updated>2020-04-09T10:34:17.061Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2&gt;&lt;span id=&quot;简介&quot;&gt;简介：&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;基本包含了Java并发编程的知识内容同时囊括并发Concurrent包的重点源码分析，如有问题欢迎评论指出，谢谢支持！&lt;br&gt;关注微信公众号获取更多知识：当代猿&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java,并发" scheme="https://github.com/huahuablog/tags/java-%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-并发基础-认识并发编程</title>
-    <link href="https://github.com/huahuablog/2020/04/07/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    <id>https://github.com/huahuablog/2020/04/07/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</id>
-    <published>2020-04-07T08:57:48.000Z</published>
-    <updated>2020-04-07T09:27:55.207Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;一、简介&quot;&gt;&lt;a href=&quot;#一、简介&quot; class=&quot;headerlink&quot; title=&quot;一、简介&quot;&gt;&lt;/a&gt;一、简介&lt;/h1&gt;&lt;h2 id=&quot;1-什么是并发&quot;&gt;&lt;a href=&quot;#1-什么是并发&quot; class=&quot;headerlink&quot; title=&quot;1. 什么是并发&quot;&gt;&lt;/a&gt;1. 什么是并发&lt;/h2&gt;&lt;p&gt;在Java中并发就是指多线程的进程环境，进程是系统进行资源分配和调度的独立单位，每一个进程都有它的内存空间和系统资源，在同一个进程内执行的多个任务就可以看作是多个进程，线程存在于进程内，进程负责分配调度线程，线程负责执行程序，多个线程就执行多个程序。&lt;/p&gt;
-&lt;p&gt;实际上，Java程序天生就是一个多线程程序，包含了：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;分发处理发送给JVM信号的线程&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;调用对象的finalize清除方法的线程&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;清除相互引用reference的线程&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;2-为什么需要多线程&quot;&gt;&lt;a href=&quot;#2-为什么需要多线程&quot; class=&quot;headerlink&quot; title=&quot;2. 为什么需要多线程&quot;&gt;&lt;/a&gt;2. 为什么需要多线程&lt;/h2&gt;&lt;p&gt;如果没有多线程，若为了使程序并发执行，那么系统需要花费大量的时间在：创建进程–&amp;gt;撤销进程–&amp;gt;进程上下文切换调度,在这一过程中，需要的空间开销也非常大，执行效率也非常低（如下图）；若在一个进程中执行多个线程，则上面的空间开销和时间花费将会大大较少，何乐而不为呢，多线程提高了系统的执行效率，充分利用多核CPU的计算能力，提高应用性能。&lt;br&gt;&lt;img src=&quot;/images/concurrent-1-1.png&quot; alt=&quot;多线程&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java,并发" scheme="https://github.com/huahuablog/tags/java-%E5%B9%B6%E5%8F%91/"/>
-    
-  </entry>
   
   <entry>
     <title>Spring-教程-简介</title>
@@ -107,6 +47,60 @@
     
     
       <category term="Spring,教程" scheme="https://github.com/huahuablog/tags/Spring-%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java并发-首页</title>
+    <link href="https://github.com/huahuablog/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/"/>
+    <id>https://github.com/huahuablog/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/</id>
+    <published>2019-11-01T10:32:01.000Z</published>
+    <updated>2020-04-11T10:33:07.178Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2&gt;&lt;span id=&quot;简介&quot;&gt;简介：&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;基本包含了Java并发编程的知识内容同时囊括并发Concurrent包的重点源码分析，如有问题欢迎评论指出，谢谢支持！&lt;br&gt;关注微信公众号获取更多知识：当代猿&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
+    
+    
+      <category term="java,并发" scheme="https://github.com/huahuablog/tags/java-%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-并发基础-认识并发编程</title>
+    <link href="https://github.com/huahuablog/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    <id>https://github.com/huahuablog/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</id>
+    <published>2019-11-01T08:57:48.000Z</published>
+    <updated>2020-04-11T10:32:16.282Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2&gt;&lt;span id=&quot;一-基本简介&quot;&gt;一、基本简介&lt;/span&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
+    
+    
+      <category term="java,并发" scheme="https://github.com/huahuablog/tags/java-%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
