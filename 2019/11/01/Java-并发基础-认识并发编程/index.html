@@ -110,10 +110,10 @@
 <li>分发处理发送给JVM信号的线程</li>
 <li>调用对象的finalize清除方法的线程</li>
 <li>清除相互引用reference的线程</li>
-<li>main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程</li>
+<li>main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程<a id="more"></a>
+<h3><span id="为什么需要多线程">为什么需要多线程</span></h3>如果没有多线程，若为了使程序并发执行，那么系统需要花费大量的时间在：创建进程–&gt;撤销进程–&gt;进程上下文切换调度,在这一过程中，需要的空间开销也非常大，执行效率也非常低（如下图）；若在一个进程中执行多个线程，则上面的空间开销和时间花费将会大大较少，何乐而不为呢，多线程提高了系统的执行效率，充分利用多核CPU的计算能力，提高应用性能。<br><img src="https://img-blog.csdnimg.cn/20200411183436680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2><span id="二-并发编程带来的问题">二、并发编程带来的问题</span></h2></li>
 </ul>
-<h3><span id="为什么需要多线程">为什么需要多线程</span></h3><p>如果没有多线程，若为了使程序并发执行，那么系统需要花费大量的时间在：创建进程–&gt;撤销进程–&gt;进程上下文切换调度,在这一过程中，需要的空间开销也非常大，执行效率也非常低（如下图）；若在一个进程中执行多个线程，则上面的空间开销和时间花费将会大大较少，何乐而不为呢，多线程提高了系统的执行效率，充分利用多核CPU的计算能力，提高应用性能。<br><img src="https://img-blog.csdnimg.cn/20200411183436680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2><span id="二-并发编程带来的问题">二、并发编程带来的问题</span></h2><h3><span id="频繁的上下文切换问题">频繁的上下文切换问题</span></h3><p>正如上图中的时间片，时间片使CPU分配给各个线程的时间，因为时间非常短，所以CPU需要不断切换线程，让我们觉得多个线程是同时执行的，时间片一般是十几毫秒；每次切换都需要保存当前线程的状态，以便进行恢复先前的状态。这个切换是非常耗性能的，过于频繁就无法发挥出多线程编程的优势了。那么该怎么解决这频繁的上下文切换的问题的，目前有大概几种解决方法，后面会详细讨论：</p>
+<h3><span id="频繁的上下文切换问题">频繁的上下文切换问题</span></h3><p>正如上图中的时间片，时间片使CPU分配给各个线程的时间，因为时间非常短，所以CPU需要不断切换线程，让我们觉得多个线程是同时执行的，时间片一般是十几毫秒；每次切换都需要保存当前线程的状态，以便进行恢复先前的状态。这个切换是非常耗性能的，过于频繁就无法发挥出多线程编程的优势了。那么该怎么解决这频繁的上下文切换的问题的，目前有大概几种解决方法，后面会详细讨论：</p>
 <ol>
 <li>采用无锁并发编程：JDK8以前的concurrentHashMap采用的锁分段思想，不同线程处理不同段的数据，这样在多线程环境下可以减少上下文的切换时间。</li>
 <li>采用CAS算法：JDK8以后的concurrentHashMap采用的是无锁CAS算法；利用Atomic和乐观锁，可以减少一部分不必要的锁竞争带来的上下文切换。</li>
@@ -231,6 +231,11 @@
         </div>
       </a>
     
+    
+      <a href="/2019/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Java-并发理论-JMM内存模型</div>
+      </a>
     
   </nav>
 

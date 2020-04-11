@@ -106,6 +106,7 @@
 
       
       <h2><span id="一-基本简介">一、基本简介</span></h2><p>线程拥有自己的生命周期，一条线程从创建到执行完毕的过程就是线程的生命周期，那么在线程的生命周期的每个过程中可能在不同的时候处于不同的状态，用状态来描述生命周期那是最好不过了。<br>那么线程的生命周期到底有多少种状态呢，它们不同的状态又是如何通过状态的转化操作来完成线程的生命周期呢，下面就按照线程的生命周期的状态和状态之间的转换操作来详细说明。</p>
+<a id="more"></a>
 <h2><span id="二-线程的基本状态">二、线程的基本状态</span></h2><p>线程的状态没有严格的定义，可以先简单划分以下几个基本状态：<br>    <img src="https://img-blog.csdnimg.cn/20200411192919905.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>上图中的五种状态描述如下：<br>a. New（新建）状态：一个线程被创建了但未被启动就处于新建状态，即在程序中使用new Thread()创建的线程实例就处于新建状态。<br>b. Runnable(可运行)状态：创建的线程实例通过调用start（）方法之后该线程就处于可运行状态，处于此状态的线程不一定说处于运行状态，Java多线程使用的线程调度策略是抢占式调度，每个可运行线程轮着获取CPU时间片，可以想象成一个可运行线程池，start()方法就是把一个线程放进可运行线程池中，CPU按照一定规则一个个执行线程池里面的线程。<br>c. Running（运行）状态：当可运行线程获取到CPU执行时间片就立即进入运行状态。<br>d. Not Running（非运行）状态：运行中的线程因某种原因暂时放弃CPU的使用权，可能是因为只执行了挂起、睡眠或者等待操作；在执行IO操作时，由于外部设备速度远低于处理器速度也可能导致线程暂时方法CPU使用权；在获取对象的同步锁的过程中如果同步锁被其他线程获取了，这样也会导致线程暂时放弃CPU的使用权了。<br>e. Dead(死亡)状态：线程执行完run()方法的任务之后，或者因为异常而导致退出任务，线程就进入死亡状态，该状态下是不能转换成其他状态了。</p>
 <h2><span id="三-线程的状态转换">三、线程的状态转换</span></h2><p>在上面的五个状态中，是通过这些基本操作来完成状态之间的转换，基本操作配合五种状态就完成了线程的交替运行，把Not Running状态分成：Blocked（阻塞）、Waiting（等待）和Timed_Waiting(超时等待)这三个状态（以Synchronized锁及相关方法为例），如下图：<br>    <img src="https://img-blog.csdnimg.cn/20200411193016770.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <ul>

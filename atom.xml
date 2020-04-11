@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/huahuablog/"/>
-  <updated>2020-04-07T07:44:40.676Z</updated>
+  <updated>2020-04-11T11:42:53.864Z</updated>
   <id>https://github.com/huahuablog/</id>
   
   <author>
@@ -21,24 +21,11 @@
     <link href="https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"/>
     <id>https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/</id>
     <published>2020-04-06T11:33:04.000Z</published>
-    <updated>2020-04-07T07:44:40.676Z</updated>
+    <updated>2020-04-11T11:42:53.864Z</updated>
     
     <summary type="html">
     
       &lt;h1 id=&quot;spring是什么&quot;&gt;&lt;a href=&quot;#spring是什么&quot; class=&quot;headerlink&quot; title=&quot;spring是什么&quot;&gt;&lt;/a&gt;spring是什么&lt;/h1&gt;&lt;p&gt;spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。&lt;br&gt;总的来说，Spring就是用来替代更加重量级的企业级的Java技术。&lt;/p&gt;
-&lt;h1 id=&quot;spring能做什么&quot;&gt;&lt;a href=&quot;#spring能做什么&quot; class=&quot;headerlink&quot; title=&quot;spring能做什么&quot;&gt;&lt;/a&gt;spring能做什么&lt;/h1&gt;&lt;p&gt;Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性的角度而言，绝大部分Java应用都可以从Spring中受益。&lt;br&gt;spring实现了使用简单的组件将Java对象配置组合成 了一个复杂的应用，在Spring中可以使用XML和Java注解组合这些对象。Spring对JavaEE中非常难开发的一些API（JDBC、JavaMail、远程调用等），都提供了封装，大大降低了这些API的应用难度。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;轻量级：立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承诺。&lt;/li&gt;
-&lt;li&gt;非侵入式：也就是自己开发的类不依赖Spring的API接口，对现有的类结构没有影响，也能够增强JavaBean的功能  &lt;/li&gt;
-&lt;li&gt;IOC容器：spring是一个容器，因为它包含并且管理应用对象的生命周期。&lt;br&gt;降低了业务对象替换的复杂性，提高了组件之间的解耦。&lt;/li&gt;
-&lt;li&gt;一站式：在AOP和IOC的基础上可以整合出各种企业应用的开源框架和优秀的第三方类库（实际上Spring自身也提供了展现层的SpringMVC和持久层的JDBC）;&lt;br&gt;spring的高度开放性，并不强制应用完全依赖于Spring，开发者可自由选用Spring框架的部分或全部。&lt;br&gt;总的来说Spring可以简化Java的开发：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;基于POJO（也叫Java bean）轻量级和最小侵入式开发&lt;/li&gt;
-&lt;li&gt;通过IOC、依赖注入和面向接口实现松耦合&lt;/li&gt;
-&lt;li&gt;基于切面进行声明式编程&lt;/li&gt;
-&lt;li&gt;通过切面和模板来减少样板式代码&lt;/li&gt;
-&lt;/ol&gt;
     
     </summary>
     
@@ -46,7 +33,7 @@
       <category term="Spring" scheme="https://github.com/huahuablog/categories/Spring/"/>
     
     
-      <category term="Spring,教程" scheme="https://github.com/huahuablog/tags/Spring-%E6%95%99%E7%A8%8B/"/>
+      <category term="Spring" scheme="https://github.com/huahuablog/tags/Spring/"/>
     
   </entry>
   
@@ -55,17 +42,11 @@
     <link href="https://github.com/huahuablog/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/"/>
     <id>https://github.com/huahuablog/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/</id>
     <published>2019-11-01T22:47:45.000Z</published>
-    <updated>2020-04-11T11:38:38.659Z</updated>
+    <updated>2020-04-11T11:42:59.106Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2&gt;&lt;span
-        
-      
+      &lt;h2 id=&quot;一、基本简介&quot;&gt;&lt;a href=&quot;#一、基本简介&quot; class=&quot;headerlink&quot; title=&quot;一、基本简介&quot;&gt;&lt;/a&gt;一、基本简介&lt;/h2&gt;&lt;p&gt;线程拥有自己的生命周期，一条线程从创建到执行完毕的过程就是线程的生命周期，那么在线程的生命周期的每个过程中可能在不同的时候处于不同的状态，用状态来描述生命周期那是最好不过了。&lt;br&gt;那么线程的生命周期到底有多少种状态呢，它们不同的状态又是如何通过状态的转化操作来完成线程的生命周期呢，下面就按照线程的生命周期的状态和状态之间的转换操作来详细说明。&lt;/p&gt;
     
     </summary>
     
@@ -82,17 +63,11 @@
     <link href="https://github.com/huahuablog/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/"/>
     <id>https://github.com/huahuablog/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/</id>
     <published>2019-11-01T10:32:01.000Z</published>
-    <updated>2020-04-11T10:33:07.178Z</updated>
+    <updated>2020-04-11T11:43:06.145Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2&gt;&lt;span id=&quot;简介&quot;&gt;简介：&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;基本包含了Java并发编程的知识内容同时囊括并发Concurrent包的重点源码分析，如有问题欢迎评论指出，谢谢支持！&lt;br&gt;关注微信公众号获取更多知识：当代猿&lt;br&gt;&lt;img
-        
-      
+      &lt;h2 id=&quot;简介：&quot;&gt;&lt;a href=&quot;#简介：&quot; class=&quot;headerlink&quot; title=&quot;简介：&quot;&gt;&lt;/a&gt;简介：&lt;/h2&gt;&lt;p&gt;基本包含了Java并发编程的知识内容同时囊括并发Concurrent包的重点源码分析，如有问题欢迎评论指出，谢谢支持！&lt;br&gt;关注微信公众号获取更多知识：当代猿&lt;/p&gt;
     
     </summary>
     
@@ -109,7 +84,33 @@
     <link href="https://github.com/huahuablog/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     <id>https://github.com/huahuablog/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</id>
     <published>2019-11-01T08:57:48.000Z</published>
-    <updated>2020-04-11T10:35:04.412Z</updated>
+    <updated>2020-04-11T11:44:50.313Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、基本简介&quot;&gt;&lt;a href=&quot;#一、基本简介&quot; class=&quot;headerlink&quot; title=&quot;一、基本简介&quot;&gt;&lt;/a&gt;一、基本简介&lt;/h2&gt;&lt;h3 id=&quot;什么是并发&quot;&gt;&lt;a href=&quot;#什么是并发&quot; class=&quot;headerlink&quot; title=&quot;什么是并发&quot;&gt;&lt;/a&gt;什么是并发&lt;/h3&gt;&lt;p&gt;在Java中并发就是指多线程的进程环境，进程是系统进行资源分配和调度的独立单位，每一个进程都有它的内存空间和系统资源，在同一个进程内执行的多个任务就可以看作是多个进程，线程存在于进程内，进程负责分配调度线程，线程负责执行程序，多个线程就执行多个程序。&lt;br&gt;实际上，Java程序天生就是一个多线程程序，包含了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分发处理发送给JVM信号的线程&lt;/li&gt;
+&lt;li&gt;调用对象的finalize清除方法的线程&lt;/li&gt;
+&lt;li&gt;清除相互引用reference的线程&lt;/li&gt;
+&lt;li&gt;main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程
+    
+    </summary>
+    
+    
+      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
+    
+    
+      <category term="java,并发" scheme="https://github.com/huahuablog/tags/java-%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-并发理论-JMM内存模型</title>
+    <link href="https://github.com/huahuablog/2019/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://github.com/huahuablog/2019/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</id>
+    <published>2019-04-11T11:46:20.000Z</published>
+    <updated>2020-04-11T12:15:11.896Z</updated>
     
     <summary type="html">
     
@@ -117,7 +118,7 @@
       
         
         
-          &lt;h2&gt;&lt;span id=&quot;一-基本简介&quot;&gt;一、基本简介&lt;/span&gt;&lt;/h2&gt;&lt;h3&gt;&lt;span
+          &lt;h2&gt;&lt;span id=&quot;一-什么是jmm内存模型&quot;&gt;一、什么是JMM内存模型&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;Java内存模型即 Java Menory
         
       
     
