@@ -215,6 +215,7 @@ iii. 如果不相等，则说明内存值已经被其他线程修改过了，不
     <title>Spring-属性配置类-PropertyPlaceholderConfigurer</title>
     <url>/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/</url>
     <content><![CDATA[<h2><span id="是什么">是什么</span></h2><p>PropertyPlaceholderConfigurer是个bean工厂后置处理器的实现，也就是 BeanFactoryPostProcessor接口的一个实现。在bean初始化前执行的后置处理器</p>
+<a id="more"></a>
 <h2><span id="作用">作用</span></h2><p>在Spring中，使用PropertyPlaceholderConfigurer可以在XML配置文件中加入外部属性文件，当然也可以指定外部文件的编码。PropertyPlaceholderConfigurer可以将上下文（配置文 件）中的属性值放在另一个单独的标准java Properties文件中去。在XML文件中用${key}替换指定的properties文件中的值。这样的话，只需要对properties文件进 行修改，而不用对xml配置文件进行修改</p>
 <h2><span id="使用方法">使用方法</span></h2><h3><span id="编写properties文件">编写.properties文件</span></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//jdbc.properties 文件</span></span><br><span class="line">jdbc.url=jdbc:mysql:<span class="comment">//127.0.0.1:3306/ds?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;allowMultiQueries=true</span></span><br><span class="line">jdbc.username=root</span><br><span class="line">jdbc.password=root</span><br></pre></td></tr></table></figure>
 

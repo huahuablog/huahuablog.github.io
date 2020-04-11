@@ -239,17 +239,11 @@
     <link href="https://github.com/huahuablog/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/"/>
     <id>https://github.com/huahuablog/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/</id>
     <published>2020-03-11T13:18:10.000Z</published>
-    <updated>2020-04-11T13:31:52.570Z</updated>
+    <updated>2020-04-11T13:34:30.928Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2&gt;&lt;span id=&quot;是什么&quot;&gt;是什么&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;PropertyPlaceholderConfigurer是个bean工厂后置处理器的实现，也就是
-        
-      
+      &lt;h2 id=&quot;是什么&quot;&gt;&lt;a href=&quot;#是什么&quot; class=&quot;headerlink&quot; title=&quot;是什么&quot;&gt;&lt;/a&gt;是什么&lt;/h2&gt;&lt;p&gt;PropertyPlaceholderConfigurer是个bean工厂后置处理器的实现，也就是 BeanFactoryPostProcessor接口的一个实现。在bean初始化前执行的后置处理器&lt;/p&gt;
     
     </summary>
     
