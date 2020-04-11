@@ -78,7 +78,7 @@
     
     
     
-    <article id="post-Spring-教程-简介" class="article article-type-post" itemscope
+    <article id="post-Java-并发理论-对象锁（monitor）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -86,8 +86,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"
-    >Spring-教程-简介</a> 
+  <a class="article-title" href="/2020/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/"
+    >Java-并发理论-对象锁（monitor）</a> 
 </h2>
  
 
@@ -96,80 +96,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/" class="article-date">
-  <time datetime="2020-04-06T11:33:04.000Z" itemprop="datePublished">2020-04-06</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Spring/">Spring</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h1 id="spring是什么"><a href="#spring是什么" class="headerlink" title="spring是什么"></a>spring是什么</h1><p>spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。<br>总的来说，Spring就是用来替代更加重量级的企业级的Java技术。</p>
-      
-      <a class="article-more-link" href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java-并发基础-线程的基本状态和操作" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/"
-    >Java-并发基础-线程的基本状态和操作</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/" class="article-date">
-  <time datetime="2019-11-01T22:47:45.000Z" itemprop="datePublished">2019-11-02</time>
+      <a href="/2020/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/" class="article-date">
+  <time datetime="2020-11-03T12:20:37.000Z" itemprop="datePublished">2020-11-03</time>
 </a>
       
   <div class="article-category">
@@ -190,9 +118,12 @@
       
 
       
-      <h2 id="一、基本简介"><a href="#一、基本简介" class="headerlink" title="一、基本简介"></a>一、基本简介</h2><p>线程拥有自己的生命周期，一条线程从创建到执行完毕的过程就是线程的生命周期，那么在线程的生命周期的每个过程中可能在不同的时候处于不同的状态，用状态来描述生命周期那是最好不过了。<br>那么线程的生命周期到底有多少种状态呢，它们不同的状态又是如何通过状态的转化操作来完成线程的生命周期呢，下面就按照线程的生命周期的状态和状态之间的转换操作来详细说明。</p>
+      <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>Java提供了一种内置的锁机制来支持原子性和可见性，就是使用Synchronized的同步块或同步方法。在使用synchronized同步的时候，包含两部分：</p>
+<ul>
+<li>a. 一个锁对象引用</li>
+<li>b. 一块锁保护的代码块
       
-      <a class="article-more-link" href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/">阅读更多...</a>
+      <a class="article-more-link" href="/2020/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/">阅读更多...</a>
       
       
       <!-- reward -->
@@ -222,7 +153,7 @@
 
 </article>
     
-    <article id="post-Java并发-首页" class="article article-type-post" itemscope
+    <article id="post-Java-并发concurrent包-locks包" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -230,8 +161,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/"
-    >Java并发-首页</a> 
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91concurrent%E5%8C%85-locks%E5%8C%85/"
+    > Java-并发concurrent包-locks包</a> 
 </h2>
  
 
@@ -240,8 +171,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/" class="article-date">
-  <time datetime="2019-11-01T10:32:01.000Z" itemprop="datePublished">2019-11-01</time>
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91concurrent%E5%8C%85-locks%E5%8C%85/" class="article-date">
+  <time datetime="2020-04-11T12:25:14.000Z" itemprop="datePublished">2020-04-11</time>
 </a>
       
   <div class="article-category">
@@ -262,9 +193,6 @@
       
 
       
-      <h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>基本包含了Java并发编程的知识内容同时囊括并发Concurrent包的重点源码分析，如有问题欢迎评论指出，谢谢支持！<br>关注微信公众号获取更多知识：当代猿</p>
-      
-      <a class="article-more-link" href="/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/">阅读更多...</a>
       
       
       <!-- reward -->
@@ -294,7 +222,7 @@
 
 </article>
     
-    <article id="post-Java-并发基础-认识并发编程" class="article article-type-post" itemscope
+    <article id="post-Java-并发concurrent包-atomic包" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -302,8 +230,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
-    >Java-并发基础-认识并发编程</a> 
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91concurrent%E5%8C%85-atomic%E5%8C%85/"
+    >Java-并发concurrent包-atomic包</a> 
 </h2>
  
 
@@ -312,8 +240,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="article-date">
-  <time datetime="2019-11-01T08:57:48.000Z" itemprop="datePublished">2019-11-01</time>
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91concurrent%E5%8C%85-atomic%E5%8C%85/" class="article-date">
+  <time datetime="2020-04-11T12:24:08.000Z" itemprop="datePublished">2020-04-11</time>
 </a>
       
   <div class="article-category">
@@ -334,14 +262,6 @@
       
 
       
-      <h2 id="一、基本简介"><a href="#一、基本简介" class="headerlink" title="一、基本简介"></a>一、基本简介</h2><h3 id="什么是并发"><a href="#什么是并发" class="headerlink" title="什么是并发"></a>什么是并发</h3><p>在Java中并发就是指多线程的进程环境，进程是系统进行资源分配和调度的独立单位，每一个进程都有它的内存空间和系统资源，在同一个进程内执行的多个任务就可以看作是多个进程，线程存在于进程内，进程负责分配调度线程，线程负责执行程序，多个线程就执行多个程序。<br>实际上，Java程序天生就是一个多线程程序，包含了：</p>
-<ul>
-<li>分发处理发送给JVM信号的线程</li>
-<li>调用对象的finalize清除方法的线程</li>
-<li>清除相互引用reference的线程</li>
-<li>main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程
-      
-      <a class="article-more-link" href="/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">阅读更多...</a>
       
       
       <!-- reward -->
@@ -371,7 +291,7 @@
 
 </article>
     
-    <article id="post-Java-并发理论-JMM内存模型" class="article article-type-post" itemscope
+    <article id="post-Java-并发concurrent包-简介" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -379,8 +299,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2019/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"
-    >Java-并发理论-JMM内存模型</a> 
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91concurrent%E5%8C%85-%E7%AE%80%E4%BB%8B/"
+    >Java-并发concurrent包-简介</a> 
 </h2>
  
 
@@ -389,8 +309,8 @@
 
     
     <div class="article-meta">
-      <a href="/2019/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="article-date">
-  <time datetime="2019-04-11T11:46:20.000Z" itemprop="datePublished">2019-04-11</time>
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91concurrent%E5%8C%85-%E7%AE%80%E4%BB%8B/" class="article-date">
+  <time datetime="2020-04-11T12:23:51.000Z" itemprop="datePublished">2020-04-11</time>
 </a>
       
   <div class="article-category">
@@ -411,128 +331,424 @@
       
 
       
-      <h2><span id="一-什么是jmm内存模型">一、什么是JMM内存模型</span></h2><p>Java内存模型即 Java Menory Model，简称JMM。JMM定义了Java虚拟机（JVM）在计算机内存（RAM）中的工作方法。JVM是整个计算机虚拟模型，所以JMM隶属于JVM的。<br>    Java内存模型定义了多线程之间共享变量的可见性以及如何在需要的时候对共享变量进行同步。原始的Java内存模型效率并不是很理想，因此在Java1.5版本对其进行了重构，现在的Java8仍沿用了1.5的版本。 模型如下：<br><img src="https://img-blog.csdnimg.cn/20200411194726969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2><span id="二-java内存模型与并发编程的关系">二、Java内存模型与并发编程的关系</span></h2><p>如果想要深入了解Java并发编程，就要先理解好Java内存模型。</p>
-<h3><span id="并发编程的模型分类">并发编程的模型分类</span></h3><p>总共分成两类：</p>
-<ul>
-<li>共享内存并发模型</li>
-<li>消息传递并发模型</li>
-</ul>
-<h3><span id="在并发编程中的关键问题">在并发编程中的关键问题</span></h3><ul>
-<li>线程之间如何通信</li>
-<li>线程之间如何同步</li>
-</ul>
-<p>通信是指线程之间以何种机制来交换信息，在命令式编程中（编程主要分类：允许有副作用的命令式编程，不允许有副作用的函数式编程和不描述操作执行顺序的声明式编程），线程之间的通信机制有两种：</p>
-<ul>
-<li>共享内存：在共享内存的并发模型里，线程之间共享程序的公共状态（共享变量），线程之间通过写-读内存中的公共状态来隐式进行通信。</li>
-<li>消息传递：在消息传递的并发模型里，线程之间没有公共状态，线程之间必须通过明确的发送消息来显式进行通信</li>
-</ul>
-<p>同步是指程序用于控制不同线程之间操作发生相对顺序的机制，有两种方式：</p>
-<ul>
-<li>共享内存：同步是显式进行的。程序员必须显式指定某个方法或某段代码需要在线程之间互斥执行。</li>
-<li>消息传递：由于消息的发送必须在消息的接收之前，因此同步是隐式进行的。</li>
-</ul>
-<p>Java里面的并发就是采用共享内存的并发模型，Java线程之间的通信总是隐式进行，整个通信过程对程序员是完全透明的（即你是看不见就发生了并发过程）。</p>
-<h3><span id="java的并发模型采用的是共享内存模型">Java的并发模型采用的是共享内存模型</span></h3><p>Java线程之前的通信总是隐式进行的，整个通信过程对程序员完全透明。如果编写多线程程序不理解隐式进行的线程之间通信的工作机制，很可能会遇到各种奇怪的内存可见性问题。</p>
-<h2><span id="三-java内存模型的抽象">三、Java内存模型的抽象</span></h2><p>在Java中的共享变量有：所有实例域和数组元素存储在堆内存中，堆内存在线程之间共享（方法区也是线程共享，方法区保存类信息【类名称，方法，字段属性】，常量和静态变量 ）。局部变量、方法定义参数和异常处理器参数不会再线程之间共享，他们不会有内存可见性的问题，也不受内存模型的影响。<br>Java线程之间的通信由Java内存模型（JMM）控制。JMM决定了一个线程对共享变量的写入时对另一个线程可见。从抽象的角度来看，JMM定义了线程与主内存之间的抽象关系，线程之间的共享变量存储在主内存中，每一个线程都有一个自己私有的本地内存，本地内存中存储了该变量以读/写共享变量的副本。本地内存是JMM的一个抽象概念，并不是真实存在。<br>JMM抽象模型图：<br>        <img src="https://img-blog.csdnimg.cn/20200411195125640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>从图上看，如果线程A要和线程B通信的话，所经历的步骤是：</p>
-<ul>
-<li>线程A需要将本地内存A中的共享变量副本刷新到主内存中去</li>
-</ul>
-<ul>
-<li>线程B去主内存中读取线程A之前已经更新过的共享内存</li>
-</ul>
-<p>步骤图：<br>        <img src="https://img-blog.csdnimg.cn/20200411195255403.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>整体看，这两个步骤实质上是线程A在向线程B发送消息，而这个通信过程必须经过主内存。JMM通过控制主内存与每个线程的本地内存之间的交互，来为我们提供内存的可见性保证。</p>
-<h3><span id="重排序带来的并发问题">重排序（带来的并发问题）</span></h3><p>在执行程序时为了提高性能，编译器和处理器常常会对指令做重排序。重排序分三类：</p>
-<ul>
-<li>编译器优化的重排序（编译器重排序）。编译器在不改变单线程程序语义的前提下，可以重新安排语句的执行顺序</li>
-<li>指令级并行的重排序（处理器重排序）。现代处理器<br>采用了指令级并行技术将多条指令重叠执行。如果不存在数据依赖性，处理器可以改变语句对应及其指令的执行顺序。</li>
-<li>内存系统的重排序（处理器重排序）。由于处理器使用缓存和读写缓存，这使得加载和存储操作看上去可能是在乱序执行。<br><img src="https://img-blog.csdnimg.cn/20200411195837536.png" alt="在这里插入图片描述"><br>上面的重排序可能会导致多线程程序出现内存可见性问题，对于编译器，JMM的编译器重排序规则则会禁止特定类型的编译器重排序（并不是所有的编译器重排序都要禁止），对于处理器重排序，JMM的处理器重排序规则会要求Java编译器在生成指令序列时，插入特定类型的内存屏障指令，通过内存屏障来禁止特定类型的处理器重排序（不是所有的处理器重排序都要禁止）。<br> JMM属于语言级的内存模型，它确保在不同的编译器和不同处理器平台上，通过禁止特定类型的编译器重排序和处理器重排序，为我们提供一致的内存可见性保证。还有就是重排序（包括编译器和处理器重排序）必须遵守as-if-serial规则（解决编译器重排序问题），该语义也就是说不管怎么排序，单线程程序执行的结果都不能改变；让人感觉单线程程序是按程序的顺序执行的，如果多个线程操作之间没有数据的依赖性则是允许重排序的，但是如果存在数据的依赖，则不会重排序的，这一点的问题是有保证的，所以现在的主要问题是，处理器使用缓存来读写数据，会导致数据读取不一，带来一种代码指令被重排序的感觉，对于共享变量，很容易出现问题。</li>
-</ul>
-<h4><span id="编译器重排序">编译器重排序</span></h4><p>编译器重排序的定义为：如果两个操作它们之间没有任何的依赖关系，也就是说A操作的结果和B操作的结果相互间没有任何的影响，此时编译器就可以对这两个操作进行重排序，如果两个操作共同操作一个共享变量，其中有一个操作为写，那么它们两是有数据依赖性的，从重排序会对最终执行结果产生影响，所以编译器重排序（也包括处理器重排序）都会遵循数据依赖性，编译器和处理器不会改变存在依赖关系的两个操作的执行顺序</p>
-<h4><span id="处理器重排序">处理器重排序</span></h4><p>现在的处理器使用写缓冲区来临时保存向内存写入的数据。写缓存区可有保证指令流水想般持续运行，它可以避免由于处理器停顿下来等待向内存写入数据而产生的延迟，同时通过批处理方式刷新写缓存区，以及合并写缓存区中对同一内存地址的多次写，可以减少对内存总线的占用，。虽然写缓存区有这么多的好处，但是每个处理器上的写缓存区，仅仅对它所在的处理器可见，这个特性会对内存操作的执行顺序产生重要的影响：处理器对内存的读写操作的执行顺序，不一定与内存实际发生的读写操作顺序是一致的。<br>举个例子：a，b变量为共享变量，两个处理器项目访问共享变量。<br><img src="https://img-blog.csdnimg.cn/20200411200004201.png" alt="在这里插入图片描述"><br> 初始状态：a=b=0;<br>处理器允许执行后可能得到的结果：x=y=0;<br>具体原因如下图：<br>    <img src="https://img-blog.csdnimg.cn/20200411200042338.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">        </p>
-<p>出现的一个执行顺序：<br>处理器A和处理器B同时把共享变量写入在写缓冲区中（A1，B1步骤），然后再从主内存中读取另一个共享变量的值（A2,B2步骤），最后才把自己写缓冲区中保存的脏数据刷新到主内存中（A3,B3步骤）。但最后执行下来就会得到一个结果：x=y=0。<br>    从实际理想的发生的顺序来看，正常执行顺序是这样的：<br>    直到处理器A执行了A3步骤之后已经刷新自己的写内存，写操作A1才算真正被执行，然后接着读A2。即发生的顺序：A1-&gt;A2.<br>    但内存操作实际发生这种可能：A2–&gt;A1。此时处理器A的内存操作顺序被重排序了。由于写缓存区仅对自己的处理器可见，它会导致处理器执行内存操作的顺序可能会与内存实际的操作执行顺序不一样。由于现在的处理器都会使用写缓存区，因此都会允许对读写操作指令进行重排序。</p>
-<h3><span id="内存屏障指令解决处理器重排序问题">内存屏障指令（解决处理器重排序问题）</span></h3><p>为了解决上面说的重排序问题，需要保证内存的可见性，可以使用内存屏障来达到这个效果，通过在适当位置插入内存屏障指令来禁止特定类型的处理器重排序。JMM把内存屏障指令分为以下四类：</p>
-<ul>
-<li>a. LoadLoad屏障<br> 适用场景：Load1;LoadLoad;Load2<br> Load1和Load2代表两条读指令。在Load2读取指令装载之前，确保Load1读指令已经装载完毕。</li>
-<li>b. StoreStore屏障<br>适用场景：Store1;StoreStore;Store2<br>Store1和Store2代表两条写指令。在Store2写指令的存储之前（刷新到内存中），确保Store1写指令的数据对其他处理器可见（刷新到内存中）</li>
-<li>c. LoadStore屏障<br> 适用场景：Load1；LoadStore；Store2<br> 在Store2写指令的存储之前（刷新到内存中），确保Load1读指令已经装载读取完毕。</li>
-<li>d. StoreLoad屏障<br>使用场景：Store1;StoreLoad;Load2<br>在Load2读指令装载之前，确保Store1写指令的数据对其他处理器可见（刷新到内存中），开销最大；该屏障会使之前的所有内存访问指令（存储和状态指令）完成之后，才执行该屏障之后的内存访问指令。</li>
-</ul>
-<h3><span id="happens-before规则定义两个操作之间的执行顺序利用内存屏障指令提供内存可见性的保障">happens-before规则（定义两个操作之间的执行顺序，利用内存屏障指令提供内存可见性的保障）</span></h3><p>JSR-133内存模型使用happens-before的概念来阐述操作之间的内存可见性。在JMM中，如果一个操作执行的结果需要对另外一个操作可见，那么这两个操作之间必须要存在happens-before关系。这里提到的两个操作可以是一个线程内的，也可以是不同线程之内的。<br>与程序员密切相关的happens-before规则（共有八大规则）如下：<br>(注意，两个操作之间具有happens-before关系，并不意味这一个操作必须在后一个操作之前执行，happens-before仅仅要求前一个操作（执行的结果）对后一个操作可见。且前一个操作（执行的结果）按顺序排在第二个操作之前。)</p>
-<ul>
-<li>a.程序顺序规则：两个操作之间存在happens-before关系，那么第一个操作的结果对第二个操作可见并且第一个操作的执行顺序在第二个操作之前。</li>
-<li>b. 监视器锁规则：对于一个监视器的解锁，happens-before于随后这个监视器的加锁。</li>
-<li>c. volatile变量规则：对于一个volatile域的写，happens-before于任意后续对这个volatile域的读。</li>
-<li>d.  传递性规则：如果 A  happens-before B,且B happens-before C,则A<br>happens-before C.</li>
-<li>e.start()规则：如果线程A执行操作ThreadB.start()（启动线程B），那么A线程的ThreadB.start()操作happens-before于线程B中的任意操作。</li>
-<li>f.join()规则：如果线程A执行操作ThreadB.join()并成功返回，那么线程B中的任意操作happens-before于线程A从ThreadB.join()操作成功返回。</li>
-<li>g. 程序中断规则：对线程interrupted()方法的调用先行于被中断线程的代码检测到中断时间的发生。</li>
-<li>h. 对象finalize规则：一个对象的初始化完成（构造函数执行结束）先行于发生它的finalize()方法的开始。</li>
-</ul>
-<h3><span id="总结一下">总结一下</span></h3><p>解决重排序问题主要两种规则：as-if-serial（解决编译器重排序）和happens-before（解决处理器重排序）</p>
-<ul>
-<li>a.As-if-serial规则保证单线程程序的执行结果不被改变，happens-before规则保证正确同步的多线程程序的执行结果不会被改变</li>
-<li>b.as-if-serial规则给我们一种感觉：单线程程序是按照程序顺序来执行的，而happens-before规则是正确同步的多线程程序是按照happens-before指定的顺序来执行的，</li>
-<li>c. as-if-serial和happens-before规则都是为了在不改变程序执行结果的前提下，尽可能的提高程序的执行并行度。            </li>
-</ul>
-<h2><span id="四-jmm在实际开发中遇到的问题及解决方法">四、JMM在实际开发中遇到的问题及解决方法</span></h2><p>当对象和变量存储到计算机的各个内存区域时，必然会面临一些问题，其中最主要有两个问题：</p>
-<ul>
-<li><p>a. 共享对象对各个线程的可见性（使用volatile关键字解决）</p>
-</li>
-<li><p>b. 共享对象的竞争现象（使用同步锁解决）</p>
-</li>
-</ul>
-<p>我们在实际的多线程开发中需要从原子性、可见性、有序性这三方面进行考虑，有序性的话JMM已经帮我们基本优化了，重点看一下原子性和可见性</p>
-<h3><span id="共享对象的可见性锁以synchronized为例">共享对象的可见性（锁以synchronized为例）</span></h3><p>当多个线程同时操作一个共享对象时，如果没有合理的使用volatile和synchronized关键字，一个线程对共享对象的更新有可能导致其他线程不可见。 我们的共享对象存储在主内存中，一个CPU的线程去读取主内存的数据到CPU缓存中，然后对共享内存做了更改，但CPU缓存中的更改后的对象还没有刷新到主内存中，此时其他线程对共享对象的更改是不可见的，最终每个线程都会拷贝共享变量位于不同的CPU缓存中。要解决这个可见性问题，我们可以使用Java volatile关键字，volatile关键字可以保证共享变量会直接从主内存中读取，而对共享变量也会直接写到主内存中去。volatile原理是基于CPU内存屏障实现的。</p>
-<h3><span id="竞争现象锁以sybchronized为例">竞争现象（锁以sybchronized为例）</span></h3><p>如果多个线程共享一个对象，它们同时修改这个共享对象，这就产生了竞争关系。例如线程A和线程B共享一个对象，线程A从主内存中读取共享对象到CPU缓存中，同时，线程B也同时读取共享对象到它的CPU缓存中，线程A和B同时对该共享变量做相同的操作（如同时进行+1操作，对象初始值为1），不管线程A或B有没有刷新到主内存中，并行执行，结果都会出错（相加了两次，结果却为2）。要解决这种竞争关系问题，我们可以使用java中的synchronized代码块，synchronized代码块可以保证同一时刻只有一个线程进入到代码竞争区，synchronized代码块也能保证代码块中所有变量都是从主内存中读，当线程退出的时候，对所有变量的更新都将会flush到之内存中，不管这些变量是不是volatile类型的。</p>
-<h3><span id="volatile和锁synchronizedlock">volatile和锁（synchronized，Lock）</span></h3><p>对于一个volatile变量的单个读/写操作，与对一个普通变量的读写操作使用同一个锁来同步，它们之间的执行效果时相同的（因为它们都是从主内存中读写变量的）。<br>相同点：</p>
-<ul>
-<li>a.可见性。锁的happens-before规则是保证释放锁和获取锁的两个线程之间的内存可见性，这跟volatile的可见性是一样的：对于一个volatile变量的读，总能看到（任意线程）对这个volatile变量最后的写入。</li>
-<li>b.原子性。锁的语义（同步）就决定了临界区代码的执行具有原子性，跟volatile一样，对于volatile变量的读取也具有原子性，但是对于多个volatile操作（类似于volatile++这种复合操作）就不具备原子性。</li>
-</ul>
-<p>（原子性就是在执行的过程中不会被中断，一次执行的，不会被其他线程干扰）</p>
-<p>不同点：</p>
-<ul>
-<li>c. volatile：读写内存定义<br> 当读一个volatile变量的时候，JMM会把线程对应的本地内存置为无效，线程将从主内存中读取共享变量。<br> 当写一个volatile变量的时候，JMM会把该线程对应的本地内存中的共享变量刷新到主内存中。</li>
-</ul>
-<p>volatile语义的实现：<br>为了实现volatile的内存语义，编译器在生成字节码时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。<br>基于保守策略的JMM内存屏障插入策略：</p>
-<ul>
-<li>a. 在每个volatile写操作的前面插入一个StoreStore屏障</li>
-<li>b. 在每个volatile写操作的后面插入一个StoreLoad屏障</li>
-<li>c. 在每个volatile读操作的后面插入一个LoadLoad屏障</li>
-<li>d. 在每个volatile读操作的后面插入一个LoadStore屏障</li>
-</ul>
-<p>因为确保写操作内存可见，所以前面的写和后面的读写都不能重排序（按照原来的顺序来执行）<br>因为确保别的线程读正确，所以后面的读写指令都不能重排序（必须确保volatile读完后才操作，为了可见性）<br>具体插入内存屏障后生成的指令示意图如下：<br>    <img src="https://img-blog.csdnimg.cn/20200411200926802.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>这种volatile读写操作的内存屏障是非常保守的，在实际执行过程中，只要不改变volatile读写的定义，编译器可以根据具体情况省略不必要的屏障。</p>
-<ul>
-<li>d. 锁：锁释放和锁获取的内存定义<br>当线程释放锁时，JMM会把该线程对应的本地内存中的共享变量刷新到主内存中。<br>当线程获取锁时，JMM会把该线程对应的本地内存置为无效，从而使得被监视器保护的临界区代码必须从主内存中读取共享变量。</li>
-</ul>
-<p>锁内存定义的实现：<br>锁有很多，包括ReentrantLock，Synchronized，公平锁，非公平锁，AQS等等，现在借助ReentrantLock来说明一下锁内存定义的实现。<br>首先是concurrent包的实现：<br>如果我们仔细分析concurrent包的源代码实现，会发现一个通用化的实现模式：</p>
-<ul>
-<li>a. 首先声明共享变量为volatile</li>
-<li>b. 然后使用CAS的原子条件更新来实现线程之同步</li>
-<li>c. 同时配合以volatile的读写和CAS所具有的volatile读和写的内存语义来实现线程之间的通信</li>
-<li>d. AQS</li>
-<li>e. 非阻塞数据结构和原子变量类（java.util.concurrent.atomic包中的类）</li>
-</ul>
-<p>这些concurrent包中的基础类都是使用这种模式来实现的，而concurrent包中的高层类又是依赖这些基础类来实现的。从整体来看，concurrent包的实现示意图如下：<br>    <img src="https://img-blog.csdnimg.cn/20200411201135105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2><span id="五-总结">五、总结</span></h2><h3><span id="jmm的设计示意图">JMM的设计示意图</span></h3><p><img src="https://img-blog.csdnimg.cn/20200411201319944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<ul>
-<li>a.JMM向程序员提供的happens-before规则能满足程序员的需求。JMM的happens-before规则不但简单易懂，而且也向程序员提供了足够强的内存可见性保证（有些内存可见性保证其实并不一定真实存在，比如上面的A<br>happens-before B）。</li>
-<li>b.<br>JMM对编译器和处理器的束缚已经尽可能少。从上面的分析可以看出，JMM其实是在遵循一个基本原则：只要不改变程序的执行结果（指的是单线程程序和正确同步的多线程程序），编译器和处理器怎么优化都行。例如，如果编译器经过细致的分析后，认定一个锁只会被单个线程访问，那么这个锁可以被消除。再如，如果编译器经过细致的分析后，认定一个volatile变量只会被单个线程访问，那么编译器可以把这个volatile变量当作一个普通变量来对待。这些优化既不会改变程序的执行结果，又能提高程序的执行效率。</li>
-</ul>
-<h3><span id="java程序的内存可见性保证">Java程序的内存可见性保证</span></h3><ul>
-<li><p>a.单线程程序。单线程程序不会出现内存可见性问题。编译器、runtime和处理器会共同确保单线程程序的执行结果与该程序在顺序一致性模型中的执行结果相同</p>
-</li>
-<li><p>b.正确同步多线程程序。正确的同步多线程与该程序在顺序一致性内存模型中执行的结果相同。JMM通过限制编译器和处理器的重排序来为我们提供内存可见性保证。</p>
-</li>
-<li><p>c.未同步/未正确同步的多线程程序。JMM为它们提供了最小的安全保证：线程执行时读取到的值，要么是之前某个线程写入的值，要么是默认值（0，null，false）。</p>
-<p> <img src="https://img-blog.csdnimg.cn/20200411201341702.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">        </p>
-</li>
-</ul>
-<h3><span id="最后">最后</span></h3><p>从上面内存抽象结构来说，可能出在数据“脏读”的现象，这就是数据可见性的问题，另外，重排序在多线程中不注意的话也容易存在一些问题，比如一个很经典的问题就是DCL（双重检验锁），这就是需要禁止重排序，另外，在多线程下原子操作例如i++不加以注意的也容易出现线程安全的问题。但总的来说，在多线程开发时需要从原子性，有序性，可见性三个方面进行考虑。J.U.C包下的并发工具类和并发容器也是需要花时间去掌握的。</p>
-<p>附录：<br>硬件内存架构<br>不管什么内存模型最终还是运行在硬件上，我们必须了解一个计算机的硬件内存。计算机架构图：<br><img src="https://img-blog.csdnimg.cn/2020041120135981.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>现在计算机都有多个CPU,每个CPU又有多个核心，多线程就可以在各个不同的CPU核心中运行。<br>在CPU内部有一组CPU寄存器，也就是CPU的存储器，CPU操作寄存器的速度要比操作计算机的主内存快得多，所以为了提高效能，主内存和寄存器之间就存在一个CPU缓冲区，CPU操作缓冲区的速度快于主内存但慢于CPU寄存器，某些CPU可能有多个缓存区（一级缓存和二级缓存）。计算机的主内存也叫RAM，所有的CPU都能访问主内存，主内存比CPU缓存和CPU寄存器还要大得多。<br>当一个CPU需要访问主内存的时候，会先读取一部分主内存数据到CPU缓存，进而再读取CPU缓存到CPU寄存器。<br>当CPU需要写数据到主内存时，同样也会先flush寄存器到CPU缓存，然后再在某些节点把缓存数据flush到主内存中。<br>Java内存模型和硬件内存架构之间的桥接<br>    <img src="https://img-blog.csdnimg.cn/20200411201410856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Java内存模型和硬件内存架构并不一样，硬件内存架构并没有区分栈和堆，从硬件上看，不管时栈还是堆，大部分数据都会存到主内存中，还可能一部分堆和栈数据存在CPU寄存器上。</p>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
 
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-源码分析-Thread类" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-Thread%E7%B1%BB/"
+    >Java-并发理论-源码分析-Thread类</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-Thread%E7%B1%BB/" class="article-date">
+  <time datetime="2020-04-11T12:23:13.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-Thread类" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-Thread%E7%B1%BB/"
+    >Java-并发理论-Thread类</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-Thread%E7%B1%BB/" class="article-date">
+  <time datetime="2020-04-11T12:22:47.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-三大特性" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/"
+    >Java-并发理论-三大特性</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="article-date">
+  <time datetime="2020-04-11T12:22:25.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-关键字-final" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/"
+    >Java-并发理论-关键字-final</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/" class="article-date">
+  <time datetime="2020-04-11T12:21:52.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-关键字-volatile" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/"
+    >Java-并发理论-关键字-volatile</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/" class="article-date">
+  <time datetime="2020-04-11T12:21:26.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-关键字-synchronized" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/"
+    >Java-并发理论-关键字-synchronized</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/" class="article-date">
+  <time datetime="2020-04-11T12:21:00.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="一、什么是Synchronized"><a href="#一、什么是Synchronized" class="headerlink" title="一、什么是Synchronized"></a>一、什么是Synchronized</h2><p>这个可以参考一下介绍：Java-并发理论-JMM内存模型：volatile和锁（synchronized，ReentrantLock）。<br>Synchronized关键字主要是用来解决多线程的线程安全问题的。是一种同步机制。那么这些安全性问题主要是来源JMM内存模型中主内存和线程的工作内存带来共享变量的可见性问题，以及重排序带来的问题；Java中的关键字synchronized同步机制就具备解决这些共享数据的线程安全问题，但是这种同步机制的效率很低，但是synchronized是其他并发容器实现的基础，理解它会提高并发编程有很大帮助。</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/">阅读更多...</a>
+      
       
       <!-- reward -->
       
@@ -564,6 +780,11 @@
   </article>
   
 
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
 </section>
 </div>

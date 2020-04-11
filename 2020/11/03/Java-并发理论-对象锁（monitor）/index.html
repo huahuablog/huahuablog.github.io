@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Spring-教程-简介 |  当代猿
+    Java-并发理论-对象锁（monitor） |  当代猿
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -39,7 +39,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-Spring-教程-简介" class="article article-type-post" itemscope
+  <article id="post-Java-并发理论-对象锁（monitor）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -47,7 +47,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Spring-教程-简介
+  Java-并发理论-对象锁（monitor）
 </h1>
  
 
@@ -56,12 +56,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/" class="article-date">
-  <time datetime="2020-04-06T11:33:04.000Z" itemprop="datePublished">2020-04-06</time>
+      <a href="/2020/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/" class="article-date">
+  <time datetime="2020-11-03T12:20:37.000Z" itemprop="datePublished">2020-11-03</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Spring/">Spring</a>
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
   </div>
 
       
@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2k</span>
+            <span class="post-count">2.8k</span>
         </span>
     </span>
 
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">7 分钟</span>
+            <span class="post-count">9 分钟</span>
         </span>
     </span>
 </div>
@@ -105,31 +105,44 @@
       
 
       
-      <h1><span id="spring是什么">spring是什么</span></h1><p>spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。<br>总的来说，Spring就是用来替代更加重量级的企业级的Java技术。</p>
-<a id="more"></a>
-<h1><span id="spring能做什么">spring能做什么</span></h1><p>Spring框架是由于软件开发的复杂性而创建的。Spring使用的是基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅仅限于服务器端的开发。从简单性、可测试性和松耦合性的角度而言，绝大部分Java应用都可以从Spring中受益。<br>spring实现了使用简单的组件将Java对象配置组合成 了一个复杂的应用，在Spring中可以使用XML和Java注解组合这些对象。Spring对JavaEE中非常难开发的一些API（JDBC、JavaMail、远程调用等），都提供了封装，大大降低了这些API的应用难度。</p>
+      <h2><span id="一-简介">一、简介</span></h2><p>Java提供了一种内置的锁机制来支持原子性和可见性，就是使用Synchronized的同步块或同步方法。在使用synchronized同步的时候，包含两部分：</p>
 <ul>
-<li>轻量级：立于各种应用服务器，基于Spring框架的应用，可以真正实现Write Once，Run Anywhere的承诺。</li>
-<li>非侵入式：也就是自己开发的类不依赖Spring的API接口，对现有的类结构没有影响，也能够增强JavaBean的功能  </li>
-<li>IOC容器：spring是一个容器，因为它包含并且管理应用对象的生命周期。<br>降低了业务对象替换的复杂性，提高了组件之间的解耦。</li>
-<li>一站式：在AOP和IOC的基础上可以整合出各种企业应用的开源框架和优秀的第三方类库（实际上Spring自身也提供了展现层的SpringMVC和持久层的JDBC）;<br>spring的高度开放性，并不强制应用完全依赖于Spring，开发者可自由选用Spring框架的部分或全部。<br>总的来说Spring可以简化Java的开发：</li>
+<li>a. 一个锁对象引用</li>
+<li>b. 一块锁保护的代码块<a id="more"></a>     
+例如：</li>
 </ul>
-<ol>
-<li>基于POJO（也叫Java bean）轻量级和最小侵入式开发</li>
-<li>通过IOC、依赖注入和面向接口实现松耦合</li>
-<li>基于切面进行声明式编程</li>
-<li>通过切面和模板来减少样板式代码</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//1.同步代码块</span></span><br><span class="line">	<span class="keyword">synchronized</span>（锁对象引用）&#123;</span><br><span class="line"><span class="comment">//锁保护的代码块</span></span><br><span class="line">&#125;</span><br><span class="line">	<span class="comment">//2.同步方法</span></span><br><span class="line">	<span class="comment">//2.1锁对象引用就是被修饰方法所在的实例对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//方法体就是同步代码块</span></span><br><span class="line"> &#125;</span><br><span class="line">	<span class="comment">//2.2如果是静态方法</span></span><br><span class="line">	<span class="comment">//锁对象引用就是被修饰方法所在的Class对象</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//方法体就是同步代码块</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>每个Java对象都可以用作一个实现同步的锁，因为每个Java对象都内置了一把锁，这种锁称之为内置锁或者监视器锁（monitor），俗称对象锁。</p>
+<h2><span id="二-对象的内置锁特征">二、对象的内置锁特征</span></h2><ol>
+<li>互斥性<br> 同一时间最多只能有一个线程持有这种锁。<br> 线程尝试获取一个被其他线程持有的内置锁，该线程必须等待（自旋）或者阻塞（自旋策略失效），并且请求内置锁被阻塞的线程不能被中断。</li>
+<li>可重入性<br>如果某个线程试图获取一个已经由它持有的内置锁，那么这个请求就会成功。<br>实现原理为：为每个锁关联一个获取计数值和锁持有者线程，当计数值为0，表示这个锁没有被任何线程持有，当一个线程请求一个未被持有的锁时，JVM会将锁持有者线程（该线程）设置为请求线程，并且将计数值置为1，如果同一个线程再次请求这个锁，则计数值自增1，退出同步方法会同步块计数值将自减1，如果计数值减为0则这个锁会被释放。</li>
 </ol>
-<h1><span id="spring为什么出现">spring为什么出现</span></h1><p><img src="/images/Spring-1-1.png" alt="B/S结构"><br>这张图上展示了一个基于SSH,B/S结构的单体Java应用的搭建过程，首先通过浏览器进入到Filter拦截器，进入到Structs2，通过Service层进入到Hibernate，从而进行操作数据库，若整个过程都是由SpringIOC容器控制就显得那么简单了。说白了就是为了简化复杂的操作过程，减少问题的出现。这张图向我们展示了一个比较基础的JavaWeb的搭建过程。万变不离其宗，后来使用的SSM框架，现在比较火的微服务架构，都离不开这张图上展示的内容所提供给大家的思想。每个框架的实现宗旨都是一样的，只不过实现的方式不一样。其实在这个框架最初的时候应该是以JSP+Servlet比较常用，后来为了解决前后端分离的问题，降低耦合度。将这些功能结构按照MVC分层实现。<br>个人的理解MVC为一种程序设计思想，可以很多场合使用到，从Web、后端、移动端在很多的场合下将MVC作为一种程序设计思想应该是比较恰当的。</p>
-<h1><span id="spring结构体系模块化">spring结构体系（模块化）</span></h1><p><img src="/images/Spring-1-2.png" alt="Spring结构"></p>
-<h2><span id="核心容器">核心容器</span></h2><p>核心容器由spring-core，spring-beans，spring-context，spring-context-support和spring-expression（SpEL，Spring表达式语言，Spring Expression Language）等模块组成，它们的细节如下：<br>-** spring-core模块**提供了框架的基本组成部分，包括 IoC容器 和依赖注入功能。</p>
-<p>-** spring-beans 模块**提供 BeanFactory，工厂模式的微妙实现，它移除了编码式单例的需要，并且可以把配置和依赖从实际编码逻辑中解耦。</p>
-<p>-** context模块**建立在由core和 beans 模块的基础上建立起来的，它以一种类似于JNDI注册的方式访问对象。Context模块继承自Bean模块，并且添加了国际化（比如，使用资源束）、事件传播、资源加载和透明地创建上下文（比如，通过Servelet容器）等功能。Context模块也支持Java EE的功能，比如EJB、JMX和远程调用等。ApplicationContext接口是Context模块的焦点。spring-context-support提供了对第三方库集成到Spring上下文的支持，比如缓存（EhCache, Guava, JCache）、邮件（JavaMail）、调度（CommonJ, Quartz）、模板引擎（FreeMarker, JasperReports, Velocity）等。</p>
-<p>-<strong>spring-expression模块</strong>提供了强大的表达式语言，用于在运行时查询和操作对象图。它是JSP2.1规范中定义的统一表达式语言的扩展，支持set和get属性值、属性赋值、方法调用、访问数组集合及索引的内容、逻辑算术运算、命名变量、通过名字从Spring IoC容器检索对象，还支持列表的投影、选择以及聚合等。</p>
-<p>它们的完整依赖关系如下图所示：<br><img src="/images/Spring-1-3.png" alt="Spring依赖关系图"><br><img src="/images/Spring-1-4.png" alt="Spring关系"></p>
-<h2><span id="数据访问集成">数据访问/集成</span></h2><p>数据访问/集成层包括 JDBC，ORM，OXM，JMS 和事务处理模块，它们的细节如下：<br>注：JDBC=Java Data Base Connectivity，ORM=Object Relational Mapping，OXM=Object XML Mapping，JMS=Java Message Service）<br>• JDBC 模块提供了JDBC抽象层，它消除了冗长的JDBC编码和对数据库供应商特定错误代码的解析。<br>• ORM 模块提供了对流行的对象关系映射API的集成，包括JPA、JDO和Hibernate等。通过此模块可以让这些ORM框架和spring的其它功能整合，比如前面提及的事务管理。<br>• OXM 模块提供了对OXM实现的支持，比如JAXB、Castor、XML Beans、JiBX、XStream等。<br>• JMS 模块包含生产（produce）和消费（consume）消息的功能。从Spring 4.1开始，集成了spring-messaging模块。。<br>• 事务模块为实现特殊接口类及所有的 POJO 支持编程式和声明式事务管理。（注：编程式事务需要自己写beginTransaction()、commit()、rollback()等事务管理方法，声明式事务是通过注解或配置由spring自动处理，编程式事务粒度更细）</p>
-<h2><span id="web">Web</span></h2><p>Web 层由 Web，Web-MVC，Web-Socket 和 Web-Portlet 组成，它们的细节如下：<br>• Web 模块提供面向web的基本功能和面向web的应用上下文，比如多部分（multipart）文件上传功能、使用Servlet监听器初始化IoC容器等。它还包括HTTP客户端以及Spring远程调用中与web相关的部分。。<br>• Web-MVC 模块为web应用提供了模型视图控制（MVC）和REST Web服务的实现。Spring的MVC框架可以使领域模型代码和web表单完全地分离，且可以与Spring框架的其它所有功能进行集成。<br>• Web-Socket 模块为 WebSocket-based 提供了支持，而且在 web 应用程序中提供了客户端和服务器端之间通信的两种方式。<br>• Web-Portlet 模块提供了用于Portlet环境的MVC实现，并反映了spring-webmvc模块的功能。</p>
-<h2><span id="其他">其他</span></h2><p>还有其他一些重要的模块，像 AOP，Aspects，Instrumentation，Web 和测试模块，它们的细节如下：<br>• AOP 模块提供了面向方面的编程实现，允许你定义方法拦截器和切入点对代码进行干净地解耦，从而使实现功能的代码彻底的解耦出来。使用源码级的元数据，可以用类似于.Net属性的方式合并行为信息到代码中。<br>• Aspects 模块提供了与 AspectJ 的集成，这是一个功能强大且成熟的面向切面编程（AOP）框架。<br>• Instrumentation 模块在一定的应用服务器中提供了类 instrumentation 的支持和类加载器的实现。<br>• Messaging 模块为 STOMP 提供了支持作为在应用程序中 WebSocket 子协议的使用。它也支持一个注解编程模型，它是为了选路和处理来自 WebSocket 客户端的 STOMP 信息。<br>• 测试模块支持对具有 JUnit 或 TestNG 框架的 Spring 组件的测试。</p>
+<h2><span id="三-对象锁的原理实现">三、对象锁的原理实现</span></h2><p>Synchronized关键字其实就是实现对象内置锁的方式。<br>在线程进入同步代码块之前会获取对象的monitor，也就是获取到对象的锁；在退出同步代码块的时候（正常返回或者异常退出）都会自动释放对象的锁。<br>它是怎么识别这些同步代码块的呢？<br>当声明 synchronized 代码块时，编译而成的字节码将包含 monitorenter 和 monitorexit 指令。这两种指令均会消耗操作数栈上的一个引用类型的元素（例如 synchronized 关键字括号里的锁对象引用），作为所要加锁和解锁的锁对象。<br>它是怎么知道对象锁的位置（在哪加锁和解锁的呢）？<br>无非就是类似对对象的一个标志，那么这个标志就是存放在Java对象的对象头。Java对象头里的Mark Word里默认的存放的对象的Hashcode,分代年龄和锁标记位。32为JVM Mark Word默认存储结构为：<br><img src="https://img-blog.csdnimg.cn/20200411202956609.png" alt="在这里插入图片描述"><br>如图在Mark Word会默认存放hasdcode，年龄值以及锁标志位等信息。<br>Java SE 1.6中，锁一共有4种状态，级别从低到高依次是：无锁状态、偏向锁状态、轻量级锁状态和重量级锁状态，这几个状态会随着竞争情况逐渐升级。锁可以升级但不能降级，意味着偏向锁升级成轻量级锁后不能降级成偏向锁。这种锁升级却不能降级的策略，目的是为了提高获得锁和释放锁的效率。对象的MarkWord变化为下图：<br><img src="https://img-blog.csdnimg.cn/20200411203022822.png" alt="在这里插入图片描述"><br>如果互斥性造成被互斥的线程怎么处理<br>一般先通过自旋处理，如果自旋处理失败了就会阻塞线程。<br>自旋的实现原理就是，如果线程请求获取监视器锁失败，并不立刻阻塞线程，而是让线程执行一个忙循环（自旋）。自旋之后再次尝试获取锁。如果获取锁失败，这个过程会循环一定次数，超过某个阀值，如果还是获取不到锁，才阻塞线程。自旋可以通过-XX:+UserSpinning参数来开启，自旋的次数通过-XX:PreBlockSpin来更改（默认是10）。<br>自旋虽然避免了线程切换的损耗，但是需要占用处理器时间。自旋的效果取决于锁被占用的时间，如果锁被占用的时间很短，自旋等待的效果就会很好，反之，自旋只会白白消耗处理器资源，带来性能上的损耗。<br>JDK1.6引入了自适应的自旋锁。<br>对象头标记字段的锁状态的转化<br><img src="https://img-blog.csdnimg.cn/20200411203036721.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><span id="四-对象锁的分类">四、对象锁的分类</span></h2><h3><span id="偏向锁">偏向锁</span></h3><p>偏向锁的目的也是消除无竞争条件下的同步原语。偏向锁会偏向于第一个获取到它的线程，如果在获取到锁之后的过程中，没有发生锁竞争，那么持有偏向锁的线程将永远不需要再进行同步。相比轻量级锁，偏向锁能够消除轻量级锁多次加锁的CAS操作。<br>大多数情况下，锁不仅不存在多线程竞争，而且总是由同一线程多次获得，为了让线程获得锁的代价更低而引入了偏向锁。</p>
+<ul>
+<li>a. 偏向锁的获取</li>
+</ul>
+<p>具体来说，在线程进行加锁时，如果该锁对象支持偏向锁，那么 JVM会通过 CAS 操作，将当前线程的ID记录在锁对象的标记字段之中，并且将标记字段的锁标志位置为“01”，即偏向模式。<br>如果操作成功，在接下来的运行过程中，每当有线程请求这把锁，Java 虚拟机只需判断锁对象标记字段中：最后三位是否为 101，是否包含当前线程的ID，以及 epoch 值是否和锁对象的类的 epoch 值相同。如果都满足，那么当前线程持有该偏向锁，可以直接返回。<br>当有另外的线程尝试获取这个锁时，偏向模式宣告结束。如果当前对存于未锁定状态，撤销偏向恢复至未锁定（标记字段的锁标志位为“01”）。如果处于锁定状态，则升级为轻量级锁（标记字段的锁标志位为“00”），后续的同步操作便按照轻量级锁的规则来进行。</p>
+<ul>
+<li>b. 偏向锁的撤销</li>
+</ul>
+<p>偏向锁使用了一种等到竞争出现才释放锁的机制，所以当其他线程尝试竞争偏向锁时，持有偏向锁的线程才会释放锁。<br><img src="https://img-blog.csdnimg.cn/2020041120320646.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如图，偏向锁的撤销，需要等待全局安全点（在这个时间点上没有正在执行的字节码）。它会首先暂停拥有偏向锁的线程，然后检查持有偏向锁的线程是否活着，如果线程不处于活动状态，则将对象头设置成无锁状态；如果线程仍然活着，拥有偏向锁的栈会被执行，遍历偏向对象的锁记录，栈中的锁记录和对象头的Mark Word要么重新偏向于其他线程，要么恢复到无锁或者标记对象不适合作为偏向锁，最后唤醒暂停的线程。<br>下图线程1展示了偏向锁获取的过程，线程2展示了偏向锁撤销的过程。<br><img src="https://img-blog.csdnimg.cn/20200411203219732.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>c. 偏向锁的失效</li>
+</ul>
+<p>偏向锁在Java 6和Java 7里是默认启用的，但是它在应用程序启动几秒钟之后才激活，如有必要可以使用JVM参数来关闭延迟：-XX:BiasedLockingStartupDelay=0。如果你确定应用程序里所有的锁通常情况下处于竞争状态，可以通过JVM参数关闭偏向锁：-XX:-UseBiasedLocking=false，那么程序默认会进入轻量级锁状态。<br>如果某一类锁对象的总撤销数超过了一个阈值（对应JVM参数-XX:BiasedLockingBulkRebiasThreshold，默认为 20），那么 JVM会宣布这个类的偏向锁失效。<br>如果总撤销数超过另一个阈值（对应 JVM参数 -XX:BiasedLockingBulkRevokeThreshold，默认值为 40），那么 Java 虚拟机会认为这个类已经不再适合偏向锁。此时，Java 虚拟机会撤销该类实例的偏向锁，并且在之后的加锁过程中直接为该类实例设置轻量级锁。</p>
+<h3><span id="轻量级锁">轻量级锁</span></h3><p>轻量级锁的目标是在没有多线程的竞争下，减少重量级锁使用的操作系统互斥量产生的性能消耗。</p>
+<ul>
+<li>a. 加锁</li>
+</ul>
+<p>当进行加锁操作时，JVM会判断是否已经是重量级锁。如果不是，它会在当前线程的当前栈桢中划出一块空间，作为该锁的锁记录（Lock Record），并且将锁对象的标记字段复制到该锁记录中。<br>然后，JVM会尝试用 CAS（compare-and-swap）操作将锁对象的标记字段替换为锁记录的指针。如果操作成功，那么这个线程就获取了这个对象的锁，并且标记字段的锁标志位转变为“00”，表示该锁处于轻量级锁定状态。如果标记字段替换操作失败，表示其他线程竞争锁，当前线程便尝试使用自旋来获取锁。JVM会先检查对象的标记字段是否指向当前线程的栈帧，如果是表明当前线程已经持有了该对象的锁。否则说明这个对象的锁已经被其它线程所持有了，这时，轻量级锁膨胀为重量级锁，锁的标记字段的锁标志位变为“10”，标记字段存储的就是指向重量级锁（互斥量）的指针，后面的线程要进入阻塞状态。</p>
+<ul>
+<li>b. 解锁</li>
+</ul>
+<p>轻量级解锁时，会使用原子的CAS操作将Displaced Mark Word替换回到对象头，如果成功，则表示没有竞争发生。如果失败，表示当前锁存在竞争，锁就会膨胀成重量级锁。下图是两个线程同时争夺锁，导致锁膨胀的流程图。<br><img src="https://img-blog.csdnimg.cn/20200411203341249.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>因为自旋会消耗CPU，为了避免无用的自旋（比如获得锁的线程被阻塞住了），一旦锁升级成重量级锁，就不会再恢复到轻量级锁状态。当锁处于这个状态下，其他线程试图获取锁时，都会被阻塞住，当持有锁的线程释放锁之后会唤醒这些线程，被唤醒的线程就会进行新一轮的夺锁之争。</p>
+<h3><span id="重量级锁">重量级锁</span></h3><p>重量级锁是 JVM中传统的锁实现。在这种状态下，Java 虚拟机会阻塞加锁失败的线程，并且在目标锁被释放的时候，唤醒这些线程。</p>
+<h2><span id="五-各种锁的比较">五、各种锁的比较</span></h2><p><img src="https://img-blog.csdnimg.cn/20200411203352349.png" alt="在这里插入图片描述"></p>
 
       
       <!-- reward -->
@@ -198,14 +211,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/huahuablog/2020/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-%E5%B9%B6%E5%8F%91/" rel="tag">java,并发</a></li></ul>
 
 
     </footer>
@@ -216,19 +229,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Java-并发理论-关键字-synchronized
-          
-        </div>
-      </a>
     
-    
-      <a href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="article-nav-link">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91concurrent%E5%8C%85-locks%E5%8C%85/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Java-并发理论-JMM内存模型</div>
+        <div class="article-nav-title"> Java-并发concurrent包-locks包</div>
       </a>
     
   </nav>
