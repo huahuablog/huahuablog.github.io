@@ -235,6 +235,33 @@
   </entry>
   
   <entry>
+    <title>Spring-属性配置类-PropertyPlaceholderConfigurer</title>
+    <link href="https://github.com/huahuablog/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/"/>
+    <id>https://github.com/huahuablog/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/</id>
+    <published>2020-03-11T13:18:10.000Z</published>
+    <updated>2020-04-11T13:31:52.570Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2&gt;&lt;span id=&quot;是什么&quot;&gt;是什么&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;PropertyPlaceholderConfigurer是个bean工厂后置处理器的实现，也就是
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spring" scheme="https://github.com/huahuablog/categories/Spring/"/>
+    
+    
+      <category term="Spring-属性配置类" scheme="https://github.com/huahuablog/tags/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java-动态代理</title>
     <link href="https://github.com/huahuablog/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
     <id>https://github.com/huahuablog/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</id>
@@ -383,27 +410,6 @@
     
     
       <category term="Conllection集合" scheme="https://github.com/huahuablog/tags/Conllection%E9%9B%86%E5%90%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-并发理论-JMM内存模型</title>
-    <link href="https://github.com/huahuablog/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"/>
-    <id>https://github.com/huahuablog/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</id>
-    <published>2019-11-02T11:46:20.000Z</published>
-    <updated>2020-04-11T12:44:55.985Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、什么是JMM内存模型&quot;&gt;&lt;a href=&quot;#一、什么是JMM内存模型&quot; class=&quot;headerlink&quot; title=&quot;一、什么是JMM内存模型&quot;&gt;&lt;/a&gt;一、什么是JMM内存模型&lt;/h2&gt;&lt;p&gt;Java内存模型即 Java Menory Model，简称JMM。JMM定义了Java虚拟机（JVM）在计算机内存（RAM）中的工作方法。JVM是整个计算机虚拟模型，所以JMM隶属于JVM的。&lt;br&gt;    Java内存模型定义了多线程之间共享变量的可见性以及如何在需要的时候对共享变量进行同步。原始的Java内存模型效率并不是很理想，因此在Java1.5版本对其进行了重构，现在的Java8仍沿用了1.5的版本。 模型如下：&lt;br&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20200411194726969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java,并发" scheme="https://github.com/huahuablog/tags/java-%E5%B9%B6%E5%8F%91/"/>
     
   </entry>
   
