@@ -256,6 +256,27 @@
   </entry>
   
   <entry>
+    <title>SpringMVC-教程-简介</title>
+    <link href="https://github.com/huahuablog/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"/>
+    <id>https://github.com/huahuablog/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/</id>
+    <published>2020-02-11T13:42:53.000Z</published>
+    <updated>2020-04-11T16:02:46.728Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一、spring-mvc运行原理&quot;&gt;&lt;a href=&quot;#一、spring-mvc运行原理&quot; class=&quot;headerlink&quot; title=&quot;一、spring mvc运行原理&quot;&gt;&lt;/a&gt;一、spring mvc运行原理&lt;/h2&gt;&lt;p&gt;Spring的模型-视图-控制器（MVC）框架是围绕一个DispatcherServlet来设计的，这个Servlet会把请求分发给各个处理器，并支持可配置的处理器映射、视图渲染、本地化、时区与主题渲染等，甚至还能支持文件上传。&lt;br&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/2020041123510668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="SpringMVC" scheme="https://github.com/huahuablog/categories/SpringMVC/"/>
+    
+    
+      <category term="SpringMVC-简介" scheme="https://github.com/huahuablog/tags/SpringMVC-%E7%AE%80%E4%BB%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java-动态代理</title>
     <link href="https://github.com/huahuablog/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
     <id>https://github.com/huahuablog/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</id>
@@ -385,25 +406,6 @@
     
     
       <category term="Map集合" scheme="https://github.com/huahuablog/tags/Map%E9%9B%86%E5%90%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java容器-Conllection-总览</title>
-    <link href="https://github.com/huahuablog/2020/01/11/Java%E5%AE%B9%E5%99%A8-Conllection-%E6%80%BB%E8%A7%88/"/>
-    <id>https://github.com/huahuablog/2020/01/11/Java%E5%AE%B9%E5%99%A8-Conllection-%E6%80%BB%E8%A7%88/</id>
-    <published>2020-01-11T13:05:07.000Z</published>
-    <updated>2020-04-11T13:09:21.240Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java容器" scheme="https://github.com/huahuablog/categories/Java%E5%AE%B9%E5%99%A8/"/>
-    
-    
-      <category term="Conllection集合" scheme="https://github.com/huahuablog/tags/Conllection%E9%9B%86%E5%90%88/"/>
     
   </entry>
   
