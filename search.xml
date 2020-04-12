@@ -4,7 +4,7 @@
     <title>SpringMVC-教程-自定义全局异常处理</title>
     <url>/2020/04/13/SpringMVC-%E6%95%99%E7%A8%8B-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h2><span id="一-说明">一、说明</span></h2><p>SpringMVC中的异常处理总览：<br><img src="https://img-blog.csdnimg.cn/20200412235824891.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<a id="more"></a>
+<a id="more"></a>     
 <h2><span id="二-实现自定义全局异常处理">二、实现自定义全局异常处理</span></h2><p>在Web应用中，有时候我们在对客户端请求进行处理的时候，在响应的过程中往往会出现各种各样的异常，比如在业务层捕获到的异常等等，有些异常对应web应用来说不能单纯的往上抛或者随便处理一下，如果这样做都会影响客户端的体验效果的，我们需要做的是就是正确的捕获并处理这些异常信息，用正确的方式响应给客户端，让客户端知道哪里出问题了，这样我们就不能单单做局部异常管理了，需要做统一的异常处理，在SpringMVC中就提供了一个接口：HandlerExceptionResolver，让我们去实现自定义全局异常处理。<br>基本步骤：</p>
 <ol>
 <li><p>实现HandlerExceptionResolver接口</p>
