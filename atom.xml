@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/huahuablog/"/>
-  <updated>2020-04-11T12:34:50.480Z</updated>
+  <updated>2020-04-12T16:06:58.250Z</updated>
   <id>https://github.com/huahuablog/</id>
   
   <author>
@@ -17,26 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java-并发理论-对象锁（monitor）</title>
-    <link href="https://github.com/huahuablog/2020/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/"/>
-    <id>https://github.com/huahuablog/2020/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/</id>
-    <published>2020-11-03T12:20:37.000Z</published>
-    <updated>2020-04-11T12:34:50.480Z</updated>
+    <title>SpringMVC-教程-自定义全局异常处理</title>
+    <link href="https://github.com/huahuablog/2020/04/13/SpringMVC-%E6%95%99%E7%A8%8B-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
+    <id>https://github.com/huahuablog/2020/04/13/SpringMVC-%E6%95%99%E7%A8%8B-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</id>
+    <published>2020-04-12T16:04:35.000Z</published>
+    <updated>2020-04-12T16:06:58.250Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;一、简介&quot;&gt;&lt;a href=&quot;#一、简介&quot; class=&quot;headerlink&quot; title=&quot;一、简介&quot;&gt;&lt;/a&gt;一、简介&lt;/h2&gt;&lt;p&gt;Java提供了一种内置的锁机制来支持原子性和可见性，就是使用Synchronized的同步块或同步方法。在使用synchronized同步的时候，包含两部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;a. 一个锁对象引用&lt;/li&gt;
-&lt;li&gt;b. 一块锁保护的代码块
+      
+      
+        
+        
+          &lt;h2&gt;&lt;span id=&quot;一-说明&quot;&gt;一、说明&lt;/span&gt;&lt;/h2&gt;&lt;p&gt;SpringMVC中的异常处理总览：&lt;br&gt;&lt;img
+        
+      
     
     </summary>
     
     
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
+      <category term="SpringMVC" scheme="https://github.com/huahuablog/categories/SpringMVC/"/>
     
     
-      <category term="java,并发" scheme="https://github.com/huahuablog/tags/java-%E5%B9%B6%E5%8F%91/"/>
+      <category term="SpringMVC-异常处理" scheme="https://github.com/huahuablog/tags/SpringMVC-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
