@@ -106,7 +106,6 @@
 
       
       <h2><span id="一-spring-mvc运行原理">一、spring mvc运行原理</span></h2><p>Spring的模型-视图-控制器（MVC）框架是围绕一个DispatcherServlet来设计的，这个Servlet会把请求分发给各个处理器，并支持可配置的处理器映射、视图渲染、本地化、时区与主题渲染等，甚至还能支持文件上传。<br><img src="https://img-blog.csdnimg.cn/2020041123510668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<a id="more"></a>
 <ul>
 <li>(1) Http请求：客户端请求提交到DispatcherServlet。</li>
 <li>(2)寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。</li>
@@ -124,9 +123,8 @@
 <h3><span id="contextloaderlistener">ContextLoaderListener</span></h3><p>在讲ContextLoaderListener之前，首先来了解一下web.xml的作用。</p>
 <ul>
 <li>一个web中可以没有web.xml文件，也就是说，web.xml文件并不是web工程必须的。web.xml文件是用来初始化配置信息：比如Welcome页面、servlet、servlet-mapping、filter、listener、启动加载级别等。当你的web工程没用到这些时，你可以不用web.xml文件来配置你的Application。</li>
-<li>当要启动某个web项目时，服务器软件或容器如（tomcat）会第一步加载项目中的web.xml文件，通过其中的各种配置来启动项目，只有其中配置的各项均无误时，项目才能正确启动。web.xml有多项标签，在其加载的过程中顺序依次为：context-param&gt;&gt; listener &gt;&gt; fileter &gt;&gt; servlet​。（同类多个节点以出现顺序依次加载）</li>
+<li>当要启动某个web项目时，服务器软件或容器如（tomcat）会第一步加载项目中的web.xml文件，通过其中的各种配置来启动项目，只有其中配置的各项均无误时，项目才能正确启动。web.xml有多项标签，在其加载的过程中顺序依次为：context-param&gt;&gt; listener &gt;&gt; fileter &gt;&gt; servlet​。（同类多个节点以出现顺序依次加载）<br><img src="https://img-blog.csdnimg.cn/20200412161931698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们来看一下SpringMVC中的web.xml配置<br><img src="https://img-blog.csdnimg.cn/20200412161944853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
 </ul>
-<p>我们来看一下SpringMVC中的web.xml配置<br><img src="https://img-blog.csdnimg.cn/20200411235427210.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>其中ContextLoaderListener监听器它实现了ServletContextListener这个接口，在web.xml配置这个监听器，启动容器时，就会默认执行它实现的方法。在ContextLoaderListener中关联了ContextLoader这个类，所以整个加载配置过程由ContextLoader来完成。</p>
 <h3><span id="contextloaderlistener在webxml中的配置">ContextLoaderListener在web.xml中的配置</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	&lt;!-- 配置contextConfigLocation初始化参数 --&gt;</span><br><span class="line">&lt;context-param&gt;</span><br><span class="line">	&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;/WEB-INF/applicationContext.xml&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br><span class="line">	&lt;!-- 配置ContextLoaderListerner --&gt;</span><br><span class="line">&lt;listener&gt;</span><br><span class="line">        &lt;listener-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">context</span>.<span class="title">ContextLoaderListener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
 

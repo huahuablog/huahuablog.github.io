@@ -260,11 +260,17 @@
     <link href="https://github.com/huahuablog/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"/>
     <id>https://github.com/huahuablog/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/</id>
     <published>2020-02-11T13:42:53.000Z</published>
-    <updated>2020-04-11T16:02:46.728Z</updated>
+    <updated>2020-04-12T08:20:18.970Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;一、spring-mvc运行原理&quot;&gt;&lt;a href=&quot;#一、spring-mvc运行原理&quot; class=&quot;headerlink&quot; title=&quot;一、spring mvc运行原理&quot;&gt;&lt;/a&gt;一、spring mvc运行原理&lt;/h2&gt;&lt;p&gt;Spring的模型-视图-控制器（MVC）框架是围绕一个DispatcherServlet来设计的，这个Servlet会把请求分发给各个处理器，并支持可配置的处理器映射、视图渲染、本地化、时区与主题渲染等，甚至还能支持文件上传。&lt;br&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/2020041123510668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+      
+      
+        
+        
+          &lt;h2&gt;&lt;span id=&quot;一-spring-mvc运行原理&quot;&gt;一、spring
+        
+      
     
     </summary>
     
