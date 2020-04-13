@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="个人博客网站，记录学习点滴" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Tomcat-教程-server.xml配置文件 |  当代猿
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="当代猿" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-Tomcat-教程-server-xml配置文件" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Tomcat-教程-server.xml配置文件
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-server-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="article-date">
+  <time datetime="2020-04-13T13:30:13.000Z" itemprop="datePublished">2020-04-13</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Tomcat/">Tomcat</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">3.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">13 分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2><span id="思维导图-总览">思维导图-总览</span></h2><p><img src="/images/tomcat-server.xml.png" alt="思维导图"></p>
+<h2><span id="一-目前tomcat8的serverxml配置">一、目前tomcat8的server.xml配置：</span></h2><p>该配置文件描述了如何启动Tomcat 服务以及怎么处理请求服务。</p>
+<a id="more"></a>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;Server port=<span class="string">"8005"</span> shutdown=<span class="string">"SHUTDOWN"</span>&gt;</span><br><span class="line">  &lt;Listener className=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span><br><span class="line">  &lt;Listener className=<span class="string">"org.apache.catalina.core.AprLifecycleListener"</span> SSLEngine=<span class="string">"on"</span> /&gt;</span><br><span class="line">  &lt;Listener className=<span class="string">"org.apache.catalina.core.JreMemoryLeakPreventionListener"</span> /&gt;</span><br><span class="line">  &lt;Listener className=<span class="string">"org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"</span> /&gt;</span><br><span class="line">  &lt;Listener className=<span class="string">"org.apache.catalina.core.ThreadLocalLeakPreventionListener"</span> /&gt;</span><br><span class="line">  &lt;GlobalNamingResources&gt;</span><br><span class="line">    &lt;Resource name=<span class="string">"UserDatabase"</span> auth=<span class="string">"Container"</span></span><br><span class="line">              type=<span class="string">"org.apache.catalina.UserDatabase"</span></span><br><span class="line">              description=<span class="string">"User database that can be updated and saved"</span></span><br><span class="line">              factory=<span class="string">"org.apache.catalina.users.MemoryUserDatabaseFactory"</span></span><br><span class="line">              pathname=<span class="string">"conf/tomcat-users.xml"</span> /&gt;</span><br><span class="line">  &lt;/GlobalNamingResources&gt;</span><br><span class="line">  &lt;Service name=<span class="string">"Catalina"</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;Connector port=<span class="string">"8080"</span> protocol=<span class="string">"HTTP/1.1"</span></span><br><span class="line">               connectionTimeout=<span class="string">"20000"</span></span><br><span class="line">               redirectPort=<span class="string">"8443"</span> /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;Connector port=<span class="string">"8009"</span> protocol=<span class="string">"AJP/1.3"</span> redirectPort=<span class="string">"8443"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;Engine name=<span class="string">"Catalina"</span> defaultHost=<span class="string">"localhost"</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      &lt;Realm className=<span class="string">"org.apache.catalina.realm.LockOutRealm"</span>&gt;</span><br><span class="line">        &lt;Realm className=<span class="string">"org.apache.catalina.realm.UserDatabaseRealm"</span></span><br><span class="line">               resourceName=<span class="string">"UserDatabase"</span>/&gt;</span><br><span class="line">      &lt;/Realm&gt;</span><br><span class="line"></span><br><span class="line">      &lt;Host name=<span class="string">"localhost"</span>  appBase=<span class="string">"webapps"</span></span><br><span class="line">            unpackWARs=<span class="string">"true"</span> autoDeploy=<span class="string">"true"</span>&gt;</span><br><span class="line">	&lt;Logger&gt;</span><br><span class="line">	&lt;Context&gt;</span><br><span class="line">        &lt;Valve className=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> directory=<span class="string">"logs"</span></span><br><span class="line">               prefix=<span class="string">"localhost_access_log"</span> suffix=<span class="string">".txt"</span></span><br><span class="line">               pattern=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span> /&gt;</span><br><span class="line"></span><br><span class="line">      &lt;/Host&gt;</span><br><span class="line">    &lt;/Engine&gt;</span><br><span class="line">  &lt;/Service&gt;</span><br><span class="line">&lt;/Server&gt;</span><br></pre></td></tr></table></figure>
+
+<h2><span id="二-根据上面的配置文件tomcat-server的结构图">二、根据上面的配置文件，tomcat server的结构图</span></h2><p><img src="https://img-blog.csdnimg.cn/20200413215547844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><span id><img src="https://img-blog.csdnimg.cn/20200413215640150.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="三、配置文件的各个标签及属性说明"></span></h2><h2><span id="四-serverxml标签元素详解">四、server.xml标签元素详解</span></h2><h3><span id="server标签元素">Server标签元素</span></h3><p>server标签代表着这个容器，但自身并不是一个”container”容器，不能在里面定义其他像Loggers等组件，它是tomcat实例的顶层元素，由org.apache.catalina.Server接口定义，其使用的默认className是：org.apache.catalina.core.StandarServer类。它包含<service>元素，并且它不能作为任何元素的子元素。<br>    一个server是一个提供完整的JVM的独立组件，它可以包含一个或者多个Service实例。server服务器再指定的端口上监听shutdown命令。</service></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Server port=<span class="string">"8005"</span> shutdown=<span class="string">"SHUTDOWN"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>上面表示：启动server,在端口8005处等待关闭命令，如果接收到“SHUTDOWN”字符串则关闭服务器。<br>测试一下：<br>我们先启动tomcat服务器：<br>    <img src="https://img-blog.csdnimg.cn/20200413222005468.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>然后在cmd命令控制台上连接8005端口：telnet localhost 8005<br>然后输入：SHUTDOWN 按回车就会发现启动的tomcat被关闭了。</p>
+<h3><span id="service标签元素">Service标签元素</span></h3><p>该元素由org.apache.catalina.Service接口定义，默认实现类是org.apache.catalina.StandardService类；它包含一个<engine>元素以及多个connector元素，这些connector元素共享同一个Engine元素。<br>        Service name=”Catalina”:表示处理所有直接由tomcat服务器接收到的web客户请求。<br>        Service name=”Apache”:表示处理所有由Apache服务器转发过来的web客户请求。</engine></p>
+<h3><span id="connector标签元素">Connector标签元素</span></h3><p>由connector接口定义，该元素代表与客户端实际交互的组件，它负责接受客户端请求，以及向客户端返回响应结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 一个“Connector”（连接器）代表一个请求被接收和应答所需要的端点。每个连</span><br><span class="line">	        接器通过相关的“Container”（容器）处理请求。</span><br><span class="line">	         </span><br><span class="line">	         默认情况下，一个非SSL的HTTP/<span class="number">1.1</span>的连接器被绑定在端口<span class="number">8080</span>。你也可以通过</span><br><span class="line">	         根据后面的使用说明并取消第二个连接器入口的注释，在端口<span class="number">8443</span>上建立一个</span><br><span class="line">	         SSL HTTP/<span class="number">1.1</span>的连接器。开放SSL支持需要下面几步（参见Tomcat <span class="number">5</span>文档中怎样</span><br><span class="line">	         配置SSL的说明以取得更多的详细信息）：</span><br><span class="line">	         * 如果你的JDK是<span class="number">1.3</span>或<span class="number">1.3</span>以前的版本，下载安装JSSE <span class="number">1.0</span><span class="number">.2</span>或以后版本，并放</span><br><span class="line">	           置JAR文件到“$JAVA_HOME/jre/lib/ext”目录下。</span><br><span class="line">	         * 带一个“changeit”的口令值执行：</span><br><span class="line">	             %JAVA_HOME%\bin\keytool -genkey -alias tomcat -<span class="function">keyalg <span class="title">RSA</span> <span class="params">(Windows)</span></span></span><br><span class="line"><span class="function">	             $JAVA_HOME/bin/keytool -genkey -alias tomcat -keyalg <span class="title">RSA</span> <span class="params">(UNIX)</span></span></span><br><span class="line"><span class="function">	           来生成它自己的证书私钥。</span></span><br><span class="line"><span class="function">	           </span></span><br><span class="line"><span class="function">	         默认情况下，当一个web应用程序调用请求时，DNS查询是可行的。这将对性能造</span></span><br><span class="line"><span class="function">	         成一些不利的影响，因此，你可以将“enableLookups”设置为“<span class="keyword">false</span>”来关闭DNS</span></span><br><span class="line"><span class="function">	         查询。当DNS查询被关闭时，request.<span class="title">getRemoteHost</span><span class="params">()</span>将返回包含远程客户IP地</span></span><br><span class="line"><span class="function">	         址的字符串。</span></span><br><span class="line"><span class="function">	  --&gt;</span></span><br><span class="line"><span class="function">	&lt;!-- Coyote HTTP/1.1 Connector</span></span><br></pre></td></tr></table></figure>
+<p>className : 该Connector的实现类是org.apache.coyote.tomcat4.CoyoteConnector<br>port : 在端口号8080处侦听来自客户browser的HTTP1.1请求.如果把8080改成80,则只要输入<a href="http://localhost/即可" target="_blank" rel="noopener">http://localhost/即可</a><br> protocol:设定Http协议,默认值为HTTP/1.1<br>    minSpareThreads: 该Connector先创建5个线程等待客户请求，每个请求由一个线程负责</p>
+<p>maxSpareThread:设定在监听端口的线程的最大数目,这个值也决定了服务器可以同时响应客户请求的最大数目.默认值为200</p>
+<p> acceptCount : 当现有线程已经达到最大数75时，为客户请求排队.当队列中请求数超过100时，后来的请求返回Connection refused错误</p>
+<p>redirectport : 当客户请求是https时，把该请求转发到端口8443去<br> enableLookups:如果设为true,表示支持域名解析,可以把IP地址解析为主机名.WEB应用中调用request.getRemoteHost方法返回客户机主机名.默认值为true<br>connectionTimeout:定义建立客户连接超时的时间.如果为-1,表示不限制建立客户连接的时间<br>    allowTrace：是否允许HTTP的TRACE方法，默认为false<br>emptySessionPath：如果设置为true，用户的所有路径都将设置为/，默认为false。<br>    enableLookups：调用request、getRemoteHost()执行DNS查询，以返回远程主机的主机名，如果设置为false，则直接返回IP地址。<br>    maxPostSize：指定POST方式请求的最大量，没有指定默认为2097152。<br>    protocol：值必须为HTTP1.1，如果使用AJP处理器，该值必须为AJP/1.3<br>    proxyName：如这个连接器正在一个代理配置中被使用，指定这个属性，在request.getServerName()时返回<br>    redirectPort：如连接器不支持SSL请求，如收到SSL请求，Catalina容器将会自动重定向指定的端口号，让其进行处理。<br>    scheme：设置协议的名字，在request.getScheme()时返回，SSL连接器设为”https”，默认为”http”<br>    secure：在SSL连接器可将其设置为true，默认为false<br>    URIEncoding：用于解码URL的字符编码，没有指定默认值为ISO-8859-1<br>    useBodyEncodingForURI：主要用于Tomcat4.1.x中，指示是否使用在contentType中指定的编码来取代URIEncoding，用于解码URI查询参数，默认为false<br>    xpoweredBy：为true时，Tomcat使用规范建议的报头表明支持Servlet的规范版本，默认为false<br>    acceptCount：当所有的可能处理的线程都正在使用时，在队列中排队请求的最大数目。当队列已满，任何接收到的请求都会被拒绝，默认值为10<br>    bufferSize：设由连接器创建输入流缓冲区的大小，以字节为单位。默认情况下，缓存区大的大小为2048字节<br>    compressableMimeType：MIME的列表，默认以逗号分隔。默认值是text/html，text/xml，text/plain<br>    compression：指定是否对响应的数据进行压缩。off：表示禁止压缩、on：表示允许压缩（文本将被压缩）、force：表示所有情况下都进行压缩，默认值为off<br>    connectionTimeout：设置连接的超时值，以毫秒为单位。默认值为60000=60秒<br>    disableUploadTimeOut：允许Servlet容器，正在执行使用一个较长的连接超时值，以使Servlet有较长的时间来完成它的执行，默认值为false<br>    maxHttpHeaderSize：HTTP请求和响应头的最大量，以字节为单位，默认值为4096字节<br>    maxKeepAliveRequest：服务器关闭之前，客户端发送的流水线最大数目。默认值为100<br>    maxSpareThreads：允许存在空闲线程的最大数目，默认值为50<br>    minSpareThreads：设当连接器第一次启协创建线程的数目，确保至少有这么多的空闲线程可用。默认值为4<br>    port：服务端套接字监听的TCP端口号，默认值为8080（必须）<br>    socketBuffer：设Socket输出缓冲区的大小（以字节为单位），-1表示禁止缓冲，默认值为9000字节<br>    toNoDelay：为true时，可以提高性能。默认值为true<br>    threadPriority：设JVM中请求处理线程优先级。默认值为NORMAL-PRIORITY<br>    例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector </span><br><span class="line">port=<span class="string">"8080"</span> maxHttpHeaderSize=<span class="string">"8192"</span> maxThreads=<span class="string">"150"</span> minSpareThreads=<span class="string">"25"</span> maxSpareThreads=<span class="string">"75"</span> enableLookups=<span class="string">"false"</span></span><br><span class="line">redirectPort=<span class="string">"8443"</span> acceptCount=<span class="string">"100"</span> connectionTimeout=<span class="string">"20000"</span> disableUploadTimeout=<span class="string">"true"</span> /&gt; </span><br><span class="line">AJP连接器：</span><br><span class="line">用于将Apache与Tomcat集成在一起，当Apache接收到动态内容请求时，通过在配置中指定的端口号将请求发送给在此端口号上监听的AJP连接器组件。</span><br><span class="line">属性：</span><br><span class="line">backlog：当所有可能的请求处理线程都在使用时，队列中排队的请求最大数目。默认为<span class="number">10</span>，当队列已满，任何请求都将被拒绝</span><br><span class="line">maxSpareThread：允许存在空闲线程的最大数目，默认值为<span class="number">50</span></span><br><span class="line">maxThread：最大线程数，默认值为<span class="number">200</span></span><br><span class="line">minSpareThreads：设当连接器第一次启动时创建线程的数目，确保至少有这么多的空闲线程可用，默认值为<span class="number">4</span></span><br><span class="line">port：服务端套接字的TCP端口号，默认值为<span class="number">8089</span>（必须）</span><br><span class="line">topNoDelay：为<span class="keyword">true</span>时，可以提高性能，默认值为<span class="keyword">true</span></span><br><span class="line">soTimeout：超时值</span><br><span class="line">例：</span><br><span class="line">&lt;!—Define an AJP1<span class="number">.3</span> Connector on port <span class="number">8089</span>--&gt;</span><br><span class="line">&lt;Connector port=”<span class="number">8089</span>” enableLookups=”<span class="keyword">false</span>” redirectPort=”<span class="number">8443</span>” protocol=”AJP/<span class="number">1.3</span>” /&gt;</span><br><span class="line"></span><br><span class="line">--&gt;</span><br><span class="line"></span><br><span class="line">&lt;Connector port=<span class="string">"8080"</span> maxThread=<span class="string">"50"</span> minSpareThreads=<span class="string">"25"</span> maxSpareThread=<span class="string">"75"</span> enableLookups=<span class="string">"false"</span> redirectPort=<span class="string">"8443"</span> acceptCount=<span class="string">"100"</span> debug=<span class="string">"0"</span> connectionTimeout=<span class="string">"20000"</span> disableUploadTimeout=<span class="string">"true"</span> /&gt;</span><br><span class="line">&lt;Connection port=<span class="string">"8009"</span> enableLookups=<span class="string">"false"</span> redirectPort=<span class="string">"8443"</span> debug=<span class="string">"0"</span> protocol=<span class="string">"AJP/1.3"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>第一个Connector元素定义了一个HTTP Connector,它通过8080端口接收HTTP请求;第二个Connector元素定义了一个JD Connector,它通过8009端口接收由其它服务器转发过来的请求.</p>
+<h3><span id="engine标签元素">Engine标签元素</span></h3><p>每个service元素只能有一个Engine元素，处理同一个Service中所有Connector元素接收到的客户请求，由Engine接口定义。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Engine用来处理Connector收到的Http请求</span><br><span class="line"></span><br><span class="line">         它将匹配请求和自己的虚拟主机，并把请求转交给对应的Host来处理</span><br><span class="line"></span><br><span class="line">         默认虚拟主机是localhost</span><br><span class="line"></span><br><span class="line">         --&gt;</span><br><span class="line"></span><br><span class="line">&lt;Engine name=<span class="string">"Catalina"</span> defaultHost=<span class="string">"localhost"</span> debug=<span class="string">"0"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>1&gt;className指定实现Engine接口的类,默认值为StandardEngine<br>2&gt;defaultHost指定处理客户的默认主机名,在Engine中的Host子元素中必须定义这一主机<br>3&gt;name定义Engine的名字<br>    在Engine可以包含如下元素Logger, Realm, Value, Host</p>
+<h3><span id="host标签元素">Host标签元素</span></h3><p>它由Host接口定义，一个Engine元素可以包含多个Host元素，每个Host元素定义了一个虚拟机主机，它包含一个或多个web应用，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- </span><br><span class="line">	 appBase : 指 定虚拟主机的目录,可以指定绝对目录,也可以指定相对于&lt;CATALINA_HOME&gt;的相对目录.如果没有此项,默认 为&lt;CATALINA_HOME&gt;/webapps. 它将匹配请求和自己的Context的路径，并把请求转交给对应的Context来处 理</span><br><span class="line">	              autoDeploy:如果此项设为<span class="keyword">true</span>,表示Tomcat服务处于运行状态时,能够监测appBase下的文件,如果有新有web应用加入进来,会自运发布这个WEB应用</span><br><span class="line">	              unpackWARs:如果此项设置为<span class="keyword">true</span>,表示把WEB应用的WAR文件先展开为开放目录结构后再运行.如果设为<span class="keyword">false</span>将直接运行为WAR文件</span><br><span class="line">	              alias:指定主机别名,可以指定多个别名</span><br><span class="line">	              deployOnStartup:如果此项设为<span class="keyword">true</span>,表示Tomcat服务器启动时会自动发布appBase目录下所有的Web应用.如果Web应用 中的server.xml没有相应的&lt;Context&gt;元素,将采用Tomcat默认的Context</span><br><span class="line">	</span><br><span class="line">	           --&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;Host name=<span class="string">"localhost"</span> debug=<span class="string">"0"</span> appBase=<span class="string">"webapps"</span> unpackWARs=<span class="string">"true"</span> autoDeploy=<span class="string">"true"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>在Host元素中可以包含如下子元素<br>    Logger, Realm, Value, Context</p>
+<h3><span id="context标签元素">Context标签元素</span></h3><p>它是由Context接口定义，是使用最频繁的元素，每个Context元素代表了运行在虚拟主机上的单个web应用，一个Host可以包含多个Context元素，每一个web应用都有唯一一个相对应的context元素，servlet容器就是作为第一个web应用被创建的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Context，对应于一个Web App</span><br><span class="line">	 path : 该Context的路径名是<span class="string">""</span>，故该Context是该Host的默认Context</span><br><span class="line">	 docBase : 该Context的根目录是webapps/mycontext/</span><br><span class="line">	 reloadable:如果这个属性设为<span class="keyword">true</span>, Tomcat服务器在运行状态下会监视在WEB-INF/classes和Web-INF/lib目录CLASS文件的改运.如果监视到有<span class="class"><span class="keyword">class</span>文件 被更新,服务器自重新加载<span class="title">Web</span>应用</span></span><br><span class="line">	 useNaming:指定是否支持JNDI,默认值为了true </span><br><span class="line">	 cookies指定是否通过Cookies来支持Session,默认值为<span class="keyword">true</span></span><br><span class="line">	 -&gt;</span><br><span class="line">	&lt;Context path=<span class="string">""</span> docBase=<span class="string">"mycontext"</span> debug=<span class="string">"0"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h2><span id="五-tomcat处理一个http请求的过程">五、tomcat处理一个http请求的过程</span></h2><p>假设来自客户端的请求：<a href="http://localhost:8080/index/index.html.jsp" target="_blank" rel="noopener">http://localhost:8080/index/index.html.jsp</a><br>        1. 请求被发送到本机端口8080上，并被监听8080端口、HTTP/1.1协议的Connector获取到。<br>        2. Connector把该请求交给它所在Service的Engine来处理，并等待来自Engine的响应<br>        3. Engine获得该请求后，匹配它所拥有的所有虚拟主机Host.<br>        4. Engine匹配到名为localhost的主机Host(即使匹配不到也会交给localhost主机来处理，因为Engine的默认主机就是localhost)<br>        5. localhost的主机解析获取到请求/index/index.jsp,匹配它所拥有的所有Context。<br>        6. Host匹配到路径为/index的Context。<br>        7. Path=”/index”的Context获取到请求index.jsp,在它的mapping table中寻找对应的servlet<br>        8. Context匹配到URL为.jsp的servlet类(其实就是JspServlet类做处理)<br>        9. 构造HttpServletRequest对象和HttpServletResponse对象，作为参数调用servlet类的doGet或doPost方法<br>        10. Context把执行完的HttpServletResponse对象返回给Host<br>        11. Host把HttpServletResponse对象返回给Engine<br>        12. Engine把HttpServletRespongse对象返回给Connector<br>        13. Connector把HttpServletResponse对象返回给客户端。</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong>
+              本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/huahuablog/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-server-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat-%E6%95%99%E7%A8%8B/" rel="tag">tomcat-教程</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-web-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Tomcat-教程-web.xml配置文件
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Tomcat-教程-基本使用</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: 'MDQNmrWFp3GL4fnXCci5xFVV-MdYXbMMI',
+        app_key: 'y0ATjFhJNEAhIPs1MwwCju1p',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'monsterid',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020
+        huahua
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="当代猿"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+      strings: ['每天努力一点点', '一天不努力，就等于退步', '努力，奋斗！'],
+      startDelay: 0,
+      typeSpeed: 200,
+      loop: true,
+      backSpeed: 100,
+      showCursor: true
+    });
+  } catch (err) {
+  }
+
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+
+
+    
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"></script>
+        
+    
+
+
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+
+  
+<script src="/js/clickLove.js"></script>
+
+
+
+    
+  </div>
+</body>
+
+</html>
