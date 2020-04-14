@@ -118,6 +118,9 @@
       
 
       
+      <h2 id="一、什么是并发三大性质"><a href="#一、什么是并发三大性质" class="headerlink" title="一、什么是并发三大性质"></a>一、什么是并发三大性质</h2><p>在并发编程中，去解决线程安全的问题，一般可以从两大核心和三大特性作为切入点来思考怎么去解决，两大核心就是JMM内存模型和happens-before规则（三、Java内存模型的抽象和happens-before规则），三大特性主要是原子性、可见性和有序性。并发关键字synchronized和volatile都涉及到了三大特性，说明了三大特性的重要性。从这两个关键字分析这三大特性。</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">阅读更多...</a>
       
       
       <!-- reward -->
@@ -187,6 +190,9 @@
       
 
       
+      <h2 id="一、什么是final"><a href="#一、什么是final" class="headerlink" title="一、什么是final"></a>一、什么是final</h2><p>final是java中关键字修饰符，可以修饰变量、方法和类，用于表示所修饰的内容一旦赋值之后就不能被改变了，例如final修饰基本类型，一旦赋值之后就不能改变了；Sting类就是一个final类；final修饰引用类型的时候，不可改变的是它的引用地址；final在对线程中存在的重排序问题也有一定的作用，我们可以从final的具体使用场景：变量、方法、类上修饰final类分析一下。</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/">阅读更多...</a>
       
       
       <!-- reward -->
@@ -256,6 +262,9 @@
       
 
       
+      <h2 id="一、什么是volatile"><a href="#一、什么是volatile" class="headerlink" title="一、什么是volatile"></a>一、什么是volatile</h2><p>synchronized是阻塞式同步机制，在线程竞争激烈的情况下会升级为重量级锁（不使用自旋，直接阻塞线程），而volatile可以说是Java虚拟机提供的最轻量级的同步机制。<br>volatile的作用是保证使用volatile修饰的共享变量的可见性，即线程对volatile变量的修改会立即更新到主内存中，以被其他线程所感知，就不会出现数据脏读的现象，保证了数据的可见性。<br>对于volatile的内存定义参考：Java-并发理论-JMM内存模型：1）volatile：读写内存定义</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/">阅读更多...</a>
       
       
       <!-- reward -->

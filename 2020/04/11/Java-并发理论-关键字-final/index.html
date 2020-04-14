@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -91,6 +91,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -103,7 +105,21 @@
       
 
       
-      
+      <h2><span id="一-什么是final">一、什么是final</span></h2><p>final是java中关键字修饰符，可以修饰变量、方法和类，用于表示所修饰的内容一旦赋值之后就不能被改变了，例如final修饰基本类型，一旦赋值之后就不能改变了；Sting类就是一个final类；final修饰引用类型的时候，不可改变的是它的引用地址；final在对线程中存在的重排序问题也有一定的作用，我们可以从final的具体使用场景：变量、方法、类上修饰final类分析一下。</p>
+<a id="more"></a>
+<h2><span id="二-final修饰的变量">二、final修饰的变量</span></h2><p>在java中的变量，可以分为成员变量和局部变量（存在方法中），又可以从这两个方面来分析。上边说了final修饰的变量一旦赋值了就不可以被改变了，那么变量需要有值才算完整，那么变量就会存在初始赋值时机。</p>
+<h3><span id="1-final修饰成员变量">1. final修饰成员变量</span></h3><p>在每个类中的成员变量又可以分为类变量（使用static修饰）和实例变量，那么这两种成员变量的初始赋值时机是在什么时候呢？<br>    它们两的赋值时机是不同的:</p>
+<h4><span id="a-类变量赋初值的时机有两种">a. 类变量：赋初值的时机有两种：</span></h4><p>i. 类变量可以在声明变量的时候直接赋初值<br>ii. 可以在静态代码块中赋初值</p>
+<h4><span id="b-实例变量赋初值的时机有三种">b. 实例变量：赋初值的时机有三种：</span></h4><p>i. 可以在声明变量的时候直接赋初值<br>ii. 可以在非静态代码块中赋初值<br>iii. 可以在构造器中赋初值<br>        <img src="https://img-blog.csdnimg.cn/20200414211557937.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h4><span id="总结一下">总结一下：</span></h4><p>1）final修饰的成员变量必须要进行初始化，初始化的方法如上面赋初值时机<br>2）成员变量初始化的时候必须按照上面所说的位置进行初始化，不能乱位置，否则会报错<br>3）已经赋值过了的final变量就不能再赋值了</p>
+<h3><span id="2-final修饰局部变量">2. final修饰局部变量</span></h3><p>final修饰的局部变量需要由程序员进行显示初始化，如果final局部变量已经进行初始化了后面就不能进行再次更改了，如果final局部变量未进行初始化，则可以进行赋值，但一旦赋了值就不能进行更改了，否则会出错。</p>
+<h4><span id="注意">注意：</span></h4><p>1）final基本数据类型和final引用类型是有点不一样的，final修饰基本类型并初始化的时候，不能对基本类型变量进行再次赋值；而final修饰的引用类型变量而言，它仅仅保存的是一个引用，final只能保证这个引用类型变量的引用地址不会发生改变，至于它引用的对象的属性是可以改变的。<br>2）如果变量使用final修饰并且指定了初始值，该初始值在编译时就能唯一指定的话，该变量就是常量</p>
+<h2><span id="三-final修饰的方法">三、final修饰的方法</span></h2><ol>
+<li>final修饰方法的时候，父类的final方法不能被子类重写，但final方法是可以被重载的。</li>
+</ol>
+<h2><span id="四-final修饰的类">四、final修饰的类</span></h2><p>final修饰类的时候，表明该类是不能被子类所继承的，这个主要的作用是为了让子类不可以修改父类的方法和属性。<br>    不可变类：创建该类的实例之后，该实例的成员变量是不可变的；需要满足以下条件：<br>        1. 使用private和final修饰该类的成员变量<br>        2. 提供带参数的构造器用于初始化类的成员变量<br>        3. 仅为该类提供getter方法，不提供setter方法，因为普通方法无法修改final修饰的成员变量<br>        4. 如果有必要就重写Object类的hashCode()方法和equals()方法，应该保证用equals（）判断相同的两个对象其Hashcode值也是相等的。<br>    JDK中提供的八个包装类和String类都是不可变类。</p>
+<h2><span id="五-多线程的final">五、多线程的final</span></h2><p>在Java内存模型中，处理器和编译器为了提高性能对指定进行重排序，其中只要有编译器重排序和处理器重排序，其实final对重排序也有一定的作用。</p>
+
       
       <!-- reward -->
       
