@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -91,6 +91,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -103,7 +105,24 @@
       
 
       
-      
+      <h2><span id="源代码">源代码：</span></h2><p>Map是将一个键key映射到值value的对象，一个map集合不能有重复的键key,一个键key最多只能映射到一个值value。Map只是一个接口，提供接口方法规范给子类去继承和实现，Map提供的基本方法有添加、删除、获取、修改等操作Map的方法，其中使用最频繁也是我们最关系的是获取的功能，主要的方法有keySet()方法返回的是所有key值的set集合（因为Map的key是不允许重复的，所以使用set集合来存），values()方法返回的是所有value值的Conllection集合（因为value可以是重复的，没有什么要求，关键是使用者的需要，如果需要value集合没有重复的可以使用set集合来存，可以重复的可以使用list集合来存等，这都是可以的）；这里想到了一个问题：上面两个方法都是分开获取key和value的，如果想获取所有key对应的value值，那得先获取key值，再调用get(key)方法，需要进行两次操作；那么能不能同时返回包含key和value的对象呢，答案是可以的，Map接口在内部又提供了一个内部接口Entry，Entry&lt;K,V&gt;也是一个键值对映射，然后我们获取这个Entry&lt;K,V&gt;实体是通过Map提供的方法entrySet()返回的是Map.Entry&lt;k,v&gt;接口类型的set集合，包含了key和value键值对；那么获取这个set集合里面的元素也只有一个，那就是通过迭代器iterator()方法遍历获取，例如：</p>
+<a id="more"></a>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;Map.Entry&lt;String,String&gt;&gt; it = hashMap.entrySet().iterator();</span><br><span class="line"><span class="keyword">while</span> (it.hasNext())&#123;</span><br><span class="line">    Map.Entry&lt;String,String&gt; entry = it.next();</span><br><span class="line">    System.out.println(entry.getKey()+<span class="string">"--------"</span>+entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200414214700856.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200414214711111.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">    </p>
+<h2><span id="map集合的继承结构图">Map集合的继承结构图</span></h2><p><img src="https://img-blog.csdnimg.cn/2020041421473021.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><span id="map和collection的区别">Map和Collection的区别</span></h2><p>Map的特点就是将键映射到值的对象，一个键只能对应一个值，不能存在相同的键（即不能包含重复的键，键是唯一的），值是可以相同的（值可以是重复的）。<br>Collection集合是存储元素是单独出现的，set集合是唯一的，List集合是可重复的。<br>Map集合的数据结构针对键有效，跟值无效，Collection集合的数据结构针对元素有效。</p>
+<h2><span id="map的基本功能">Map的基本功能</span></h2><h3><span id="1添加功能">1.添加功能</span></h3><p><code>V Put(k,v):</code>添加元素，如果键是第一次添加的，则直接存储元素，返回null，如果键已存在，就替换原来的值，并返回原来的值。</p>
+<h3><span id="2删除功能">2.删除功能</span></h3><p>Viod clear()移除所有键值对。<br>V Remove（Object key）：根据键删除值，返回被删除的值。</p>
+<h3><span id="3判断功能">3.判断功能</span></h3><p><code>Boolean containsKey(Object key)：</code>判断集合是否包含指定的键。<br><code>Boolean containValue(Object value):</code>判断集合是否包含指定的值。<br><code>Boolean isEmpty():</code>判断集合是否为空</p>
+<h3><span id="4获取功能">4.获取功能</span></h3><p><code>Set&lt;Map.Entry&lt;K key,V value&gt;  entrySet():</code>返回的是键值对对象的集合<br><code>V get(Object key):</code>根据键获取值<br><code>Set&lt;K&gt; keySet()</code>获取集合中所有的键的集合<br><code>Collection&lt;V&gt; values():</code>获取集合中所有值的集合</p>
+<h3><span id="5长度功能">5.长度功能</span></h3><p><code>Int size（）:</code>返回集合中键值对的对数。</p>
+<h2><span id="hash散列表">Hash散列表</span></h2><p>无论是Set还是Map，我们发现都会对应有HashSet和HashMap，因此先讲一下Hash散列表。  </p>
+<h3><span id="散列表的工作原理">散列表的工作原理</span></h3><p>散列表为每个对象计算出一个整数（通过Hash函数计算），称之为散列码，根据这些计算出来的整数（散列码）保存在对应的位置上，它是一种存储键值对的数据结构，如果想要在其中查找一个键，需要的步骤是：</p>
+<p>i. 首先使用散列函数将给定的键转化为一个“数组的索引”，理想情况下，理想的情况下不同的键会转化成不同的索引，但是实际中我们经常遇到不同的键转化为相同索引的情况，这种情况就叫做碰撞。</p>
+<p>ii. 得到了索引之后，就可以像访问数组一样，通过索引访问到相应的键值对。</p>
+<p>在散列表内部，我们使用桶（bucket）来保存键值对，我们前面所说的数组索引即为桶号，决定了给定的键存于散列表的哪个桶中。散列表所拥有的桶数被称为散列表的容量（capacity），在JDK1.8中桶满时，会从链表变成红黑树；如果桶容量超过了75%（装填因子为0.75）的话哈希表就会自动扩容，以双倍的桶容量新建哈希表，将原来的元素插入到新表中，TreeSet和TreeMap底层都是使用红黑树来实现的。</p>
+
       
       <!-- reward -->
       

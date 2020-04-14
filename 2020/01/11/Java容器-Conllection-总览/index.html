@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">1.7k</span>
         </span>
     </span>
 
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
@@ -91,6 +91,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -103,7 +105,26 @@
       
 
       
-      
+      <h2><span id="1为什么需要collection">1.为什么需要Collection</span></h2><p>java是一门面向对象的语言，我们需要处理对象同时操作多个对象是先把对象们存储起来，那么我们存储对象就得需要容器如数组等，但数组只是存储同一种类型的元素，因此出现了Collection，只存引用类型来操作对象。</p>
+<a id="more"></a>
+<h2><span id="2数组和集合的区别">2.数组和集合的区别</span></h2><p><code>长度的区别：</code>数组的长度固定，集合的长度可变。<br><code>存储的区别</code>：数组存储的是同一类型的元素，集合可以存储不同类型的元素<br>存储的数据类型的区别：数组可以存储基本类型也可以存储引用类型，集合只能存储引用类型（对于基本类型int等会自动装箱成Integer等）</p>
+<h2><span id="3collection集合的框架图">3.Collection集合的框架图</span></h2><p>集合可以存储不同的元素，这些元素之间可以不相同的，也可以按照某些规则排序</p>
+<p><img src="https://img-blog.csdnimg.cn/20200414213702161.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><span id="4集合的基本功能">4.集合的基本功能</span></h2><h3><span id="a-添加功能">a. 添加功能</span></h3><p><code>Boolean add(Object obj):</code>添加一个元素<br><code>Boolean addAll(Collection c):</code>添加一个集合元素</p>
+<h3><span id="b-删除功能">b. 删除功能</span></h3><p><code>Void clear():</code>移除所有的元素<br><code>Boolean remove(Object obj ):</code>移除一个元素<br><code>Boolean removeAll(Collection c):</code>移除一个集合的元素，只要一个元素被移除，就返回true。</p>
+<h3><span id="c-判断功能">c. 判断功能</span></h3><p><code>Boolean contains(Object obj):</code>判断集合是否有该元素<br><code>Boolean containsAll(Collection c):</code>判断集合中是否包含指定的集合元素，只要包含所有元素，就返回true。<br><code>Boolean isEmpty():</code>判断集合是否为空。</p>
+<h3><span id="d-获取功能">d. 获取功能</span></h3><p><code>Iterator&lt;E&gt; iterator():</code>迭代器</p>
+<h3><span id="e-长度功能">e. 长度功能</span></h3><p><code>Int size()：</code>元素的个数</p>
+<h3><span id="f-交集功能">f. 交集功能</span></h3><p><code>boolean retainAll(Collection c)</code>:移除集合中未包含指定的collection中的所有元素。</p>
+<h2><span id="5迭代器iterator">5.迭代器(Iterator)</span></h2><p><img src="https://img-blog.csdnimg.cn/20200414214017870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>Collection接口继承了Iterable接口，Iterable接口里面有个iterator()方法，该方法返回一个Iterator接口类型，该接口有两个抽象方法hasNext()和next()，和两个default默认方法remove()和forEachRemaining()方法【JDK1.8添加的】。<br>Iterator就是在遍历集合，所以我们遍历集合的元素都可以使用Iterator，Iterator仅是一个接口，它的具体实现是以具体集合类使用内部类的方式实现的，那么为什么将迭代器定义为接口而不是一个类呢，因为java中有很多集合类，每个集合类的数据结构都不同，存储的方式和遍历的方式也不一样，做不到通用的，所以就没有定义成迭代类，而是接口，让不同的集合类自己以内部类的形式等去实现。<br>    迭代器和集合的关系：迭代器是遍历集合的一种方式，迭代器依赖集合而存在。</p>
+<h2><span id="6使用集合的步骤">6.使用集合的步骤</span></h2><h4><span id="a-创建集合对象">a. 创建集合对象</span></h4><h4><span id="b-创建元素对象">b. 创建元素对象</span></h4><h4><span id="c-将元素添加到集合">c. 将元素添加到集合</span></h4><h4><span id="d-遍历集合">d. 遍历集合</span></h4><pre><code>a. 通过集合对象获取迭代器对象
+b. 通过迭代器对象的hasNext()方法判断是否有元素
+c. 通过迭代器对象的next()方法获取元素并移动到下一个位置</code></pre><h2><span id="7collection集合的分类">7.Collection集合的分类</span></h2><p>Collection集合：分为三类：List集合，Set集合，queue集合；collection一个独立元素的序列，这些元素都服从一条或者多条的规则，List集合必须按照插入的顺序保存元素；Set不能有重复的元素；Queue按照排队规则来确定对象产生的顺序（通常与他们被插入的顺序相同），一端插入对象，另一端移除对象.</p>
+<h3><span id="a-list接口">a. List接口:</span></h3><p>特点：有序（存储顺序跟取出顺序一样），可重复。<br>方法如下：<br><img src="https://img-blog.csdnimg.cn/20200414214231861.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>list集合的迭代器ListIterator接口是对Iterator迭代器的扩展，增加了多了几个方法，可以往前遍历、添加元素、设置元素等。<br><img src="https://img-blog.csdnimg.cn/20200414214302790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>list保证将元素维护在特定的序列中，list接口在collection接口的基础上添加了大量的方法，使得可以在list中间插入和移除元素，常用的list子类有：<br><code>1.1  ArrayList</code>：底层数据结构是数组，线程不安全。List接口实现类，擅长随机访问元素，但插入和删除元素比较慢,<br><code>1.2  LinkedList</code>：底层数据结构是链表，线程不安全。List接口实现类，提供了优化的顺序访问，插入和删除元素比较快，随机访问元素比较慢。<br>                List 接口的链接列表实现。实现所有可选的列表操作，并且允许所有元素（包括 null）。除了实现 List 接口外，LinkedList 类还为在列表的开头及结尾 get、remove 和 insert 元素提供了统一的命名方法。这些操作允许将链接列表用作堆栈、队列或双端队列。<br>此类实现 Deque 接口，为 add、poll 提供先进先出队列操作，以及其他堆栈和双端队列操作。<br>所有操作都是按照双重链接列表的需要执行的。在列表中编索引的操作将从开头或结尾遍历列表（从靠近指定索引的一端）<br><code>1.3 Vector：</code>底层数据结构是数组，线程安全。 </p>
+<h3><span id="b-set接口">b. Set接口：</span></h3><p>特点：元素不可重复。<br><img src="https://img-blog.csdnimg.cn/20200414214420297.png" alt="在这里插入图片描述"><br>除了TreeSet之外（多了一些方法），具有与Collection完全一样的接口，没有任何额外的功能，实际上set就是Collection，只是行为不一样（这就是继承与多态思想的典型应用：表现不同的行为），set不保存重复的元素，查找是Set里面最重要的操作，Hashset专门对快速查找做了优化，有 HashSet类、TreeSet类、LinkedHashSet类<br><code>1.3  HashSet&lt;&gt;()：</code>Set类型，使用了散列函数，没有规律，查找速度快，底层数据结构使用了哈希表（一个元素为链表的数组）<br><code>1.4  TreeSet&lt;&gt;()：</code>底层数据结构是红黑树（一个自平衡的二叉树），Set类型，将元素存储在红-黑树数据结构中，保证元素的排序方式<br><code>1.5  linkedHashSet&lt;&gt;()：</code>Set类型，也使用了散列函数，但用双链表维护元素的插入数据。底层数据结构是哈希表和双链表。</p>
+<h3><span id="c-queue接口">c. Queue接口：</span></h3><p>队列–先进先出(FIFO)容器，可以安全的将对象从一个任务传输给另一个任务，在并发编程中特别重要。LinkedList也提供了方法以支持队列的行为，其实现了Queue接口；PriorityQueue优先队列，使用offer()方法是会将对象在队列中会被排序，默认使用队列中的自然顺序，调用peek()、poll()、remove()方法时，获取到的元素将是队列中优先级最高的元素。</p>
+
       
       <!-- reward -->
       
