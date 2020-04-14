@@ -244,7 +244,8 @@ e. 还可以使用给服务器配置的临时域名进行访问</code></pre></li
 
 </li>
 </ol>
-<h2><span id="二-线程的基本属性">二、线程的基本属性</span></h2><h3><span id="1-优先级">1. 优先级</span></h3><p>Thread 有个优先级字段：<code>private int priority</code><br>操作系统采用时间片（CPU 单次执行某线程的时间）的形式来调度线程的运行，线程被 CPU 调用的时间超过它的时间片后，就会发生线程调度。<br>线程的优先级可以在一定程度上影响它得到时间片的多少，也就是被处理的机会。<br>Java 中 Thread 的优先级为从 1 到 10 逐渐提高，默认为 5。<br>有长耗时操作的线程，一般建议设置低优先级，确保处理器不会被独占太久；频繁阻塞（休眠或者 I/O）的线程建议设置高优先级。</p>
+<p>##二、线程的基本属性</p>
+<h3><span id="1-优先级">1. 优先级</span></h3><p>Thread 有个优先级字段：<code>private int priority</code><br>操作系统采用时间片（CPU 单次执行某线程的时间）的形式来调度线程的运行，线程被 CPU 调用的时间超过它的时间片后，就会发生线程调度。<br>线程的优先级可以在一定程度上影响它得到时间片的多少，也就是被处理的机会。<br>Java 中 Thread 的优先级为从 1 到 10 逐渐提高，默认为 5。<br>有长耗时操作的线程，一般建议设置低优先级，确保处理器不会被独占太久；频繁阻塞（休眠或者 I/O）的线程建议设置高优先级。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> MIN_PRIORITY = <span class="number">1</span>;</span><br><span class="line"><span class="comment">//线程的默认优先级</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> NORM_PRIORITY = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> MAX_PRIORITY = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
 
 <p> 线程优先级只是对操作系统分配时间片的建议。<br> 虽然 Java 提供了 10 个优先级别，但不同的操作系统的优先级并不相同，不能很好的和 Java 的 10 个优先级别对应。&gt;所以我们应该使用 MAX_PRIORITY、MIN_PRIORITY 和 NORM_PRIORITY 三个静态常量来设定优先级，这样才能保证程序最好的可移植性。</p>
