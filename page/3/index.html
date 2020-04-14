@@ -78,7 +78,7 @@
     
     
     
-    <article id="post-Java-泛型" class="article article-type-post" itemscope
+    <article id="post-Java-并发理论-三大特性" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -86,8 +86,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/01/14/Java-%E6%B3%9B%E5%9E%8B/"
-    >Java-泛型</a> 
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/"
+    >Java-并发理论-三大特性</a> 
 </h2>
  
 
@@ -96,8 +96,649 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/14/Java-%E6%B3%9B%E5%9E%8B/" class="article-date">
-  <time datetime="2020-01-14T11:06:07.000Z" itemprop="datePublished">2020-01-14</time>
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/" class="article-date">
+  <time datetime="2020-04-11T12:22:25.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="一、什么是并发三大性质"><a href="#一、什么是并发三大性质" class="headerlink" title="一、什么是并发三大性质"></a>一、什么是并发三大性质</h2><p>在并发编程中，去解决线程安全的问题，一般可以从两大核心和三大特性作为切入点来思考怎么去解决，两大核心就是JMM内存模型和happens-before规则（三、Java内存模型的抽象和happens-before规则），三大特性主要是原子性、可见性和有序性。并发关键字synchronized和volatile都涉及到了三大特性，说明了三大特性的重要性。从这两个关键字分析这三大特性。</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/" rel="tag">java并发理论</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-关键字-final" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/"
+    >Java-并发理论-关键字-final</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/" class="article-date">
+  <time datetime="2020-04-11T12:21:52.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="一、什么是final"><a href="#一、什么是final" class="headerlink" title="一、什么是final"></a>一、什么是final</h2><p>final是java中关键字修饰符，可以修饰变量、方法和类，用于表示所修饰的内容一旦赋值之后就不能被改变了，例如final修饰基本类型，一旦赋值之后就不能改变了；Sting类就是一个final类；final修饰引用类型的时候，不可改变的是它的引用地址；final在对线程中存在的重排序问题也有一定的作用，我们可以从final的具体使用场景：变量、方法、类上修饰final类分析一下。</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/" rel="tag">java并发理论</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-关键字-volatile" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/"
+    >Java-并发理论-关键字-volatile</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/" class="article-date">
+  <time datetime="2020-04-11T12:21:26.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="一、什么是volatile"><a href="#一、什么是volatile" class="headerlink" title="一、什么是volatile"></a>一、什么是volatile</h2><p>synchronized是阻塞式同步机制，在线程竞争激烈的情况下会升级为重量级锁（不使用自旋，直接阻塞线程），而volatile可以说是Java虚拟机提供的最轻量级的同步机制。<br>volatile的作用是保证使用volatile修饰的共享变量的可见性，即线程对volatile变量的修改会立即更新到主内存中，以被其他线程所感知，就不会出现数据脏读的现象，保证了数据的可见性。<br>对于volatile的内存定义参考：Java-并发理论-JMM内存模型：1）volatile：读写内存定义</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/" rel="tag">java并发理论</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-并发理论-关键字-synchronized" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/"
+    >Java-并发理论-关键字-synchronized</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/" class="article-date">
+  <time datetime="2020-04-11T12:21:00.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="一、什么是Synchronized"><a href="#一、什么是Synchronized" class="headerlink" title="一、什么是Synchronized"></a>一、什么是Synchronized</h2><p>这个可以参考一下介绍：Java-并发理论-JMM内存模型：volatile和锁（synchronized，ReentrantLock）。<br>Synchronized关键字主要是用来解决多线程的线程安全问题的。是一种同步机制。那么这些安全性问题主要是来源JMM内存模型中主内存和线程的工作内存带来共享变量的可见性问题，以及重排序带来的问题；Java中的关键字synchronized同步机制就具备解决这些共享数据的线程安全问题，但是这种同步机制的效率很低，但是synchronized是其他并发容器实现的基础，理解它会提高并发编程有很大帮助。</p>
+      
+      <a class="article-more-link" href="/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/" rel="tag">java并发理论</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Spring-教程-简介" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"
+    >Spring-教程-简介</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/" class="article-date">
+  <time datetime="2020-04-06T11:33:04.000Z" itemprop="datePublished">2020-04-06</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Spring/">Spring</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="spring是什么"><a href="#spring是什么" class="headerlink" title="spring是什么"></a>spring是什么</h1><p>spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。<br>总的来说，Spring就是用来替代更加重量级的企业级的Java技术。</p>
+      
+      <a class="article-more-link" href="/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Spring-属性配置类-PropertyPlaceholderConfigurer" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/"
+    >Spring-属性配置类-PropertyPlaceholderConfigurer</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/" class="article-date">
+  <time datetime="2020-03-11T13:18:10.000Z" itemprop="datePublished">2020-03-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Spring/">Spring</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>PropertyPlaceholderConfigurer是个bean工厂后置处理器的实现，也就是 BeanFactoryPostProcessor接口的一个实现。在bean初始化前执行的后置处理器</p>
+      
+      <a class="article-more-link" href="/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB/" rel="tag">Spring-属性配置类</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-SpringMVC-教程-简介" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"
+    >SpringMVC-教程-简介</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/" class="article-date">
+  <time datetime="2020-02-11T13:42:53.000Z" itemprop="datePublished">2020-02-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/SpringMVC/">SpringMVC</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2><span id="一-spring-mvc运行原理">一、spring mvc运行原理</span></h2><p>Spring的模型-视图-控制器（MVC）框架是围绕一个DispatcherServlet来设计的，这个Servlet会把请求分发给各个处理器，并支持可配置的处理器映射、视图渲染、本地化、时区与主题渲染等，甚至还能支持文件上传。<br><img src="https://img-blog.csdnimg.cn/2020041123510668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<ul>
+<li>(1) Http请求：客户端请求提交到DispatcherServlet。</li>
+<li>(2)寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。</li>
+<li>(3) 调用处理器：DispatcherServlet将请求提交到Controller。</li>
+<li>(4)(5)调用业务处理和返回结果：Controller调用业务逻辑处理后，返回ModelAndView。</li>
+<li>(6)(7)处理视图映射并返回模型：DispatcherServlet查询一个或多个ViewResoler视图解析器，找到ModelAndView指定的视图。</li>
+<li>(8) Http响应：视图负责将结果显示到客户端。</li>
+</ul>
+<h2><span id="二-主要注解">二、主要注解</span></h2><p><img src="https://img-blog.csdnimg.cn/20200411235319423.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2><span id="三-springmvc的启动过程">三、SpringMVC的启动过程</span></h2><p>spring mvc启动过程主要有两个过程：</p>
+<ul>
+<li>ContextLoaderListener初始化，实例化IoC容器，并将此容器实例注册到ServletContext中。</li>
+<li>DispatcherServlet初始化。</li>
+</ul>
+<h3><span id="contextloaderlistener">ContextLoaderListener</span></h3><p>在讲ContextLoaderListener之前，首先来了解一下web.xml的作用。</p>
+<ul>
+<li>一个web中可以没有web.xml文件，也就是说，web.xml文件并不是web工程必须的。web.xml文件是用来初始化配置信息：比如Welcome页面、servlet、servlet-mapping、filter、listener、启动加载级别等。当你的web工程没用到这些时，你可以不用web.xml文件来配置你的Application。</li>
+<li>当要启动某个web项目时，服务器软件或容器如（tomcat）会第一步加载项目中的web.xml文件，通过其中的各种配置来启动项目，只有其中配置的各项均无误时，项目才能正确启动。web.xml有多项标签，在其加载的过程中顺序依次为：context-param&gt;&gt; listener &gt;&gt; fileter &gt;&gt; servlet​。（同类多个节点以出现顺序依次加载）<br><img src="https://img-blog.csdnimg.cn/20200412161931698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们来看一下SpringMVC中的web.xml配置<br><img src="https://img-blog.csdnimg.cn/20200412161944853.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<p>其中ContextLoaderListener监听器它实现了ServletContextListener这个接口，在web.xml配置这个监听器，启动容器时，就会默认执行它实现的方法。在ContextLoaderListener中关联了ContextLoader这个类，所以整个加载配置过程由ContextLoader来完成。</p>
+<h3><span id="contextloaderlistener在webxml中的配置">ContextLoaderListener在web.xml中的配置</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	&lt;!-- 配置contextConfigLocation初始化参数 --&gt;</span><br><span class="line">&lt;context-param&gt;</span><br><span class="line">	&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">	&lt;param-value&gt;/WEB-INF/applicationContext.xml&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br><span class="line">	&lt;!-- 配置ContextLoaderListerner --&gt;</span><br><span class="line">&lt;listener&gt;</span><br><span class="line">        &lt;listener-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">context</span>.<span class="title">ContextLoaderListener</span>&lt;/<span class="title">listener</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>ServletContextListener 接口有两个方法:contextInitialized,contextDestroyed</p>
+<h3><span id="dispatcherservlet">DispatcherServlet</span></h3><p>Spring MVC框架，与其他很多web的MVC框架一样：请求驱动；所有设计都围绕着一个中央Servlet来展开，它负责把所有请求分发到控制器；同时提供其他web应用开发所需要的功能。不过Spring的中央处理器，DispatcherServlet，能做的比这更多。<br>下图展示了Spring Web MVC的DispatcherServlet处理请求的工作流。熟悉设计模式的朋友会发现，DispatcherServlet应用的其实就是一个“前端控制器”的设计模式（其他很多优秀的web框架也都使用了这个设计模式）。</p>
+<ul>
+<li>流程图<br><img src="https://img-blog.csdnimg.cn/20200411235550692.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>在web.xml中的配置</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">	&lt;!-- servlet定义 --&gt;</span><br><span class="line">&lt;servlet&gt;</span><br><span class="line">	&lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</span><br><span class="line">	&lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">springframework</span>.<span class="title">web</span>.<span class="title">servlet</span>.<span class="title">DispatcherServlet</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">	&lt;<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;1&lt;/<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>&gt;</span></span><br><span class="line"><span class="class">	</span></span><br><span class="line"><span class="class">&lt;<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br><span class="line"><span class="class">	&lt;<span class="title">servlet</span>-<span class="title">name</span>&gt;<span class="title">dispatcher</span>&lt;/<span class="title">servlet</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">	&lt;<span class="title">url</span>-<span class="title">pattern</span>&gt;/&lt;/<span class="title">url</span>-<span class="title">pattern</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>-<span class="title">mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<ul>
+<li>load-on-startup：表示启动容器时初始化该Servlet；</li>
+<li>url-pattern：表示哪些请求交给Spring Web MVC处理， “/”<br>是用来定义默认servlet映射的。也可以如“*.html”表示拦截所有以html为扩展名的请求。</li>
+</ul>
+<p>在Spring MVC中，每个DispatcherServlet都持有一个自己的上下文对象WebApplicationContext，它又继承了根（root）WebApplicationContext对象中已经定义的所有bean。这些继承的bean可以在具体的Servlet实例中被重载，在每个Servlet实例中你也可以定义其scope下的新bean。<br>WebApplicationContext继承自ApplicationContext，它提供了一些web应用经常需要用到的特性。它与普通的ApplicationContext不同的地方在于，它支持主题的解析，并且知道它关联到的是哪个servlet（它持有一个该ServletContext的引用）<br><img src="https://img-blog.csdnimg.cn/2020041123563619.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>spring mvc同时提供了很多特殊的注解，用于处理请求和渲染视图等。DispatcherServlet初始化的过程中会默认使用这些特殊bean进行配置。如果你想指定使用哪个特定的bean，你可以在web应用上下文WebApplicationContext中简单地配置它们。<br><img src="https://img-blog.csdnimg.cn/2020041123564796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>其中，常用的ViewResolver的配置。以jsp作为视图为例</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">	&lt;!-- 对模型视图名称的解析,即在模型视图名称添加前后缀 --&gt;</span><br><span class="line">&lt;bean <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span><br><span class="line">	&lt;property name=<span class="string">"prefix"</span> value=<span class="string">"/WEB-INF/jsp/"</span> /&gt;</span><br><span class="line">	&lt;property name=<span class="string">"suffix"</span> value=<span class="string">".jsp"</span> /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line">配置上传文件限制MultipartResolver</span><br><span class="line">	&lt;!-- 上传限制 --&gt;</span><br><span class="line">&lt;bean id=<span class="string">"multipartResolver"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.web.multipart.commons.CommonsMultipartResolver"</span>&gt;</span><br><span class="line">     &lt;!-- 上传文件大小限制为<span class="number">31</span>M，<span class="number">31</span>*<span class="number">1024</span>*<span class="number">1024</span> --&gt;</span><br><span class="line">     &lt;property name=<span class="string">"maxUploadSize"</span> value=<span class="string">"32505856"</span>/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="applicationcontextxml中的标签">applicationContext.xml中的标签</span></h3><p><img src="https://img-blog.csdnimg.cn/20200411235735116.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3><span id="文件上传">文件上传</span></h3><p>前面说到DispatcherServlet中有个特殊的Bean叫MultipartResolver，可用于限制文件的上传大小等。当解析器MultipartResolver完成处理时，请求便会像其他请求一样被正常流程处理。</p>
+<ul>
+<li>表单</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	&lt;form method=<span class="string">"post"</span> action=<span class="string">"/form"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">     &lt;input type=<span class="string">"text"</span> name=<span class="string">"name"</span>/&gt;</span><br><span class="line">     &lt;input type=<span class="string">"file"</span> name=<span class="string">"file"</span>/&gt;</span><br><span class="line">     &lt;input type=<span class="string">"submit"</span>/&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>控制器</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	<span class="meta">@RequestMapping</span>(path = <span class="string">"/form"</span>, method = RequestMethod.POST)</span><br><span class="line"> <span class="function"><span class="keyword">public</span> String <span class="title">handleFormUpload</span><span class="params">(@RequestParam(<span class="string">"name"</span>)</span> String name, </span></span><br><span class="line"><span class="function">            @<span class="title">RequestParam</span><span class="params">(<span class="string">"file"</span>)</span> MultipartFile file) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!file.isEmpty()) &#123;</span><br><span class="line">          <span class="keyword">byte</span>[] bytes = file.getBytes();</span><br><span class="line">          <span class="comment">// store the bytes somewhere</span></span><br><span class="line">          <span class="keyword">return</span> <span class="string">"redirect:uploadSuccess"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"redirect:uploadFailure"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3><span id="异常处理">异常处理</span></h3><p>先来说下常见的异常处理有几种方式，如下图：<br><img src="https://img-blog.csdnimg.cn/20200411235847237.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Spring的处理器异常解析器HandlerExceptionResolver接口的实现负责处理各类控制器执行过程中出现的异常。也是上面提到的，是DispatcherServlet中的特殊bean，可以自定义配置处理。<br>某种程度上讲，HandlerExceptionResolver与你在web应用描述符web.xml文件中能定义的异常映射（exception mapping）很相像，不过它比后者提供了更灵活的方式。比如它能提供异常被抛出时正在执行的是哪个处理器这样的信息。</p>
+<ul>
+<li>HandlerExceptionResolver 提供resolveException接口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HandlerExceptionResolver</span> </span>&#123;  </span><br><span class="line">    <span class="function">ModelAndView <span class="title">resolveException</span><span class="params">(  </span></span></span><br><span class="line"><span class="function"><span class="params">            HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span></span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在BaseController中使用 @ExceptionHandler注解处理异常</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ExceptionHandler</span>(Exception<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">	<span class="title">public</span> <span class="title">Object</span> <span class="title">exceptionHandler</span>(<span class="title">Exception</span> <span class="title">ex</span>, <span class="title">HttpServletResponse</span> <span class="title">response</span>, </span></span><br><span class="line"><span class="class">              <span class="title">HttpServletRequest</span> <span class="title">request</span>) <span class="title">throws</span> <span class="title">IOException</span> </span>&#123;</span><br><span class="line">		String url = <span class="string">""</span>;</span><br><span class="line">		String msg = ex.getMessage();</span><br><span class="line">		Object resultModel = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (ex.getClass() == HttpRequestMethodNotSupportedException<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">				url = <span class="string">"admin/common/500"</span>;</span><br><span class="line">				System.out.println(<span class="string">"--------毛有找到对应方法---------"</span>);</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (ex.getClass() == ParameterException<span class="class">.<span class="keyword">class</span>) </span>&#123;<span class="comment">//自定义的异常</span></span><br><span class="line">                                </span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (ex.getClass() == UnauthorizedException<span class="class">.<span class="keyword">class</span>) </span>&#123;</span><br><span class="line">				url = <span class="string">"admin/common/unauth"</span>;</span><br><span class="line">				System.out.println(<span class="string">"--------毛有权限---------"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">String header = req.getHeader(<span class="string">"X-Requested-With"</span>);</span><br><span class="line">			<span class="keyword">boolean</span> isAjax = <span class="string">"XMLHttpRequest"</span>.equalsIgnoreCase(header);</span><br><span class="line">			String method = req.getMethod();</span><br><span class="line">			<span class="keyword">boolean</span> isPost = <span class="string">"POST"</span>.equalsIgnoreCase(method);</span><br><span class="line"><span class="keyword">if</span> (isAjax || isPost) &#123;</span><br><span class="line">				<span class="keyword">return</span> Message.error(msg);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				ModelAndView view = <span class="keyword">new</span> ModelAndView(url);</span><br><span class="line">				view.addObject(<span class="string">"error"</span>, msg);</span><br><span class="line">				view.addObject(<span class="string">"class"</span>, ex.getClass());</span><br><span class="line">				view.addObject(<span class="string">"method"</span>, request.getRequestURI());</span><br><span class="line">				<span class="keyword">return</span> view;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">			logger.error(exception.getMessage(), exception);</span><br><span class="line">			<span class="keyword">return</span> resultModel;</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			logger.error(msg, ex);</span><br><span class="line">			ex.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在web.xml中处理异常</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">	&lt;!-- 默认的错误处理页面 --&gt;</span><br><span class="line">&lt;error-page&gt;</span><br><span class="line">	&lt;error-code&gt;403&lt;/error-code&gt;</span><br><span class="line">	&lt;location&gt;/403.html&lt;/location&gt;</span><br><span class="line">&lt;/error-page&gt;</span><br><span class="line">&lt;error-page&gt;</span><br><span class="line">	&lt;error-code&gt;404&lt;/error-code&gt;</span><br><span class="line">	&lt;location&gt;/404.html&lt;/location&gt;</span><br><span class="line">&lt;/error-page&gt;</span><br><span class="line">&lt;!-- 仅仅在调试的时候注视掉,在正式部署的时候不能注释 --&gt;</span><br><span class="line">&lt;!-- 这样配置也是可以的，表示发生<span class="number">500</span>错误的时候，转到<span class="number">500</span>.jsp页面处理。 --&gt;</span><br><span class="line">&lt;error-page&gt; </span><br><span class="line">	&lt;error-code&gt;500&lt;/error-code&gt; </span><br><span class="line">	&lt;location&gt;/500.html&lt;/location&gt; </span><br><span class="line">&lt;/error-page&gt; </span><br><span class="line">	&lt;!-- 这样的配置表示如果jsp页面或者servlet发生java.lang.Exception类型（当然包含子类）的异常就会转到<span class="number">500</span>.jsp页面处理。 --&gt;</span><br><span class="line">&lt;error-page&gt; </span><br><span class="line">	&lt;exception-type&gt;java.lang.Exception&lt;/exception-type&gt; </span><br><span class="line">	&lt;location&gt;/500.jsp&lt;/location&gt; </span><br><span class="line">&lt;/error-page&gt; </span><br><span class="line">	&lt;error-page&gt; </span><br><span class="line">	&lt;exception-type&gt;java.lang.Throwable&lt;/exception-type&gt; </span><br><span class="line">	&lt;location&gt;/500.jsp&lt;/location&gt; </span><br><span class="line">&lt;/error-page&gt;</span><br><span class="line">	&lt;!-- 当error-code和exception-type都配置时，exception-type配置的页面优先级高及出现<span class="number">500</span>错误，发生异常Exception时会跳转到<span class="number">500</span>.jsp--&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>问题<br>HandlerExceptionResolver和web.xml中配置的error-page会有冲突吗？</li>
+<li>解答：<br>如果resolveException返回了ModelAndView，会优先根据返回值中的页面来显示。不过，resolveException可以返回null，此时则展示web.xml中的error-page的500状态码配置的页面。 当web.xml中有相应的error-page配置，则可以在实现resolveException方法时返回null。 API文档中对返回值的解释： return a corresponding ModelAndView to forward to, or null for default processing.</li>
+</ul>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringMVC-%E7%AE%80%E4%BB%8B/" rel="tag">SpringMVC-简介</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-动态代理" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"
+    >Java-动态代理</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" class="article-date">
+  <time datetime="2020-01-15T02:07:28.000Z" itemprop="datePublished">2020-01-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">Java设计模式</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" rel="tag">动态代理</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Java-反射" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/01/15/Java-%E5%8F%8D%E5%B0%84/"
+    >Java-反射</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/01/15/Java-%E5%8F%8D%E5%B0%84/" class="article-date">
+  <time datetime="2020-01-15T01:06:19.000Z" itemprop="datePublished">2020-01-15</time>
 </a>
       
   <div class="article-category">
@@ -130,7 +771,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E6%B3%9B%E5%9E%8B/" rel="tag">Java泛型</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%8F%8D%E5%B0%84/" rel="tag">Java反射</a></li></ul>
 
 
     </footer>
@@ -147,7 +788,7 @@
 
 </article>
     
-    <article id="post-Java-数据结构-哈希表" class="article article-type-post" itemscope
+    <article id="post-Java-枚举" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -155,8 +796,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/01/13/Java-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/"
-    >Java-数据结构-哈希表</a> 
+  <a class="article-title" href="/2020/01/14/Java-%E6%9E%9A%E4%B8%BE/"
+    >Java-枚举</a> 
 </h2>
  
 
@@ -165,77 +806,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/01/13/Java-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%93%88%E5%B8%8C%E8%A1%A8/" class="article-date">
-  <time datetime="2020-01-13T13:07:59.000Z" itemprop="datePublished">2020-01-13</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Java数据结构</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java-注解" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/13/Java-%E6%B3%A8%E8%A7%A3/"
-    >Java-注解</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/13/Java-%E6%B3%A8%E8%A7%A3/" class="article-date">
-  <time datetime="2020-01-13T13:06:47.000Z" itemprop="datePublished">2020-01-13</time>
+      <a href="/2020/01/14/Java-%E6%9E%9A%E4%B8%BE/" class="article-date">
+  <time datetime="2020-01-14T12:04:08.000Z" itemprop="datePublished">2020-01-14</time>
 </a>
       
   <div class="article-category">
@@ -268,519 +840,7 @@
     <footer class="article-footer">
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E6%B3%A8%E8%A7%A3/" rel="tag">Java注解</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java容器-Map-总览" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/12/Java%E5%AE%B9%E5%99%A8-Map-%E6%80%BB%E8%A7%88/"
-    >Java容器-Map-总览</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/12/Java%E5%AE%B9%E5%99%A8-Map-%E6%80%BB%E8%A7%88/" class="article-date">
-  <time datetime="2020-01-12T13:05:42.000Z" itemprop="datePublished">2020-01-12</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%AE%B9%E5%99%A8/">Java容器</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="源代码："><a href="#源代码：" class="headerlink" title="源代码："></a>源代码：</h2><p>Map是将一个键key映射到值value的对象，一个map集合不能有重复的键key,一个键key最多只能映射到一个值value。Map只是一个接口，提供接口方法规范给子类去继承和实现，Map提供的基本方法有添加、删除、获取、修改等操作Map的方法，其中使用最频繁也是我们最关系的是获取的功能，主要的方法有keySet()方法返回的是所有key值的set集合（因为Map的key是不允许重复的，所以使用set集合来存），values()方法返回的是所有value值的Conllection集合（因为value可以是重复的，没有什么要求，关键是使用者的需要，如果需要value集合没有重复的可以使用set集合来存，可以重复的可以使用list集合来存等，这都是可以的）；这里想到了一个问题：上面两个方法都是分开获取key和value的，如果想获取所有key对应的value值，那得先获取key值，再调用get(key)方法，需要进行两次操作；那么能不能同时返回包含key和value的对象呢，答案是可以的，Map接口在内部又提供了一个内部接口Entry，Entry&lt;K,V&gt;也是一个键值对映射，然后我们获取这个Entry&lt;K,V&gt;实体是通过Map提供的方法entrySet()返回的是Map.Entry&lt;k,v&gt;接口类型的set集合，包含了key和value键值对；那么获取这个set集合里面的元素也只有一个，那就是通过迭代器iterator()方法遍历获取，例如：</p>
-      
-      <a class="article-more-link" href="/2020/01/12/Java%E5%AE%B9%E5%99%A8-Map-%E6%80%BB%E8%A7%88/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map%E9%9B%86%E5%90%88/" rel="tag">Map集合</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java容器-Conllection-总览" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/01/11/Java%E5%AE%B9%E5%99%A8-Conllection-%E6%80%BB%E8%A7%88/"
-    >Java容器-Conllection-总览</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/01/11/Java%E5%AE%B9%E5%99%A8-Conllection-%E6%80%BB%E8%A7%88/" class="article-date">
-  <time datetime="2020-01-11T13:05:07.000Z" itemprop="datePublished">2020-01-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%AE%B9%E5%99%A8/">Java容器</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="1-为什么需要Collection"><a href="#1-为什么需要Collection" class="headerlink" title="1.为什么需要Collection"></a>1.为什么需要Collection</h2><p>java是一门面向对象的语言，我们需要处理对象同时操作多个对象是先把对象们存储起来，那么我们存储对象就得需要容器如数组等，但数组只是存储同一种类型的元素，因此出现了Collection，只存引用类型来操作对象。</p>
-      
-      <a class="article-more-link" href="/2020/01/11/Java%E5%AE%B9%E5%99%A8-Conllection-%E6%80%BB%E8%A7%88/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Conllection%E9%9B%86%E5%90%88/" rel="tag">Conllection集合</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java-并发理论-对象锁（monitor）" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/"
-    >Java-并发理论-对象锁（monitor）</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/" class="article-date">
-  <time datetime="2019-11-03T12:20:37.000Z" itemprop="datePublished">2019-11-03</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>Java提供了一种内置的锁机制来支持原子性和可见性，就是使用Synchronized的同步块或同步方法。在使用synchronized同步的时候，包含两部分：</p>
-<ul>
-<li>a. 一个锁对象引用</li>
-<li>b. 一块锁保护的代码块
-      
-      <a class="article-more-link" href="/2019/11/03/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%AF%B9%E8%B1%A1%E9%94%81%EF%BC%88monitor%EF%BC%89/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/" rel="tag">java并发理论</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java-并发理论-JMM内存模型" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/"
-    >Java-并发理论-JMM内存模型</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="article-date">
-  <time datetime="2019-11-02T11:46:20.000Z" itemprop="datePublished">2019-11-02</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="一、什么是JMM内存模型"><a href="#一、什么是JMM内存模型" class="headerlink" title="一、什么是JMM内存模型"></a>一、什么是JMM内存模型</h2><p>Java内存模型即 Java Menory Model，简称JMM。JMM定义了Java虚拟机（JVM）在计算机内存（RAM）中的工作方法。JVM是整个计算机虚拟模型，所以JMM隶属于JVM的。<br>    Java内存模型定义了多线程之间共享变量的可见性以及如何在需要的时候对共享变量进行同步。原始的Java内存模型效率并不是很理想，因此在Java1.5版本对其进行了重构，现在的Java8仍沿用了1.5的版本。 模型如下：<br><img src="https://img-blog.csdnimg.cn/20200411194726969.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-      
-      <a class="article-more-link" href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-JMM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/" rel="tag">java并发理论</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java-并发基础-线程的基本状态和操作" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/"
-    >Java-并发基础-线程的基本状态和操作</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/" class="article-date">
-  <time datetime="2019-11-01T22:47:45.000Z" itemprop="datePublished">2019-11-02</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="一、基本简介"><a href="#一、基本简介" class="headerlink" title="一、基本简介"></a>一、基本简介</h2><p>线程拥有自己的生命周期，一条线程从创建到执行完毕的过程就是线程的生命周期，那么在线程的生命周期的每个过程中可能在不同的时候处于不同的状态，用状态来描述生命周期那是最好不过了。<br>那么线程的生命周期到底有多少种状态呢，它们不同的状态又是如何通过状态的转化操作来完成线程的生命周期呢，下面就按照线程的生命周期的状态和状态之间的转换操作来详细说明。</p>
-      
-      <a class="article-more-link" href="/2019/11/02/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%8A%B6%E6%80%81%E5%92%8C%E6%93%8D%E4%BD%9C/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/" rel="tag">java并发基础</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java并发-首页" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/"
-    >Java并发-首页</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/" class="article-date">
-  <time datetime="2019-11-01T10:32:01.000Z" itemprop="datePublished">2019-11-01</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="简介："><a href="#简介：" class="headerlink" title="简介："></a>简介：</h2><p>基本包含了Java并发编程的知识内容同时囊括并发Concurrent包的重点源码分析，如有问题欢迎评论指出，谢谢支持！<br>关注微信公众号获取更多知识：当代猿</p>
-      
-      <a class="article-more-link" href="/2019/11/01/Java%E5%B9%B6%E5%8F%91-%E9%A6%96%E9%A1%B5/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E9%A6%96%E9%A1%B5/" rel="tag">java并发首页</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Java-并发基础-认识并发编程" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/"
-    >Java-并发基础-认识并发编程</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" class="article-date">
-  <time datetime="2019-11-01T08:57:48.000Z" itemprop="datePublished">2019-11-01</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java%E5%B9%B6%E5%8F%91/">Java并发</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="一、基本简介"><a href="#一、基本简介" class="headerlink" title="一、基本简介"></a>一、基本简介</h2><h3 id="什么是并发"><a href="#什么是并发" class="headerlink" title="什么是并发"></a>什么是并发</h3><p>在Java中并发就是指多线程的进程环境，进程是系统进行资源分配和调度的独立单位，每一个进程都有它的内存空间和系统资源，在同一个进程内执行的多个任务就可以看作是多个进程，线程存在于进程内，进程负责分配调度线程，线程负责执行程序，多个线程就执行多个程序。<br>实际上，Java程序天生就是一个多线程程序，包含了：</p>
-<ul>
-<li>分发处理发送给JVM信号的线程</li>
-<li>调用对象的finalize清除方法的线程</li>
-<li>清除相互引用reference的线程</li>
-<li>main线程，也就是用户程序的入口，main线程里面还可以拥有很多的子线程
-      
-      <a class="article-more-link" href="/2019/11/01/Java-%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80-%E8%AE%A4%E8%AF%86%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/" rel="tag">java并发基础</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E6%9E%9A%E4%B8%BE/" rel="tag">Java枚举</a></li></ul>
 
 
     </footer>
@@ -803,7 +863,7 @@
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>

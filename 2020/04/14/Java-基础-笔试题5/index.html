@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Tomcat-教程-web.xml配置文件 |  当代猿
+    Java-基础-笔试题5 |  当代猿
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -39,7 +39,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-Tomcat-教程-web-xml配置文件" class="article article-type-post" itemscope
+  <article id="post-Java-基础-笔试题5" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -47,7 +47,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Tomcat-教程-web.xml配置文件
+  Java-基础-笔试题5
 </h1>
  
 
@@ -56,12 +56,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-web-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="article-date">
-  <time datetime="2020-04-13T13:30:44.000Z" itemprop="datePublished">2020-04-13</time>
+      <a href="/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%985/" class="article-date">
+  <time datetime="2020-04-14T14:50:02.000Z" itemprop="datePublished">2020-04-14</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Tomcat/">Tomcat</a>
+    <a class="article-category-link" href="/categories/Java%E5%9F%BA%E7%A1%80/">Java基础</a>
   </div>
 
       
@@ -71,7 +71,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">887</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -80,7 +80,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -91,8 +91,6 @@
 
     
     
-    <div class="tocbot"></div>
-
 
 
 
@@ -105,31 +103,9 @@
       
 
       
-      <h2><span id="思维导图-总览">思维导图-总览</span></h2><p><img src="/images/tomcat-web.xml.png" alt="思维导图"></p>
+      <p>1、 JAVA所定义的版本中不包括：（ ）<br>A、 JAVA2 EE<br>B、 JAVA2 Card<br>C、 JAVA2 ME<br>D、 JAVA2HE<br>E、 JAVA2 SE<br>答案：D</p>
 <a id="more"></a>
-<h2><span id="一-基本配置">一、基本配置</span></h2><pre><code>Web.xml主要是用来加载servlet实例的。默认的servlet实例：</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;default&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">apache</span>.<span class="title">catalina</span>.<span class="title">servlets</span>.<span class="title">DefaultServlet</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">name</span>&gt;<span class="title">debug</span>&lt;/<span class="title">param</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">value</span>&gt;0&lt;/<span class="title">param</span>-<span class="title">value</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">name</span>&gt;<span class="title">listings</span>&lt;/<span class="title">param</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">value</span>&gt;<span class="title">false</span>&lt;/<span class="title">param</span>-<span class="title">value</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;1&lt;/<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>对应servlet实例处理的url请求映射，servlet&gt;和servlet-mapping&gt;标签是成对出现的。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;default&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
-
-<p>标签元素说明：<br>    1. servlet-name&gt;:设置servlet实例的名字。<br>    2. servlet-class&gt;:servlet实例对应的类。<br>    3. init-param&gt;:表示初始化该servlet实例时的一些初始化参数，里面含有param-name&gt;标签标识参数名，<param-value>标签标识参数值。<br>        a. debug：表示调试等级，0表示提供最少的信息，9表示提供最多的信息<br>        b. listings：表示是否列出web路径下的所有页面，false表示不显示目录结构<br>    4. load-on-startup&gt;：表示在servlet容器标记启动时是否加载这个servlet实例并调用其init()方法，它的值必须是一个整数，表示servlet实例被载入的顺序，当值为0或者大于0时表示在容器启动的时候就加载并初始化这个servlet，当值小于0或者没有指定时，表示该servlet被选择时，容器才会去加载；正值的数越小，该servlet的优先级越高，容器启动时就先加载，当值相同时，容器会自己选择顺序加载。<br>二、init-param&gt;元素详解<br>    再看一个专门处理jsp的servlet配置：</param-value></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;jsp&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">org</span>.<span class="title">apache</span>.<span class="title">jasper</span>.<span class="title">servlet</span>.<span class="title">JspServlet</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">name</span>&gt;<span class="title">fork</span>&lt;/<span class="title">param</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">value</span>&gt;<span class="title">false</span>&lt;/<span class="title">param</span>-<span class="title">value</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">name</span>&gt;<span class="title">xpoweredBy</span>&lt;/<span class="title">param</span>-<span class="title">name</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">param</span>-<span class="title">value</span>&gt;<span class="title">false</span>&lt;/<span class="title">param</span>-<span class="title">value</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">init</span>-<span class="title">param</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;3&lt;/<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>对用的url映射路径：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;jsp&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.jsp&lt;/url-pattern&gt;</span><br><span class="line">    &lt;url-pattern&gt;*.jspx&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
-<p>其中主要说一下init-param&gt;元素里面的参数：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200413222911821.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VzZV9hZG1pbg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2><span id="三-其他配置标签">三、其他配置标签</span></h2><ol>
-<li>设置session会话超时时间</li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;session-config&gt;</span><br><span class="line">    &lt;session-timeout&gt;30&lt;/session-timeout&gt;</span><br><span class="line">&lt;/session-config&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>Mime-mapping标签</li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```java</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">&lt;mime-mapping&gt;</span><br><span class="line">	        &lt;extension&gt;zip&lt;/extension&gt;</span><br><span class="line">	        &lt;mime-type&gt;application/zip&lt;/mime-type&gt;</span><br><span class="line">	    &lt;/mime-mapping&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;mime-mapping&gt;</span><br><span class="line">	     &lt;extension&gt;htm&lt;/extension&gt; </span><br><span class="line">	      &lt;mime-type&gt;text/html;charset=gb2312&lt;/mime-type&gt;</span><br><span class="line">	 &lt;/mime-mapping&gt;</span><br><span class="line">	</span><br><span class="line">	 &lt;mime-mapping&gt;</span><br><span class="line">	      &lt;extension&gt;html&lt;/extension&gt; </span><br><span class="line">	      &lt;mime-type&gt;text/html;charset=gb2312&lt;/mime-type&gt; </span><br><span class="line">	 &lt;/mime-mapping&gt;</span><br></pre></td></tr></table></figure>
-
-
-<p>mime-mapping是web.xml中的一个节点，用来指定对应的格式的浏览器处理方式，另外也可以用来配置静态页面的打开编码。</p>
-<p>常见的MIME类型:<br>    超文本标记语言文本 .htm,.html text/html<br>    普通文本 .txt text/plain<br>    RTF文本 .rtf application/rtf<br>    GIF图形 .gif image/gif<br>    JPEG图形 .ipeg,.jpg image/jpeg<br>    au声音文件 .au audio/basic<br>    MIDI音乐文件 mid,.midi audio/midi,audio/x-midi<br>    RealAudio音乐文件 .ra, .ram audio/x-pn-realaudio<br>    MPEG文件 .mpg,.mpeg video/mpeg<br>    AVI文件 .avi video/x-msvideo<br>    GZIP文件 .gz application/x-gzip<br>    TAR文件 .tar application/x-tar</p>
+<p>解析：<br>Java企业版：JEE 适用于创建服务器应用程序和服务的Java 平台企业版<br>Java标准版: JSE 适用于桌面系统的Java 平台标准版<br>JME:适用于小型设备和智能卡的Java 平台Micro版<br>Java Card技术主要是让智能卡或与智能卡相近的设备上，以具有安全防护性的方式来运行小型的Java Applet，此技术也被广泛运用在SIM卡、提款卡上。<br>2、 下列说法正确的是（ ）<br>A、 JAVA程序的main方法必须写在类里面<br>B、 JAVA程序中可以有多个main方法<br>C、 JAVA程序中类名必须与文件名一样<br>D、 JAVA程序的main方法中如果只有一条语句，可以不用{}(大括号)括起来<br>答案：A<br>解析：<br>A:main()方法必须都写在类里面，在Java中，main()方法是Java应用程序的入口方法，也就是说，程序在运行的时候，第一个执行的方法就是main()方法，这个方法和其他的方 法有很大的不同，比如方法的名字必须是main，方法必须是public static void 类型的，方法必须接收一个字符串数组的参数等等。<br>B:这个之前没用过多个main方法，自己试一下，可以用多个mian为方法名的方法，但是只能有一个publi 0static void main(String[] args){}这个方法<br>C:只有标记为public的类，名字才必须与文件名相同,public外部类必须与文件名相同，这样的类有且只有一个，public 内部类 名字不与文件名相同<br>D: JAVA程序的main方法中，不管有多少条语句都必须用{}（大括号）括起来<br>3、 变量命名规范说法正确的是（ ）<br>A、 变量由字母、下划线、数字、$符号随意组成；<br>B、 变量不能以数字作为开头；<br>C、 A和a在java中是同一个变量；<br>D、 不同类型的变量，可以起相同的名字；<br>答案：B<br>解析：<br>变量名只能是字母(a-z A-Z)，数字(0-9)，下划线(_)的组合，并且之间不能包含空格，数字不能放在变量名首位。<br>不要在同一个类的不同上下文中重用相同的变量名<br>4、 下列javaDoc注释正确的是（ ）<br>A、 /* 我爱北京天安门 /<br>B、 // 我爱北京天安门 <em>/<br>C、 /** 我爱北京天安门 <em>/<br>D、 / 我爱北京天安门 *</em>/<br>答案：C<br>解析：<br>对于Java注释我们主要了解两种：<br>// 注释一行<br>/</em> …… <em>/ 注释若干行<br>但还有第三种，文档注释：<br>/*</em>  …… <em>/ 注释若干行，并写入 javadoc 文档<br>5、 为一个boolean类型变量赋值时，可以使用( )方式<br>A、 boolean = 1;<br>B、 boolean a = (9 &gt;= 10);<br>C、 boolean a=”真”;<br>D、 boolean a = = false;<br>答案：B<br>boolean即java中的基本类型——布尔类型，值只有true和false两种。<br>分析：<br>A是对int类型的赋值方式。<br>B中（9&gt;=10）的值是false，因为有关系运算符是用来比较运算，结果只有对（true）与错（false）两种，是boolean类型，所以B正确<br>C的赋值方式根本不对，既不符合char类型，也不符合String类型<br>D中“==”是关系运算符，不能用来赋值，如果“==”改成“=”就是正确的<br>6、 以下( )不是合法的标识符<br>A、 STRING<br>B、 x3x;<br>C、 void<br>D、 de$f<br>答案：C<br>void属于java中的关键字<br>[1]Java标识符只能由数字、字母、下划线“”或“$”符号以及Unicode字符集组成<br>[2]Java标识符必须以字母、下划线“”或“$”符号以及Unicode字符集开头<br>[3]Java标识符不可以是Java关键字、保留字（const、goto）和字面量（true、false、null）<br>[4]Java标识符区分大小写，是大小写敏感的<br>7、 表达式(11+3</em>8)/4%3的值是( )<br>A、 31<br>B、 0<br>C、 1<br>D、 2<br>答案： D<br>先乘除后加减，有括号先按括号算<br>3*8=24<br>11+24=35<br>35/4=8<br>8%3=2<br>结果是2<br>8. 什么是java 序列化，如何实现java 序列化？<br>答：序列化就是一种用来处理对象流的机制，所谓对象流也就是将对象的内容进行流化。可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。序列化是为了解决在对对象流进行读写操作时所引发的问题；序列化的实现：将需要被序列化的类实现Serializable 接口，该接口没有需实现的方法，implements Serializable 只是为了标注该对象是可被序列化的，然后使用一个输出流(如FileOutputStream)来构造一个ObjectOutputStream(对象流)对象，接着，使用ObjectOutputStream 对象的writeObject(Object obj)方法就可以将参数为obj 的对象写出(即保存其状态)，要恢复的话则用输入流。<br>9、java 中有几种类型的流？JDK 为每种类型的流提供了一些抽象类以供继承，<br>请说出他们分别是哪些类？<br>InputStream、OutputStream，字符流继承于Reader、Writer。在java.io 包中还有许多其他的流，主要是为了提高性能和使用方便。<br>10. java中栈和堆得区别？<br>    1. 功能不同<br>栈内存用来存储局部变量和方法调用。<br>而堆内存用来存储Java中的对象。无论是成员变量，局部变量，还是类变量，它们指向的对象都存储在堆内存中。<br>    2. 共享性不同<br>栈内存是线程私有的。<br>堆内存是所有线程共有的。<br>3.异常错误不同<br>如果栈内存或者堆内存不足都会抛出异常。<br>栈空间不足：java.lang.StackOverFlowError。<br>堆空间不足：java.lang.OutOfMemoryError。<br>4.空间大小<br>栈的空间大小远远小于堆的。</p>
 
       
       <!-- reward -->
@@ -198,14 +174,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/huahuablog/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-web-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%985/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tomcat-%E6%95%99%E7%A8%8B/" rel="tag">tomcat-教程</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AF%95%E9%A2%98/" rel="tag">笔试题</a></li></ul>
 
 
     </footer>
@@ -216,19 +192,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%981/" class="article-nav-link">
+      <a href="/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%986/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Java-基础-笔试题1
+            Java-基础-笔试题6
           
         </div>
       </a>
     
     
-      <a href="/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-server-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" class="article-nav-link">
+      <a href="/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%984/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Tomcat-教程-server.xml配置文件</div>
+        <div class="article-nav-title">Java-基础-笔试题4</div>
       </a>
     
   </nav>

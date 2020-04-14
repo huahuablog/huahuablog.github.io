@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/huahuablog/"/>
-  <updated>2020-04-13T14:43:02.925Z</updated>
+  <updated>2020-04-14T15:17:35.123Z</updated>
   <id>https://github.com/huahuablog/</id>
   
   <author>
@@ -17,11 +17,233 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java-基础-笔试题10</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%9810/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%9810/</id>
+    <published>2020-04-14T14:50:36.000Z</published>
+    <updated>2020-04-14T15:17:35.123Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.请看如下代码&lt;br&gt;class Person {&lt;br&gt;    private int a;&lt;br&gt;    public int change(int m){return m;}&lt;br&gt;}&lt;br&gt;public class Teacher extends Person{&lt;br&gt;    public int b;&lt;br&gt;    public static void main(String arg[]){&lt;br&gt;        Person p = new Person();&lt;br&gt;        Teacher t = new Teacher();&lt;br&gt;        int i;&lt;br&gt;        // point x&lt;br&gt;    }&lt;br&gt;}&lt;br&gt;下面哪些放在// point x?行是正确的？ ()&lt;br&gt;A， i = m;&lt;br&gt;B， i = b;&lt;br&gt;C， i = p.a;&lt;br&gt;D， i = p.change(3);&lt;br&gt;E， i = t.b;&lt;br&gt;答案：D&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题9</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%989/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%989/</id>
+    <published>2020-04-14T14:50:29.000Z</published>
+    <updated>2020-04-14T15:16:56.525Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.已知表达式 int m [ ] = {9，1，2，3，4，5，6}；&lt;br&gt;下面哪个表达式的值与数组下标量总数相等？（ ）&lt;br&gt;A .m.length()&lt;br&gt;B.m.length&lt;br&gt;C.m.length()+1&lt;br&gt;D.m.length+1&lt;br&gt;答案：B&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题8</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%988/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%988/</id>
+    <published>2020-04-14T14:50:22.000Z</published>
+    <updated>2020-04-14T15:16:27.738Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.一个以”.java”为后缀的源文件，正确的是（）&lt;br&gt;A. 只能包含一个类，类名必须与文件名相同&lt;br&gt;B. 只能包含与文件名相同的类以及其中的内部类&lt;br&gt;C. 只能有一个与文件名相同的类，可以包含其他类&lt;br&gt;D. 可以包含任意类&lt;br&gt;答案: C&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题7</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%987/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%987/</id>
+    <published>2020-04-14T14:50:16.000Z</published>
+    <updated>2020-04-14T15:13:56.535Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1.Math.round(11.5)等于多少? Math.round(-11.5)等于多少？&lt;br&gt;A.11—— 11&lt;br&gt;B.11 ——11&lt;br&gt;C.12——12&lt;br&gt;D.12 ——11&lt;br&gt;答案： D&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题6</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%986/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%986/</id>
+    <published>2020-04-14T14:50:09.000Z</published>
+    <updated>2020-04-14T14:50:09.287Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题5</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%985/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%985/</id>
+    <published>2020-04-14T14:50:02.000Z</published>
+    <updated>2020-04-14T15:17:39.630Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;1、 JAVA所定义的版本中不包括：（ ）&lt;br&gt;A、 JAVA2 EE&lt;br&gt;B、 JAVA2 Card&lt;br&gt;C、 JAVA2 ME&lt;br&gt;D、 JAVA2HE&lt;br&gt;E、 JAVA2 SE&lt;br&gt;答案：D&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题4</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%984/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%984/</id>
+    <published>2020-04-14T14:49:55.000Z</published>
+    <updated>2020-04-14T15:03:44.210Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;下面float的赋值语句错误的是？()&lt;br&gt;A:float f=3.4;&lt;br&gt;B:float f=3.4F;&lt;br&gt;C:float f=1.0;&lt;br&gt;D:float
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题3</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%983/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%983/</id>
+    <published>2020-04-14T14:49:48.000Z</published>
+    <updated>2020-04-14T15:02:12.432Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;以下哪些定义的变量是正确的（）&lt;br&gt;A int 1abc;&lt;br&gt;B char abc1;&lt;br&gt;C long #abc;&lt;br&gt;D boolean
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题2</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%982/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%982/</id>
+    <published>2020-04-14T14:49:41.000Z</published>
+    <updated>2020-04-14T15:01:03.018Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;对于以下，有int x = 5, y =6, z;&lt;br&gt;z = ++x + y++;&lt;br&gt;z的结果下面正确是是（）&lt;br&gt;A：10&lt;br&gt;B:8&lt;br&gt;C:11&lt;br&gt;D:12&lt;br&gt;答案：D&lt;br&gt;解析：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;++x ，y++ 将 x = 5, y =6带入里面 得到 6 ，6 所以结果为12&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java-基础-笔试题1</title>
+    <link href="https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%981/"/>
+    <id>https://github.com/huahuablog/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%981/</id>
+    <published>2020-04-14T14:49:33.000Z</published>
+    <updated>2020-04-14T14:59:41.193Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;Byte类型可以存储多少个字节和取值范围？（）&lt;br&gt;A 1个字节 ， -128 ~ 127&lt;br&gt;B 2个字节， 32 768 – 32 767&lt;br&gt;C 4字节 -2 147 483 648 – 2 147 483 647 (正好超过 20 亿)&lt;br&gt;D 8个字节 -9 223 372 036 854 775 808 – 9 223 372 036 854 775 807&lt;br&gt;答案：A&lt;br&gt;解析：&lt;br&gt;byte是一个字节保存的，有8个位，即8个0、1。&lt;br&gt;8位的第一个位是符号位，&lt;br&gt;也就是说0000 0001代表的是数字1&lt;br&gt;1000 0000代表的就是-1&lt;br&gt;所以正数最大位0111 1111，也就是数字127&lt;br&gt;负数最大为1111 1111，也就是数字-128&lt;br&gt;所以Java中的一个byte是1个字节，其范围是-128~127
+    
+    </summary>
+    
+    
+      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="笔试题" scheme="https://github.com/huahuablog/tags/%E7%AC%94%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Tomcat-教程-web.xml配置文件</title>
     <link href="https://github.com/huahuablog/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-web-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/"/>
     <id>https://github.com/huahuablog/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-web-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</id>
     <published>2020-04-13T13:30:44.000Z</published>
-    <updated>2020-04-13T14:43:02.925Z</updated>
+    <updated>2020-04-14T13:03:42.892Z</updated>
     
     <summary type="html">
     
@@ -226,216 +448,6 @@
     
     
       <category term="java并发理论" scheme="https://github.com/huahuablog/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-并发理论-三大特性</title>
-    <link href="https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/"/>
-    <id>https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7/</id>
-    <published>2020-04-11T12:22:25.000Z</published>
-    <updated>2020-04-14T13:29:02.380Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、什么是并发三大性质&quot;&gt;&lt;a href=&quot;#一、什么是并发三大性质&quot; class=&quot;headerlink&quot; title=&quot;一、什么是并发三大性质&quot;&gt;&lt;/a&gt;一、什么是并发三大性质&lt;/h2&gt;&lt;p&gt;在并发编程中，去解决线程安全的问题，一般可以从两大核心和三大特性作为切入点来思考怎么去解决，两大核心就是JMM内存模型和happens-before规则（三、Java内存模型的抽象和happens-before规则），三大特性主要是原子性、可见性和有序性。并发关键字synchronized和volatile都涉及到了三大特性，说明了三大特性的重要性。从这两个关键字分析这三大特性。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java并发理论" scheme="https://github.com/huahuablog/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-并发理论-关键字-final</title>
-    <link href="https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/"/>
-    <id>https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-final/</id>
-    <published>2020-04-11T12:21:52.000Z</published>
-    <updated>2020-04-14T13:19:20.639Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、什么是final&quot;&gt;&lt;a href=&quot;#一、什么是final&quot; class=&quot;headerlink&quot; title=&quot;一、什么是final&quot;&gt;&lt;/a&gt;一、什么是final&lt;/h2&gt;&lt;p&gt;final是java中关键字修饰符，可以修饰变量、方法和类，用于表示所修饰的内容一旦赋值之后就不能被改变了，例如final修饰基本类型，一旦赋值之后就不能改变了；Sting类就是一个final类；final修饰引用类型的时候，不可改变的是它的引用地址；final在对线程中存在的重排序问题也有一定的作用，我们可以从final的具体使用场景：变量、方法、类上修饰final类分析一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java并发理论" scheme="https://github.com/huahuablog/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-并发理论-关键字-volatile</title>
-    <link href="https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/"/>
-    <id>https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-volatile/</id>
-    <published>2020-04-11T12:21:26.000Z</published>
-    <updated>2020-04-14T13:23:26.679Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、什么是volatile&quot;&gt;&lt;a href=&quot;#一、什么是volatile&quot; class=&quot;headerlink&quot; title=&quot;一、什么是volatile&quot;&gt;&lt;/a&gt;一、什么是volatile&lt;/h2&gt;&lt;p&gt;synchronized是阻塞式同步机制，在线程竞争激烈的情况下会升级为重量级锁（不使用自旋，直接阻塞线程），而volatile可以说是Java虚拟机提供的最轻量级的同步机制。&lt;br&gt;volatile的作用是保证使用volatile修饰的共享变量的可见性，即线程对volatile变量的修改会立即更新到主内存中，以被其他线程所感知，就不会出现数据脏读的现象，保证了数据的可见性。&lt;br&gt;对于volatile的内存定义参考：Java-并发理论-JMM内存模型：1）volatile：读写内存定义&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java并发理论" scheme="https://github.com/huahuablog/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-并发理论-关键字-synchronized</title>
-    <link href="https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/"/>
-    <id>https://github.com/huahuablog/2020/04/11/Java-%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA-%E5%85%B3%E9%94%AE%E5%AD%97-synchronized/</id>
-    <published>2020-04-11T12:21:00.000Z</published>
-    <updated>2020-04-14T13:01:41.245Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;一、什么是Synchronized&quot;&gt;&lt;a href=&quot;#一、什么是Synchronized&quot; class=&quot;headerlink&quot; title=&quot;一、什么是Synchronized&quot;&gt;&lt;/a&gt;一、什么是Synchronized&lt;/h2&gt;&lt;p&gt;这个可以参考一下介绍：Java-并发理论-JMM内存模型：volatile和锁（synchronized，ReentrantLock）。&lt;br&gt;Synchronized关键字主要是用来解决多线程的线程安全问题的。是一种同步机制。那么这些安全性问题主要是来源JMM内存模型中主内存和线程的工作内存带来共享变量的可见性问题，以及重排序带来的问题；Java中的关键字synchronized同步机制就具备解决这些共享数据的线程安全问题，但是这种同步机制的效率很低，但是synchronized是其他并发容器实现的基础，理解它会提高并发编程有很大帮助。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Java并发" scheme="https://github.com/huahuablog/categories/Java%E5%B9%B6%E5%8F%91/"/>
-    
-    
-      <category term="java并发理论" scheme="https://github.com/huahuablog/tags/java%E5%B9%B6%E5%8F%91%E7%90%86%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-教程-简介</title>
-    <link href="https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"/>
-    <id>https://github.com/huahuablog/2020/04/06/Spring-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/</id>
-    <published>2020-04-06T11:33:04.000Z</published>
-    <updated>2020-04-11T11:42:53.864Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;spring是什么&quot;&gt;&lt;a href=&quot;#spring是什么&quot; class=&quot;headerlink&quot; title=&quot;spring是什么&quot;&gt;&lt;/a&gt;spring是什么&lt;/h1&gt;&lt;p&gt;spring是一个企业级应用的开源框架，它也是轻量级的、一站式的、面向切面编程的、依赖注入DI和容器IOC的、模块化的框架。&lt;br&gt;总的来说，Spring就是用来替代更加重量级的企业级的Java技术。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="https://github.com/huahuablog/categories/Spring/"/>
-    
-    
-      <category term="Spring" scheme="https://github.com/huahuablog/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-属性配置类-PropertyPlaceholderConfigurer</title>
-    <link href="https://github.com/huahuablog/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/"/>
-    <id>https://github.com/huahuablog/2020/03/11/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB-PropertyPlaceholderConfigurer/</id>
-    <published>2020-03-11T13:18:10.000Z</published>
-    <updated>2020-04-11T13:34:30.928Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;是什么&quot;&gt;&lt;a href=&quot;#是什么&quot; class=&quot;headerlink&quot; title=&quot;是什么&quot;&gt;&lt;/a&gt;是什么&lt;/h2&gt;&lt;p&gt;PropertyPlaceholderConfigurer是个bean工厂后置处理器的实现，也就是 BeanFactoryPostProcessor接口的一个实现。在bean初始化前执行的后置处理器&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="https://github.com/huahuablog/categories/Spring/"/>
-    
-    
-      <category term="Spring-属性配置类" scheme="https://github.com/huahuablog/tags/Spring-%E5%B1%9E%E6%80%A7%E9%85%8D%E7%BD%AE%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringMVC-教程-简介</title>
-    <link href="https://github.com/huahuablog/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/"/>
-    <id>https://github.com/huahuablog/2020/02/11/SpringMVC-%E6%95%99%E7%A8%8B-%E7%AE%80%E4%BB%8B/</id>
-    <published>2020-02-11T13:42:53.000Z</published>
-    <updated>2020-04-12T08:20:18.970Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2&gt;&lt;span id=&quot;一-spring-mvc运行原理&quot;&gt;一、spring
-        
-      
-    
-    </summary>
-    
-    
-      <category term="SpringMVC" scheme="https://github.com/huahuablog/categories/SpringMVC/"/>
-    
-    
-      <category term="SpringMVC-简介" scheme="https://github.com/huahuablog/tags/SpringMVC-%E7%AE%80%E4%BB%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-动态代理</title>
-    <link href="https://github.com/huahuablog/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
-    <id>https://github.com/huahuablog/2020/01/15/Java-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</id>
-    <published>2020-01-15T02:07:28.000Z</published>
-    <updated>2020-04-11T13:13:39.814Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java设计模式" scheme="https://github.com/huahuablog/categories/Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-    
-      <category term="动态代理" scheme="https://github.com/huahuablog/tags/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-反射</title>
-    <link href="https://github.com/huahuablog/2020/01/15/Java-%E5%8F%8D%E5%B0%84/"/>
-    <id>https://github.com/huahuablog/2020/01/15/Java-%E5%8F%8D%E5%B0%84/</id>
-    <published>2020-01-15T01:06:19.000Z</published>
-    <updated>2020-04-11T13:13:03.874Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="Java反射" scheme="https://github.com/huahuablog/tags/Java%E5%8F%8D%E5%B0%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-枚举</title>
-    <link href="https://github.com/huahuablog/2020/01/14/Java-%E6%9E%9A%E4%B8%BE/"/>
-    <id>https://github.com/huahuablog/2020/01/14/Java-%E6%9E%9A%E4%B8%BE/</id>
-    <published>2020-01-14T12:04:08.000Z</published>
-    <updated>2020-04-11T13:11:55.269Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java基础" scheme="https://github.com/huahuablog/categories/Java%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="Java枚举" scheme="https://github.com/huahuablog/tags/Java%E6%9E%9A%E4%B8%BE/"/>
     
   </entry>
   

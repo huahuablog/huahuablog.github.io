@@ -1,6 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java-基础-笔试题10</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%9810/</url>
+    <content><![CDATA[<p>1.请看如下代码<br>class Person {<br>    private int a;<br>    public int change(int m){return m;}<br>}<br>public class Teacher extends Person{<br>    public int b;<br>    public static void main(String arg[]){<br>        Person p = new Person();<br>        Teacher t = new Teacher();<br>        int i;<br>        // point x<br>    }<br>}<br>下面哪些放在// point x?行是正确的？ ()<br>A， i = m;<br>B， i = b;<br>C， i = p.a;<br>D， i = p.change(3);<br>E， i = t.b;<br>答案：D</p>
+<a id="more"></a>
+<p>【解析】本题考查类的声明。选项A中m没有被声明过，不能使用；选项B中虽然b是类Teacher的public成员变量，但在静态方法中，不能使用类中的非静态成员；选项C中a是类Person的private成员，在类外不能直接引用；选项D中change(intm)方法是pubtic方法，并且返回一个int型值，可以通过类的实例变量P引用并赋值给一个int型变量。<br>2.method(){?}的重载函数？（）<br>A.public void method( int m){?}<br>B.public int method(){?}<br>C.public void method2(){?}<br>D.public int method(int m，float f ){?}<br>答案：同第三题<br>3.下面那几个函数是public void method(){̷}的重载函数？（）<br>A.public void method( int m){̷}<br>B.public int method(){̷}<br>C.public void method2(){̷}<br>D.public int method(int m，float f ){̷}<br>答案：A D<br>解析：<br>重载就是方法名一样(必须的)，里面执行的内容不一样，但是呢，又出现一个问题，你写的两个或者多个方法要能让JVM(JAVA 虚拟机)认识是唯一的，所以，这里就和返回的类型无关了，因为如果返回类型不一样，其他都一样的话，那JVM是不知道到底是调用哪个方法的。所以方法名一样，入参的类型，个数，顺序（术语：方法的签名）只要有一个不同就是方法的重载了。<br>4.下面的哪些声明是合法的？（ ）<br>A.long 1 = 499<br>B.int i = 4L<br>C.float f =1.1<br>D.double d = 34.4<br>答案：AD<br>解析：<br>B.4L应该是long类型的写法，<br>C.1.1是double类型 ，float f=1.1f是正确写法<br>5.问：Java 匿名内部类在使用时如何初始化吗？<br>解析：匿名内部类无法通过构造方法初始化，所以我们只能通过构造代码块进行初始化。<br>6问：开发中使用 Java 匿名内部类有哪些注意事项（经验）？<br>答：常见的注意事项如下。<br>使用匿名内部类时必须是继承一个类或实现一个接口（二者不可兼得且只能继承一个类或者实现一个接口）。<br>匿名内部类中是不能定义构造函数的，如需初始化可以通过构造代码块处理。<br>匿名内部类中不能存在任何的静态成员变量和静态方法。<br>匿名内部类为局部内部类，所以局部内部类的所有限制同样对匿名内部类生效。<br>匿名内部类不能是抽象类，必须要实现继承的类或者实现接口的所有抽象方法。<br>7.问：请简单谈谈 TreeMap 与 HashMap 的区别？<br>答：TreeMap 实现了 SortMap 接口，其能够根据键排序，默认是按键的升序排序，也可以指定排序的比较器，当用 Iterator 遍历 TreeMap 时得到的记录是排过序的，所以在插入和删除操作上会有些性能损耗，TreeMap 的键和值都不能为空，其为非并发安全 Map，此外 TreeMap 基于红黑树实现。<br>HashMap 是最常用的 Map，其基于哈希散列表实现，主要根据键的 hashCode 值存储数据，根据键可以直接获取它的值，具有很快的访问速度，当用 Iterator 遍历 HashMap 时得到的记录顺序是随机的，HashMap 只允键值均为空，其为非并发安全 Map。<br>所以一般情况下我们选用 HashMap，因为 HashMap 的键值对在取出时是随机的，其依据键的 hashCode 值和键的 equals 方法存取数据，具有很快的访问速度，所以在 Map 中插入、删除及索引元素时其是效率最高的实现。而 TreeMap 取出来的是排序后的键值对，所以效率会低点。<br>8.问：说说 HashSet 与 HashMap 的区别？<br>答：从实质上说 HashSet 的实现实质就是一个 Map 对象的包装，只是 Map 的 value 为 Object 固定对象，Set 只利用了 Map 的 key 而已。具体区别来说如下：<br>HashMap 实现了 Map 接口，而 HashSet 实现了 Set 接口。<br>HashMap 储存键值对，而 HashSet 仅仅存储对象。<br>HashMap 使用 put 方法将元素放入 Map 中，而 HashSet 使用 add 方法将元素放入 Set 中。<br>HashMap 中使用键对象来计算 hashcode 值，而 HashSet 使用成员对象来计算 hashcode 值。<br>9.问：简单说说什么是二叉树？什么是完全二叉树？什么是满二叉树？什么是排序二叉树？<br>二叉树是一种从上往下分叉的一种数据结构，其每个节点最多有两个孩子节点，一左一右，左边的称为左孩子，右边的称为右孩子。<br>完全二叉树是普通二叉树除最后一层外，在每一层上的结点数均达到最大值，在最后一层上只缺少右边若干结点的二叉树<br>满二叉树是普通二叉树中的每个结点恰好有两个孩子结点且所有叶子结点都在同一层的二叉树<br>若普通二叉树每个节点满足左子树所有节点值小于它的根节点值且右子树所有节点值大于它的根节点值，则这样的二叉树就是排序二叉树<br>10.问：面向对象的三大特征是什么？请详细介绍他们各自的部分原理？<br>解答：<br>答：特征可以说有三种，继承、封装、多态，也可以说有四种，继承、封装、多态、抽象。<br>继承性是类的一种层次模型，其提供了一种明确表述共性的方法，对象的新类可以从现有的类中继承派生，类可以从它的基类那里继承方法和实例变量，并且类可以修改或增加新的方法使之更适合特殊的需要。<br>封装性是把过程和数据包围起来，使得数据的访问只能通过已定义的接口，保证了对象被访问的隐私性和可靠性。<br>多态性是对象在不同时刻表现出来的多种状态，是一种编译时期状态和运行时期状态不一致的现象，多态性包括参数化多态性和包含多态性。<br>抽象性是指对一类事物的高度提炼以得到共同的共性部分，抽象不需要了解全部细节，而只是一种通用的描述约束，抽象可以是过程抽象或者数据抽象。</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题9</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%989/</url>
+    <content><![CDATA[<p>1.已知表达式 int m [ ] = {9，1，2，3，4，5，6}；<br>下面哪个表达式的值与数组下标量总数相等？（ ）<br>A .m.length()<br>B.m.length<br>C.m.length()+1<br>D.m.length+1<br>答案：B</p>
+<a id="more"></a>
+<p>解析：数组下标是从零开始的，但是数据下标的总量和数据长度相同。<br>2.下面能让线程停止执行的有（多选）( )<br>A. sleep();<br>B. stop();<br>C. notify();<br>D. synchronized();<br>E. yield();<br>F. wait();<br>G. notifyAll();<br>答案：ABDEF<br>解析：sleep：导致此线程暂停执行指定时间<br>stop: 这个方法将终止所有未结束的方法，包括run方法。<br>notify();唤醒线程<br>synchronized():对象锁<br>yield：当前正在被服务的线程可能觉得cpu的服务质量不够好，于是提前退出，这就是yield。<br>wait：当前正在被服务的线程需要睡一会，醒来后继续被服务<br>notifyAll();唤醒所有线程<br>3.下列说法正确的有（）<br>A． 在类方法中可用this来调用本类的类方法<br>B． 在类方法中调用本类的类方法时可直接调用<br>C． 在类方法中只能调用本类中的类方法<br>D． 在类方法中绝对不能调用实例方法<br>答案：B<br>解析：<br>A.在类方法中不能使用this关键字<br>C．在类方法中可以调用其它类中的类方法<br>D．在类方法中可以通过实例化对象调用实例方法<br>4.关于Java语言，下列描述正确的是（多选）<br>A. switch 不能够作用在String类型上<br>B. List， Set， Map都继承自Collection接口<br>C. Java语言支持goto语句<br>D. GC是垃圾收集器，程序员不用担心内存管理<br>答案：AD<br>解析：<br>B. Map没有继承Collection接口<br>C．java不支持goto语句<br>5.Which two demonstrate a ?has a” relationship(Choose two)?()<br>A. public interface Person { }<br>public class Employee extends Person{ }<br>B. public interface Shape { }<br>public interface Rectandle extends Shape { }<br>C. public interface Colorable { }<br>public class Shape implements Colorable<br>{ }<br>D. public class Species{ }<br>public class Animal{private Species species;}<br>E. interface Component{ }<br>class Container implements Component{<br>private Component[] children;<br>}<br>答案：D<br>解析：<br>“has a”是关联关系，关联分双向关联和单向关联，双向关联是A，B类分别持有对方的引用(有是对方的属性).<br>单向关联是一方持另一方的引用.<br>6.Given the folowing classes which of the following will compile without error?()<br>interface IFace{}<br>class CFace implements IFace{}<br>class Base{}<br>public class ObRef extends Base{<br>public static void main(String argv[]){<br>ObRef ob = new ObRef();<br>Base b = new Base();<br>Object o1 = new Object();<br>IFace o2 = new CFace();<br>}<br>}<br>A. o1=o2;<br>B. b=ob;<br>C. ob=b;<br>D. o1=b;<br>答案：B<br>解析：<br>b和ob对应的类之间没有任何关系，要想b=ob成立要么是父子关系，要么是接口实现类的关系<br>7.问：简单说说 Array 和 ArrayList 的区别？<br>答：这题相当小儿科，Array 可以包含基本类型和对象类型，ArrayList 只能包含对象类型；Array 的大小是固定的，ArrayList 的大小是动态变化的；ArrayList 提供了更多的方法和特性，譬如 addAll()、removeAll()、iterator() 等。<br>8.问：为什么 HashMap 中 String、Integer 这样的包装类适合作为 key 键，即为什么使用它们可以减少哈希碰撞？<br>答：因为 String、Integer 等包装类是 final 类型的，具有不可变性，而且已经重写了 equals() 和 hashCode() 方法。不可变性保证了计算 hashCode() 后键值的唯一性和缓存特性，不会出现放入和获取时哈希码不同的情况且读取哈希值的高效性，此外官方实现的 equals() 和 hashCode() 都是严格遵守相关规范的，不会出现错误。</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题8</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%988/</url>
+    <content><![CDATA[<p>1.一个以”.java”为后缀的源文件，正确的是（）<br>A. 只能包含一个类，类名必须与文件名相同<br>B. 只能包含与文件名相同的类以及其中的内部类<br>C. 只能有一个与文件名相同的类，可以包含其他类<br>D. 可以包含任意类<br>答案: C</p>
+<a id="more"></a>
+<p>解析：一个.java文件中，只能存在一个类是用public修饰的，并且这个类必须与类名一致，文件中其他的类不能是public权限的，但可以有很多个类。<br>2.Which is not Java primitive types?<br>A. short<br>B. Boolean<br>C. byte<br>D. float<br>答案: B<br>解析：java规定类名首字母必须大写，这里可以直观的看出来Boolean是一个引用类型，不是基本数据类型。<br>java中的基本数据类型都对应一个引用类型，如Float是float的引用类型，Integer是int的引用类型。<br>3.多个线程可同时操作一个数据，为了保证该数据的准确性，可将操作该数据的部分改为 ()<br>A:类型定义机制;<br>B:数据封装机制;<br>C:类型定义机制和数据封装机制<br>D:上述都不对;<br>答案: A<br>解析：<br>对该数据加锁，放在同步代码块中<br>synchronize(){<br>}<br>4.下面有关List接口、Set接口和Map接口的描述，错误的是？<br>A. 他们都继承自Collection接口<br>B. List是有序的Collection，使用此接口能够精确的控制每个元素插入的位置<br>C. Set是一种不包含重复的元素的Collection<br>D. Map提供key到value的映射。一个Map中不能包含相同的key，每个key只能映射一个value<br>答案: A<br>解析：<br>1、List接口和Set接口都继承自Collection接口，Collection接口继承Iterable接口（Iterable有一个Iterator方法），即可迭代的；Collection只能存储引用类型，并且是单个存储；<br>2、List接口存储元素特点：有序（存进去什么顺序取出来还什么顺序），可重复；Set接口存储元素特点：无序，不可重复<br>3、实现List接口主要的类包括ArrayList，LinkedList，Vector；实现Set的主要类包括：hashSet，另外还有一个TreeSet接口继承它（自动排序）<br>4、Map接口以键值对方式存储元素，键无序不可重复，Map和Collection没有任何关系<br>5.在基本JAVA类型中，如果不明确指定，整数型的默认是什么类型？带小数的默认是什么类型？<br>A. int float<br>B. int double<br>C. long float<br>D. long double<br>答案: B<br>解析：<br>Java中，如果对整数不指定类型，默认时int类型，对小数不指定类型，默认是double类型<br>如果要指定长整型，最好写为long a = 100000000L,如果要指定为单精度最好写为float a= 12.34F<br>6.下面有关webservice的描述，错误的是？<br>A. Webservice是跨平台，跨语言的远程调用技术<br>B. Webservice通信机制实质就是json数据交换<br>C. Webservice采用了soap协议（简单对象协议）进行通信<br>D. WSDL是用于描述 Web Services 以及如何对它们进行访问<br>答案: B<br>解析：Web service顾名思义是基于web的服务，它是一种跨平台，跨语言的服务。<br>我们可以这样理解它，比如说我们可以调用互联网上查询天气信息的web服务，把它嵌入到我们的B/S程序中，当用户从我们的网点看到天气信息时，会认为我们为他提供很多的服务，但其实我们什么也没做，只是简单的调用了一下服务器上的一端代码而已。Web service 可以将你的服务发布到互联网上让别人去调用，也可以调用别人发布的web service，和使用自己的代码一样。<br>它是采用XML传输格式化的数据，它的通信协议是SOAP(简单对象访问协议).<br>7.从下面四段（A，B，C，D）代码中选择出正确的代码段（）<br>A．abstract class Name {<br>    private String name;<br>public abstract boolean isStupidName(String name) {}<br>                                        }<br>B．public class Something {<br>void doSomething () {<br>private String s = ?”;<br>int l = s.length();<br>}<br>}<br>C．public class Something {<br>public static void main(String[] args) {<br>Other o = new Other();<br>new Something().addOne(o);<br>}<br>public void addOne(final Other o) {<br>o.i++;<br>}<br>}<br>class Other {<br>    public int i;<br>}<br>D．public class Something {<br>public int addOne(final int x) {<br>return ++x; }<br>}<br>答案：C<br>解析：<br>A..抽象方法不能有方法体<br>B．方法中定义的是局部变量，不能用类成员变量修饰符private<br>D．final修饰为常量，常量的值不能被改变<br>8.选择下面代码的运行结果：（）。<br>public class Test{<br>public void method()<br>{<br>for(int i = ; i &lt; 3; i++)<br>{<br>System.out.print(i);<br>}<br>System.out.print(i);<br>}<br>}<br>A．122<br>B．123<br>C．编译错误<br>D．没有任何输出<br>答案：C<br>解析：i变量的作用范围是整个for循环<br>9.Java 创建对象的方式有哪几种？<br>有4种显式地创建对象的方式：<br>1.用new语句创建对象，这是最常用的创建对象的方式。<br>2.运用反射手段，调用Java.lang.Class或者java.lang.reflect.Constructor类的newInstance()实例方法。<br>3.调用对象的clone()方法。<br>4.运用反序列化手段，调用java.io.ObjectInputStream对象的readObject()方法.<br>10.问：抽象类（abstract class）和接口（interface）有什么区别？<br>解答：<br>1.语法层面上的区别<br>    a. 抽象类可以提供成员方法的实现细节，而接口中只能存在public abstract 方法；<br>    b. 抽象类中的成员变量可以是各种类型的，而接口中的成员变量只能是public static final类型的；<br>    c. 接口中不能含有静态代码块以及静态方法，而抽象类可以有静态代码块和静态方法；<br>    d. 一个类只能继承一个抽象类，而一个类却可以实现多个接口。<br>2.设计层面上的区别<br>1）抽象类是对一种事物的抽象，即对类抽象，而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。举个简单的例子，飞机和鸟是不同类的事物，但是它们都有一个共性，就是都会飞。<br>那么在设计的时候，可以将飞机设计为一个类Airplane，将鸟设计为一个类Bird，但是不能将 飞行 这个特性也设计为类，因此它只是一个行为特性，并不是对一类事物的抽象描述。<br>此时可以将 飞行 设计为一个接口Fly，包含方法fly( )，然后Airplane和Bird分别根据自己的需要实现Fly这个接口。然后至于有不同种类的飞机，比如战斗机、民用飞机等直接继承Airplane即可，对于鸟也是类似的，不同种类的鸟直接继承Bird类即可。从这里可以看出，继承是一个 “是不是”的关系，而接口实现则是 “有没有”的关系。<br>如果一个类继承了某个抽象类，则子类必定是抽象类的种类，而接口实现则是有没有、具备不具备的关系，比如鸟是否能飞（或者是否具备飞行这个特点），能飞行则可以实现这个接口，不能飞行就不实现这个接口。<br>2）设计层面不同，抽象类作为很多子类的父类，它是一种模板式设计。而接口是一种行为规范，它是一种辐射式设计。<br>什么是模板式设计？最简单例子，大家都用过ppt里面的模板，如果用模板A设计了ppt B和ppt C，ppt B和ppt C公共的部分就是模板A了，如果它们的公共部分需要改动，则只需要改动模板A就可以了，不需要重新对ppt B和ppt C进行改动。而辐射式设计，比如某个电梯都装了某种报警器，一旦要更新报警器，就必须全部更新。<br>也就是说对于抽象类，如果需要添加新的方法，可以直接在抽象类中添加具体的实现，子类可以不进行变更；而对于接口则不行，如果接口进行了变更，则所有实现这个接口的类都必须进行相应的改动。<br>下面看一个网上流传最广泛的例子：门和警报的例子：门都有open( )和close( )两个动作，此时我们可以定义通过抽象类和接口来定义这个抽象概念：<br>abstract class Door {<br>public abstract void open();<br>public abstract void close();<br>}<br>或者<br>interface Door {<br>public abstract void open();<br>public abstract void close();<br>}</p>
+<p>但是现在如果我们需要门具有报警alarm( )的功能，那么该如何实现？下面提供两种思路：<br>1）将这三个功能都放在抽象类里面，但是这样一来所有继承于这个抽象类的子类都具备了报警功能，但是有的门并不一定具备报警功能；<br>2）将这三个功能都放在接口里面，需要用到报警功能的类就需要实现这个接口中的open( )和close( )，也许这个类根本就不具备open( )和close( )这两个功能，比如火灾报警器。<br>从这里可以看出， Door的open() 、close()和alarm()根本就属于两个不同范畴内的行为，open()和close()属于门本身固有的行为特性，而alarm()属于延伸的附加行为。因此最好的解决办法是单独将报警设计为一个接口，包含alarm()行为,Door设计为单独的一个抽象类，包含open和close两种行为。再设计一个报警门继承Door类和实现Alarm接口。<br>interface Alram {<br>   void alarm();<br>}  </p>
+<p>abstract class Door {<br>   void open();<br>   void close();<br>}  </p>
+<p>class AlarmDoor extends Door implements Alarm {<br>   void oepn() {<br>     //….<br>  }<br>   void close() {<br>     //….<br>  }<br>   void alarm() {<br>     //….<br>  }<br>}</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题7</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%987/</url>
+    <content><![CDATA[<p>1.Math.round(11.5)等于多少? Math.round(-11.5)等于多少？<br>A.11—— 11<br>B.11 ——11<br>C.12——12<br>D.12 ——11<br>答案： D</p>
+<a id="more"></a>
+<p>解析：<br>Math.round(11.5)==12;Math.round(-11.5)==-11;round方法返回与参数最接近的长整数，参数加1/2后求其floor<br>2.代码如下<br>1.Float pi = new Float(3.14f);<br>2. if (pi &gt; 3) {<br>3. System.out.print(“pi is bigger than 3. “);<br>4. }<br>5. else {<br>6. System.out.print(“pi is not bigger than 3. “);<br>7. }<br>8. finally {<br>9. System.out.println(“Have a nice day.”);<br>10. }<br>输出结果是（）<br>A. 编译失败。<br>B. pi is bigger than 3.<br>C. 在运行时发生n个异常。<br>D. pi is bigger than 3. Have a nice day.<br>E. pi is not bigger than 3. Have a nice day.<br>答案: A<br>解析：<br>finally不是用在这种地方，仅仅在try/catch/finally内使用。<br>3.数组有没有length()这个方法? String有没有length()这个方法<br>A. 有 没有<br>B. 有 有<br>C. 没有 没有<br>D. 没有 有<br>答： D<br>解析：<br>数组没有length()这个方法，有length的属性。String有有length()这个方法<br>4.List, Set, Map哪一个不是继承自Collection接口？<br>A. List<br>B. Set<br>C. Map<br>D. 都继承自Collection接口<br>答： C<br>解析：<br>List，Set继承自Collection接口，Map不是。<br>5.是否可以从一个static方法内部发出对非static方法的调用？<br>A. 是<br>B. 否<br>答： B<br>解析：<br>不可以,如果其中包含对象的method()；不能保证对象初始化.<br>6.下列哪个叙述是正确的()<br>A. 创建File对象可能发生异常。<br>B. BufferedRead流可以指向FileInputStream流<br>C. BufferedWrite流可以指向FileWrite流<br>D.RadomAccessFile流一旦指向文件，就会刷新该文件<br>答案：C<br>解析：<br>创建File对象不会发生异常，创建新文件的时候会发生IOException异常。<br>BufferedRead流只能指向FileRead流，它们都是以字符读取数据的。<br>RadomAccessFile流指向文件时，不刷新文件。<br>7.为了向文件hello.txt尾加数据，下列哪个是正确创建指向hello.txt的流？<br>A. try{ OutputStream out = new FileOutputStream(“hello.txt”);<br>}<br>catch(IOException e){}<br>B. try { OutputStream out = new FileOutputStream(“hello.txt”,true);<br>}<br>catch(IOException e){}<br>C.try{ OutputStream out = new FileOutputStream(“hello.txt”,false);<br>}<br>catch(IOException e){}<br>D.try{ OutputStream out = new OutputStream(“hello.txt”,true);<br>}<br>catch(IOException e){}<br>答案：B<br>FileOutputStream类是文件字节输出流，它是OutputStream类的子类，所以FileOutputStream的实例方法都是从OutputStream类继承来的，那么在这道题中需要使用上转型对象才能调用重写父类的方法，排除D。ABC在于FileOutpurStream的构造方法的不同，题目要求向文件尾加数据，A选项是具有刷新功能的构造方法，也就是会覆盖掉原来文件的数据，B选项参数为true表示不会刷新所指向的文件，而是从文件的末尾开始向文件写入数据，取值为false，输出流将刷新所指向的文件。<br>8.下面关于Java类的构造方法的说法中正确的是：（ ）<br>A. 一个类至少有一个构造方法<br>B. 构造方法的返回值类型必须是void<br>C. 构造方法的可见性修饰符必须是public<br>D. 构造方法必须显式的定义<br>正确答案: A<br>解析：<br>构造方法是一种特殊的方法：它必须具备和所在类相同的名字；没有返回值类型，甚至连void也没有；构造方法是在创建一个对象使用new操作符时调用的，作用是初始化对象。<br>造方法可以默认提供而不显式定义。<br>简单的说就是，每个类至少有一个构造方法，即使没有写出来，即可以不用显示定义。她没有返回值，连void都没有，但是也可以使用private修饰构造方法。<br>9.为什么构造方法里 this 或者 super 函数调用必须放在第一行且无法共存？<br>答：super 方法在构造函数的第一行原因是子类有可能访问了父类对象，比如在构造函数中使用父类对象的成员函数和变量，在成员初始化使用了父类，在代码块中使用了父类等，所以放在第一行可以保证在子类可以访问父类对象之前完成对父类对象的初始化。<br>this 方法在构造函数的第一行原因是为保证父类对象初始化的唯一性，因为假设类 B 是类 A 的子类，如果 this 方法可以在构造函数的任意行使用则首先程序运行到构造函数 B() 的第一行发现没有调用 this() 和 super()，就自动在第一行补齐了 super() 方法（这是 java 默认的机制），以此完成了对父类对象的初始化，然后返回子类的构造函数继续执行，当运行到构造函数 B() 的 this(参数) 调用行时, 调用 B 类对象的另一个构造方法 B(参数)，在 B(参数) 中还会对父类对象再次初始化，这就造成了对资源的浪费，也有可能造成某些意想不到的结果，所以 this 方法不能出现在构造方法除第一行以外的其他行。<br>这也就解释了为啥在构造方法里面 this 与 super 方法不能同时存在的原因。<br>10.Java 构造方法能否被重写和重载？<br>答：重写是子类方法重写父类的方法，重写的方法名不变，而类的构造方法名必须与类名一致，假设父类的构造方法如果能够被子类重写则子类类名必须与父类类名一致才行，所以 Java 的构造方法是不能被重写的。而重载是针对同一个的，所以构造方法可以被重载。</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题6</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%986/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题5</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%985/</url>
+    <content><![CDATA[<p>1、 JAVA所定义的版本中不包括：（ ）<br>A、 JAVA2 EE<br>B、 JAVA2 Card<br>C、 JAVA2 ME<br>D、 JAVA2HE<br>E、 JAVA2 SE<br>答案：D</p>
+<a id="more"></a>
+<p>解析：<br>Java企业版：JEE 适用于创建服务器应用程序和服务的Java 平台企业版<br>Java标准版: JSE 适用于桌面系统的Java 平台标准版<br>JME:适用于小型设备和智能卡的Java 平台Micro版<br>Java Card技术主要是让智能卡或与智能卡相近的设备上，以具有安全防护性的方式来运行小型的Java Applet，此技术也被广泛运用在SIM卡、提款卡上。<br>2、 下列说法正确的是（ ）<br>A、 JAVA程序的main方法必须写在类里面<br>B、 JAVA程序中可以有多个main方法<br>C、 JAVA程序中类名必须与文件名一样<br>D、 JAVA程序的main方法中如果只有一条语句，可以不用{}(大括号)括起来<br>答案：A<br>解析：<br>A:main()方法必须都写在类里面，在Java中，main()方法是Java应用程序的入口方法，也就是说，程序在运行的时候，第一个执行的方法就是main()方法，这个方法和其他的方 法有很大的不同，比如方法的名字必须是main，方法必须是public static void 类型的，方法必须接收一个字符串数组的参数等等。<br>B:这个之前没用过多个main方法，自己试一下，可以用多个mian为方法名的方法，但是只能有一个publi 0static void main(String[] args){}这个方法<br>C:只有标记为public的类，名字才必须与文件名相同,public外部类必须与文件名相同，这样的类有且只有一个，public 内部类 名字不与文件名相同<br>D: JAVA程序的main方法中，不管有多少条语句都必须用{}（大括号）括起来<br>3、 变量命名规范说法正确的是（ ）<br>A、 变量由字母、下划线、数字、$符号随意组成；<br>B、 变量不能以数字作为开头；<br>C、 A和a在java中是同一个变量；<br>D、 不同类型的变量，可以起相同的名字；<br>答案：B<br>解析：<br>变量名只能是字母(a-z A-Z)，数字(0-9)，下划线(_)的组合，并且之间不能包含空格，数字不能放在变量名首位。<br>不要在同一个类的不同上下文中重用相同的变量名<br>4、 下列javaDoc注释正确的是（ ）<br>A、 /* 我爱北京天安门 /<br>B、 // 我爱北京天安门 <em>/<br>C、 /** 我爱北京天安门 <em>/<br>D、 / 我爱北京天安门 *</em>/<br>答案：C<br>解析：<br>对于Java注释我们主要了解两种：<br>// 注释一行<br>/</em> …… <em>/ 注释若干行<br>但还有第三种，文档注释：<br>/*</em>  …… <em>/ 注释若干行，并写入 javadoc 文档<br>5、 为一个boolean类型变量赋值时，可以使用( )方式<br>A、 boolean = 1;<br>B、 boolean a = (9 &gt;= 10);<br>C、 boolean a=”真”;<br>D、 boolean a = = false;<br>答案：B<br>boolean即java中的基本类型——布尔类型，值只有true和false两种。<br>分析：<br>A是对int类型的赋值方式。<br>B中（9&gt;=10）的值是false，因为有关系运算符是用来比较运算，结果只有对（true）与错（false）两种，是boolean类型，所以B正确<br>C的赋值方式根本不对，既不符合char类型，也不符合String类型<br>D中“==”是关系运算符，不能用来赋值，如果“==”改成“=”就是正确的<br>6、 以下( )不是合法的标识符<br>A、 STRING<br>B、 x3x;<br>C、 void<br>D、 de$f<br>答案：C<br>void属于java中的关键字<br>[1]Java标识符只能由数字、字母、下划线“”或“$”符号以及Unicode字符集组成<br>[2]Java标识符必须以字母、下划线“”或“$”符号以及Unicode字符集开头<br>[3]Java标识符不可以是Java关键字、保留字（const、goto）和字面量（true、false、null）<br>[4]Java标识符区分大小写，是大小写敏感的<br>7、 表达式(11+3</em>8)/4%3的值是( )<br>A、 31<br>B、 0<br>C、 1<br>D、 2<br>答案： D<br>先乘除后加减，有括号先按括号算<br>3*8=24<br>11+24=35<br>35/4=8<br>8%3=2<br>结果是2<br>8. 什么是java 序列化，如何实现java 序列化？<br>答：序列化就是一种用来处理对象流的机制，所谓对象流也就是将对象的内容进行流化。可以对流化后的对象进行读写操作，也可将流化后的对象传输于网络之间。序列化是为了解决在对对象流进行读写操作时所引发的问题；序列化的实现：将需要被序列化的类实现Serializable 接口，该接口没有需实现的方法，implements Serializable 只是为了标注该对象是可被序列化的，然后使用一个输出流(如FileOutputStream)来构造一个ObjectOutputStream(对象流)对象，接着，使用ObjectOutputStream 对象的writeObject(Object obj)方法就可以将参数为obj 的对象写出(即保存其状态)，要恢复的话则用输入流。<br>9、java 中有几种类型的流？JDK 为每种类型的流提供了一些抽象类以供继承，<br>请说出他们分别是哪些类？<br>InputStream、OutputStream，字符流继承于Reader、Writer。在java.io 包中还有许多其他的流，主要是为了提高性能和使用方便。<br>10. java中栈和堆得区别？<br>    1. 功能不同<br>栈内存用来存储局部变量和方法调用。<br>而堆内存用来存储Java中的对象。无论是成员变量，局部变量，还是类变量，它们指向的对象都存储在堆内存中。<br>    2. 共享性不同<br>栈内存是线程私有的。<br>堆内存是所有线程共有的。<br>3.异常错误不同<br>如果栈内存或者堆内存不足都会抛出异常。<br>栈空间不足：java.lang.StackOverFlowError。<br>堆空间不足：java.lang.OutOfMemoryError。<br>4.空间大小<br>栈的空间大小远远小于堆的。</p>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题4</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%984/</url>
+    <content><![CDATA[<ol>
+<li>下面float的赋值语句错误的是？()<br>A:float f=3.4;<br>B:float f=3.4F;<br>C:float f=1.0;<br>D:float f=1;<br>答:AC<br>解析</li>
+<li>4是双精度数，将双精度型（double）赋值给浮点型（float）属于下转型（down-casting，也称为窄化）会造成精度损失，因此需要强制类型转换float f =(float)3.4; 或者写成float f =3.4F;<br>float a = 1;这里的1是整形，当赋值给一个float时，存在一个隐式转换，不损失精度。<br>float a = 1f;<br>1f就是float类型的。<br>如果你这样定义<br>float f = 1.0;<br>肯定会出错。 因为1.0默认是double类型的。double范围比float大。为了不损失精度，不会自动转换。这是必须这样写<br>float f = 1.0f;</li>
+<li>面向对象的特征有哪些方面?()<br>A:抽象;<br>B:继承;<br>C:多态;<br>D:封装;<br>答：面向对象的特征主要有以下几个方面：<br>1)抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。<br>2)继承：继承是从已有类得到继承信息创建新类的过程。提供继承信息的类被称为父类（超类、基类）；得到继承信息的类被称为子类（派生类）。继承让变化中的软件系统有了一定的延续性，同时继承也是封装程序中可变因素的重要手段（如果不能理解请阅读阎宏博士的《Java与模式》或《设计模式精解》中关于桥梁模式的部分）。<br>3)封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据的访问只能通过已定义的接口。面向对象的本质就是将现实世界描绘成一系列完全自治、封闭的对象。我们在类中编写的方法就是对实现细节的一种封装；我们编写一个类就是对数据和数据操作的封装。可以说，封装就是隐藏一切可隐藏的东西，只向外界提供最简单的编程接口（可以想想普通洗衣机和全自动洗衣机的差别，明显全自动洗衣机封装更好因此操作起来更简单；我们现在使用的智能手机也是封装得足够好的，因为几个按键就搞定了所有的事情）。<br>4)多态性：多态性是指允许不同子类型的对象对同一消息作出不同的响应。简单的说就是用同样的对象引用调用同样的方法但是做了不同的事情。多态性分为编译时的多态性和运行时的多态性。如果将对象的方法视为对象向外界提供的服务，那么运行时的多态性可以解释为：当A系统访问B系统提供的服务时，B系统有多种提供服务的方式，但一切对A系统来说都是透明的（就像电动剃须刀是A系统，它的供电系统是B系统，B系统可以使用电池供电或者用交流电，甚至还有可能是太阳能，A系统只会通过B类对象调用供电的方法，但并不知道供电系统的底层实现是什么，究竟通过何种方式获得了动力）。方法重载（overload）实现的是编译时的多态性（也称为前绑定），而方法重写（override）实现的是运行时的多态性（也称为后绑定）。运行时的多态是面向对象最精髓的东西，要实现多态需要做两件事：1. 方法重写（子类继承父类并重写父类中已有的或抽象的方法）；2. 对象造型（用父类型引用引用子类型对象，这样同样的引用调用同样的方法就会根据子类对象的不同而表现出不同的行为）。</li>
+<li>java类可以作为？()<br>A:类型定义机制;<br>B:数据封装机制;<br>C:类型定义机制和数据封装机制<br>D:上述都不对;<br>答：C<br>解析：类即可以作为类型定义机制也可以作为数据封装机制。</li>
+<li>以下哪个约束符可用于定义成员常量？（）<br>A、 static<br>B、final<br>C、abstract<br>D、No modifier can be used<br>答案 B<br>解析：static 静态成员变量(在定义这个变量的类的实例中,这个变量是唯一的,即多个实例间这个变量为共享的)<br>final 成员常量(必须在定义时或在构造方法中赋初值)<br>final static 静态成员常量,必须在定义这个常量时给定其初始化值</li>
+<li>在使用interface声明一个接口时，只可以使用（）修饰符修饰该接口<br>A private<br>B protected<br>C private protected<br>D public<br>答案：D<br>解析：接口必须要具体类实现才有意义，所以必须是public。</li>
+<li>java语言使用的字符码集是()<br>A ASCII<br>B BCD<br>C DCB<br>D Unicode<br>答案：D<br>解析：Java语言使用的是Unicode字符集，ASCII是国际上使用最广泛的字符编码</li>
+<li>下列关于继承的哪项叙述是正确的？<br>A 在java中允许多继承<br>B 在java中一个类只能实现一个接口<br>C 在java中一个类不能同时继承一个类和实现一个接口<br>D java的单一继承使代码更可靠<br>答案：D<br>解析：<br>A：Java只能单继承。所以A选项错误<br>B：Java中一个类可以实现多个接口，所以B错误<br>C：Java中一个类只能实现继承一个父类但是可以同时实现多个接口，所以C错误<br>D：Java的单一继承使代码更可靠，是正确的。</li>
+<li>(不定项选择题)不能用来修饰interface的有（ ）<br>A private<br>B public<br>C protected<br>D static<br>答案：ACD<br>解析：<br>A,C,D都不能用来修饰interface。<br>就访问来说，可以用public,默认修饰符，而不能用private，因为接口本身就是为了让别的类或接口使用的，用private就没有了意义。<br>protected也是不可以的，ptotected的访问权限是包内对象以及包外继承该类的包外对象，其实和public意义也就一样了，也就没必要选择protected。<br>static是用来修饰变量或者方法的，而不修饰类。（在接口中 static只能修饰变量不能修饰方法）<br>（final同样不能修饰接口）。</li>
+<li>现在有T1、T2、T3三个线程，你怎样保证T2在T1执行完后执行，T3在T2执行完后执行？<br>这个线程问题通常会在第一轮或电话面试阶段被问到，目的是检测你对”join”方法是否熟悉。这个多线程问题比较简单，可以用join方法实现。</li>
+<li>在Java中Lock接口比synchronized块的优势是什么？你需要实现一个高效的缓存，它允许多个用户读，但只允许一个用户写，以此来保持它的完整性，你会怎样去实现它？<br>lock接口在多线程和并发编程中最大的优势是它们为读和写分别提供了锁，它能满足你写像ConcurrentHashMap这样的高性能数据结构和有条件的阻塞。Java线程面试的问题越来越会根据面试者的回答来提问。我强烈建议在你去参加多线程的面试之前认真读一下Locks，因为当前其大量用于构建电子交易终统的客户端缓存和交易连接空间。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题3</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%983/</url>
+    <content><![CDATA[<ol>
+<li>以下哪些定义的变量是正确的（）<br>A int 1abc;<br>B char abc1;<br>C long #abc;<br>D boolean $abc;<br>E：String_123456asdfghjklqwertyuiopzmnbvasdf12345;<br>答案 B D<br>解析：<br>因为java中变量名必须是一个以字母开头并由字母或者数字构成的序列。<br>字母包括 A-Z,a-z,_,$或在某种语言中表示的字母的任何Unicode字符。变量名中所有的字符都是有意义的，并且大小写敏感，变量名基本上没有限制.</li>
+<li>代码如下<br>public class Test {<br> public final String a;<pre><code>public Test() {
+    a = &quot;10&quot;;
+}</code></pre> public void setA1(){<pre><code>       a = &quot;20&quot;;
+}</code></pre>  public static void main(String[] args) {<pre><code>    Test t = new Test();
+    t.setA1();
+    System.out.println(t.a);
+}</code></pre>}<br>t.a的值为（）<br>A “10”<br>B “20”<br>C “”<br>D 以上都不对，并且编译错误<br>答案 D<br>解析 ：<br>因为a被final（只能在初始化时赋值一次，一旦被赋值后，就不能再更改了，习惯上常量名使用全大写）修饰了，所以在setA1中再次赋值了，直接导致编译错误。</li>
+<li>代码如下<br>double a = 15.0;<br>  int b=2;<br>   system.out.println(a+b);<br>打印出来的数值类型为（）<br>A int<br>B float<br>C String<br>D double<br>答案 D<br>解析：<br>如果两个操作数中有一个是double类型，另一个操作数就会自动转换为double类型。</li>
+<li>以private修饰的元素的作用域的是（）<br>A. 当前类<br>B. 同一个package 内<br>C. 子孙类中<br>D. 其他的package 内<br>答案 A<br>解析：<br>共有四个访问修饰符public protected friendly private<br>public 的作用域有当前类，同一个package，子孙类和其他的package<br>protected的作用域有当前类，同一个package，和子孙类<br>friendly的作用域有当前类和同一个package<br>private 的作用域只有当前类</li>
+<li>String s =new String (“xyz”);这句一共创建了几个String Object？<br>A. 1<br>B. 2<br>C. 3<br>D. 4<br>答案:B<br>解析：<br>一共创建了两个对象，一个是”xyz”，为缓冲区对象。另一个是new出来的String 对象。这两个对象的值相同，但不是同一个对象。</li>
+<li>String 是最基本的数据类型吗？()<br>A：是<br>B：不是<br>答案：B<br>解析<br>String类并不是基本数据类，而是一个类（class），是C++、java等编程语言中的字符串。<br>String类是不可变的，对String类的任何改变，都是返回一个新的String类对象。 String 对象是 System.Char 对象的有序集合，用于表示字符串。String 对象的值是该有序集合的内容，并且该值是不可变的。</li>
+<li>选择下面代码的运行结果：（）。<br>public class Test{<br> public void method()<br> {<pre><code>for(int i = ; i &lt; 5; i++)</code></pre> {<pre><code>System.out.print(i);</code></pre> }<pre><code>System.out.print(i);</code></pre> }<br>}<br>A．122<br>B．123<br>C．编译错误<br>D．没有任何输出<br>答案：C<br>解析：<br>本试题属于 本身该试题就有严重的语法程序错误，并且没有主方法。</li>
+<li>下面程序的运行结果是（）<br>String str1 = “banalan”;<br>String str2 = “bana” + new String(“lan”);<br>System.err.println(str1 == str2);<br>A：true<br>B：false<br>C：不确定<br>答案：B<br>解析<br>对于字符串，==比较引用对象的内存地址，equals比较的是字符串的内容<br>String str1 = “banalan”; //一个对象<br>String str2 = “bana” + new String(“lan”); //new了一个对象，总的就是2个对象 System.err.println(str1 == str2); // ==是比较引用，两个对象的地址能一样么？只有重写equals比较内容（值）才能为TRUE</li>
+<li>String能被继承吗？为什么？<br>不可以，因为String类有final修饰符，而final修饰的类是不能被继承的，实现细节不允许改变。平常我们定义的String str=”a”;其实和String str=new String(“a”)还是有差异的。<br>前者默认调用的是String.valueOf来返回String实例对象，至于调用哪个则取决于你的赋值，比如String num=1,调用的是<br>public static String valueOf(int i) {<br>return Integer.toString(i);<br>}<br>后者则是调用如下部分：<br>public String(String original) {<br>this.value = original.value;<br>this.hash = original.hash;<br>}<br>最后我们的变量都存储在一个char数组中<br>private final char value[];</li>
+<li>Java I/O中字符流和字节流的区别 ?<br>字节流是传递0<del>255的整数而Java中有一些(如unicode代码)不能使用字符流，是特殊的字节流。<br>字节流：Java中的字节流处理的最基本单位为单个字节，它通常用来处理二进制数据。Java中最基本的两个字节流类是InputStream和OutputStream，它们分别代表了一组基本的输入字节流和输出字节流。InputStream类与OutputStream类均为抽象类，我们在实际使用中通常使用Java类库中提供的它们的一系列子类。下面我们以InputStream类为例，来介绍下Java中的字节流。<br>字符流：Java中的字符流处理的最基本的单元是Unicode码元（大小2字节），它通常用来处理文本数据。所谓Unicode码元，也就是一个Unicode代码单元，范围是0×0000</del>0xFFFF。在以上范围内的每个数字都与一个字符相对应，Java中的String类型默认就把字符以Unicode规则编码而后存储在内存中。然而与存储在内存中不同，存储在磁盘上的数据通常有着各种各样的编码方式。使用不同的编码方式，相同的字符会有不同的二进制表示。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题2</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%982/</url>
+    <content><![CDATA[<ol>
+<li>对于以下，有int x = 5, y =6, z;<br>z = ++x + y++;<br>z的结果下面正确是是（）<br>A：10<br>B:8<br>C:11<br>D:12<br>答案：D<br>解析：</li>
+</ol>
+<p>++x ，y++ 将 x = 5, y =6带入里面 得到 6 ，6 所以结果为12</p>
+<a id="more"></a>
+<ol start="2">
+<li>代码如下<br>int a=5;<br>int b=++a;<br>int c=a+(++b)<br>C的正确结果是（）<br>A：11<br>B：13<br>C：10<br>D：12<br>答案 B<br>解析：<br>a=5; b=++a; // 相当于a=a+1;b=a; 结果是a=6，b=6<br>int c=a+(++b) //先计算 ++b =6+1=7; c=6+7=13;<br>这个主要是考察 自增的运算， ++在变量前面就是先让变量+1 在运算；++在变量的后面就是 先运算。</li>
+<li>下列运算符合法的是（）<br>A．&amp;&amp; B．&lt;&gt; C．if D．:=<br>答案：A<br>解析：<br>Java 运算符可以分成以下<br>算术运算符，关系运算符，位运算符，逻辑运算符，赋值运算，其他运算符<br>经常提到的四大类为算数运算符、关系运算符、逻辑运算符、位运算符。<br>算数运算符(9)：+ – * / % ++ —<br>关系运算符(6)：== != &gt; &gt;= &lt; &lt;=<br>逻辑运算符(6)：&amp;&amp; || ! ^ &amp; |<br>位运算符(7)：&amp; | ~ ^ &gt;&gt; &lt;&lt; &gt;&gt;&gt;<br>&amp;&amp;是在编程中使用的一种符号。是逻辑（条件）与。<br>java 中没有&lt;&gt; := 这种运算符，if else不算运算符</li>
+<li>下列哪种说法是正确的（ ）<br>A． 实例方法可直接调用超类的实例方法<br>B． 实例方法可直接调用超类的类方法<br>C． 实例方法可直接调用其他类的实例方法<br>D． 实例方法可直接调用本类的类方法<br>答案 D<br>解析:<br>AC选项 如果方法是private 则不可以;<br>B选项类父类的类方法是属于父类本身的;<br>D选项虽然类方法可以类名.类方法来调用 但是new 该类 的实例方法去调也不不会报错 ;<br>记住一句话：实例方法只能直接调用本类的方法，其他类的方法得需要引用调用</li>
+<li>计算2 &lt;&lt; 3，下面正确的是（）<br>A：6<br>B:54<br>C:8<br>D:16<br>答案D<br>解析：<br>2&lt;&lt;3； 表示 2向左移 3位：2 * 2^3(2的3次方) = 2 * 8；<br>因为一个数左移 n位，就相当于 2的 n次方，那么一个数乘以 8只要将其左移 3位即可，而为运算符的效率最高，所以 2乘以 8等于几的最有效方法是 2&lt;&lt;3。</li>
+<li>提供Java存取数据库能力的包是（）<br>A．java.sql<br>B．java.awt<br>C．java.lang<br>D．java.swing<br>答案：A<br>解析<br>A存储在数据源（通常是一个关系数据库）中的数据的 API<br>B java.awt是一个软件包，包含用于创建用户界面和绘制图形图像的所有分类<br>C是提供利用 Java 编程语言进行程序设计的基础类<br>D Swing是一个用于开发Java应用程序用户界面的开发工具包</li>
+<li>选择下面代码的运行结果：（）。<br>public class Test{<br> public void method()<br> {<pre><code>for(int i = ; i &lt; 5; i++)</code></pre> {<pre><code>System.out.print(i);</code></pre> }<pre><code>System.out.print(i);</code></pre> }<br>}<br>A．122<br>B．123<br>C．编译错误<br>D．没有任何输出<br>答案：C<br>解析：<br>本试题属于 本身该试题就有严重的语法程序错误，并且没有主方法。</li>
+<li>下面程序的运行结果是（）<br>String str1 = “banalan”;<br>String str2 = “bana” + new String(“lan”);<br>System.err.println(str1 == str2);<br>A：true<br>B：false<br>C：不确定<br>答案：B<br>解析<br>对于字符串，==比较引用对象的内存地址，equals比较的是字符串的内容<br>String str1 = “banalan”; //一个对象<br>String str2 = “bana” + new String(“lan”); //new了一个对象，总的就是2个对象 System.err.println(str1 == str2); // ==是比较引用，两个对象的地址能一样么？只有重写equals比较内容（值）才能为TRUE</li>
+<li>String能被继承吗？为什么？<br>不可以，因为String类有final修饰符，而final修饰的类是不能被继承的，实现细节不允许改变。平常我们定义的String str=”a”;其实和String str=new String(“a”)还是有差异的。<br>前者默认调用的是String.valueOf来返回String实例对象，至于调用哪个则取决于你的赋值，比如String num=1,调用的是<br>public static String valueOf(int i) {<br>return Integer.toString(i);<br>}<br>后者则是调用如下部分：<br>public String(String original) {<br>this.value = original.value;<br>this.hash = original.hash;<br>}<br>最后我们的变量都存储在一个char数组中<br>private final char value[];</li>
+<li>String, Stringbuffer, StringBuilder 的区别?<br>String 字符串常量(final修饰，不可被继承)，String是常量，当创建之后即不能更改。(可以通过StringBuffer和StringBuilder创建String对象(常用的两个字符串操作类)。)<br>StringBuffer 字符串变量（线程安全）,其也是final类别的，不允许被继承，其中的绝大多数方法都进行了同步处理，包括常用的Append方法也做了同步处理(synchronized修饰)。其自jdk1.0起就已经出现。其toString方法会进行对象缓存，以减少元素复制开销。<br>public synchronized String toString() {<br>if (toStringCache == null) {<br>toStringCache = Arrays.copyOfRange(value, 0, count);<br>}<br>return new String(toStringCache, true);<br>}<br>StringBuilder 字符串变量（非线程安全）其自jdk1.5起开始出现。与StringBuffer一样都继承和实现了同样的接口和类，方法除了没使用synch修饰以外基本一致，不同之处在于最后toString的时候，会直接返回一个新对象。<br>public String toString() {<br>// Create a copy, don’t share the array<br>return new String(value, 0, count);<br>}</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java-基础-笔试题1</title>
+    <url>/2020/04/14/Java-%E5%9F%BA%E7%A1%80-%E7%AC%94%E8%AF%95%E9%A2%981/</url>
+    <content><![CDATA[<ol>
+<li>Byte类型可以存储多少个字节和取值范围？（）<br>A 1个字节 ， -128 ~ 127<br>B 2个字节， 32 768 – 32 767<br>C 4字节 -2 147 483 648 – 2 147 483 647 (正好超过 20 亿)<br>D 8个字节 -9 223 372 036 854 775 808 – 9 223 372 036 854 775 807<br>答案：A<br>解析：<br>byte是一个字节保存的，有8个位，即8个0、1。<br>8位的第一个位是符号位，<br>也就是说0000 0001代表的是数字1<br>1000 0000代表的就是-1<br>所以正数最大位0111 1111，也就是数字127<br>负数最大为1111 1111，也就是数字-128<br>所以Java中的一个byte是1个字节，其范围是-128~127<a id="more"></a></li>
+<li>short类型可以存储多少个字节和取值范围？（）<br>A 1个字节 ， -128 ~ 127<br>B 2个字节， 32 768 – 32 767<br>C 4字节 -2 147 483 648 – 2 147 483 647 (正好超过 20 亿)<br>D 8个字节 -9 223 372 036 854 775 808 – 9 223 372 036 854 775 807<br>答案 B<br>解析：<br>与byte类似道理，16位,（-32768~32767） (-2的15次方到2的15次方-1)需要2个字节存储所以答案为B</li>
+<li>long类型可以存储多少个字节和取值范围？（）<br>A 1个字节 ， -128 ~ 127<br>B 2个字节， 32 768 – 32 767<br>C 4字节 -2 147 483 648 – 2 147 483 647 (正好超过 20 亿)<br>D 8个字节 -9 223 372 036 854 775 808 – 9223 372 036 854 775 807<br>答案 D<br>解析：<br>与byte类似道理,64位，（-9223372036854774808~9223372036854774807）（-2的63次方到2的63次方-1）需要4个字节存储。</li>
+<li>下面能通过编译运行出Hello World的是()<br>A:public class Hello {<br>public static void main(String[]args) {<br>System.out.println(“Hello World”);<br>  }<br>}<br>B:.public class Hello {<br>public static void main(String[] args) {<br>system.out.println(“Hello World”);<br>  }<br>}<br>C:public class Hello {<br>public static void main(String[] args) {<br>System.out.println(“Hello World”);<br>  }<br>}<br>D:public class Hello {<br>public static  main(String[] args) {<br>System.out.println(“Hello World”);<br>  }<br>}<br>答案：A C<br>解析：<br>这个题主要考察的是对基础知识的掌握程度，还有你得慧眼。<br>这道题错误率100%</li>
+<li>java源文件和编译后得文件拓展名分别为（）<br>A:.class和.java B: .java 和.class<br>C:.class和.class D:.java和.javac<br>答案：B<br>解析：<br>源文件就是程序员们所编写出来的java代码<br>类文件则是通过java虚拟机编译后没有语法错误生成的.class文件</li>
+<li>如下哪些不是java的关键字？（ ）<br>A.const<br>B.NULL<br>C.false<br>D.this<br>E.native<br>答案：BC<br>解析：<br>虽然null false 还有true不是java的关键字，但是都有特殊用途，不建议作为标识符。</li>
+<li>下面哪个表达式的值与数组下标量总数相等？（ ）<br>A .m.length()<br>B.m.length<br>C.m.length()+1<br>D.m.length+1<br>答案：B<br>数组下标是从零开始的，但是数据下标的总量和数据长度相同。</li>
+<li>如下代码<br>public class Sortof {<pre><code>public static void main(String[] args) {
+    ArrayList&lt;Integer&gt; a=new ArrayList&lt;&gt;();
+     a.add(1);a.add(5);a.add(3);
+    Collections.sort(a);
+    a.add(2);
+    Collections.reverse(a);
+    System.out.println(a);
+}</code></pre>}<br>下面哪一个是正确的（）<br>A[1,2,3,5)]<br>B.[2 ,1,3,5]<br>C.[2,5,3,1]<br>D [5, 3,2, 1]<br>E [1,3 ,5,2)<br>F Compilation fails.<br>G An exception is thrown at runtime<br>答案：C<br>解析：<br>Collections.sort(a);默认是升序排列，所以变成了1，3，5然后在加上2，就会变成1，3，5，2，<br>而reverse方法是反转集合中的所有元素，所以反转之后就成了2，5，3，1.</li>
+<li>如下代码<br>public class Alpha{<pre><code>public void foo(){
+       System.out.print(&quot;Afoo &quot;);
+  }</code></pre>｝<br>   public class Beta extends Alpha{<pre><code>public void foo() {
+       System.out.print(&quot;Bfoo&quot; );
+ }</code></pre>  public static void main(String[] args){<pre><code>     Alpha a = new Beta();
+     Beta b=(Beta)a;
+     a.foo();
+     b.foo();
+}</code></pre>｝<br>下面哪一个是正确的（）<br>A.Afoo Afoo<br>B. Afoo Bfoo<br>C. Bfoo Afoo<br>D. Bfoo Bfoo<br>E. Compilation fails<br>F.An exception is thrown at runtime<br>答案:D<br>考察多态性，编译器认为a是Alpha 类型，b 是Beta 类型，但是虚拟机知道a 和b 的真实类型是Beta，所以调用Beta 类的函数。如果还是不了解，建议大家看看面向对象的多态。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java基础</category>
+      </categories>
+      <tags>
+        <tag>笔试题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Tomcat-教程-web.xml配置文件</title>
     <url>/2020/04/13/Tomcat-%E6%95%99%E7%A8%8B-web-xml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</url>
     <content><![CDATA[<h2><span id="思维导图-总览">思维导图-总览</span></h2><p><img src="/images/tomcat-web.xml.png" alt="思维导图"></p>
